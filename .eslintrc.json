@@ -1,0 +1,124 @@
+{
+  "root": true,
+  "env": {
+    "es2022": true,
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:storybook/recommended",
+    "prettier"
+  ],
+  "ignorePatterns": [
+    ".eslintrc.json",
+    "tsconfig.json",
+    "tsconfig.node.json",
+    "vite.config.ts",
+    "postcss.config.mjs",
+    "tailwind.config.js",
+    "commitlint.config.cjs",
+    "playwright.config.ts",
+    "vitest.setup.ts",
+    "node_modules/*",
+    "package.json",
+    "knip.json"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": ["@typescript-eslint", "unicorn"],
+  "rules": {
+    "no-await-in-loop": "error",
+    "no-constant-binary-expression": "error",
+
+    "no-new-native-nonconstructor": "error",
+    "no-promise-executor-return": "error",
+    "no-self-compare": "error",
+    "no-template-curly-in-string": "error",
+    "no-unmodified-loop-condition": "error",
+    "no-unreachable-loop": "error",
+    "no-unused-private-class-members": "error",
+    "require-atomic-updates": "error",
+    "@typescript-eslint/adjacent-overload-signatures": "error",
+    "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/explicit-member-accessibility": "error",
+    "@typescript-eslint/no-confusing-void-expression": "error",
+    "@typescript-eslint/no-import-type-side-effects": "error",
+    "@typescript-eslint/no-require-imports": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-useless-empty-export": "error",
+    "@typescript-eslint/prefer-enum-initializers": "error",
+    "@typescript-eslint/prefer-readonly": "error",
+
+    "no-return-await": "off",
+    "@typescript-eslint/return-await": "error",
+
+    "unicorn/custom-error-definition": "error",
+    "unicorn/empty-brace-spaces": "error",
+    "unicorn/no-array-for-each": "off",
+    "unicorn/no-array-reduce": "off",
+    "unicorn/no-console-spaces": "error",
+    "unicorn/no-null": "off",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "kebabCase": true
+        },
+        "ignore": ["routeTree.gen.ts"]
+      }
+    ],
+    "unicorn/prevent-abbreviations": [
+      "error",
+      {
+        "replacements": {
+          "db": false,
+          "arg": false,
+          "args": false,
+          "env": false,
+          "fn": false,
+          "func": {
+            "fn": true,
+            "function": false
+          },
+          "prop": false,
+          "props": false,
+          "ref": false,
+          "refs": false
+        },
+        "ignore": ["semVer", "SemVer"]
+      }
+    ],
+    "unicorn/no-abusive-eslint-disable": "warn",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+    "import/no-unresolved": "off", // Reports all absolute aliased imports as invalid
+    "import/no-duplicates": "error"
+  }
+}
