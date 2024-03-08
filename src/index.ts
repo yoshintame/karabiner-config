@@ -114,9 +114,11 @@ writeToProfile("yoshintame", [
   ]),
 
   rule("System").manipulators([
-    layerHyper([map("␣").to(system.languageSwitch)]),
-
-    layerS([map("u").to(system.undo), map("o").to(system.redo)]),
+    layerHyper([
+      map("␣").to(system.languageSwitch),
+      map("m").to(system.undo),
+      map(".").to(system.redo),
+    ]),
   ]),
 
   layer("/", "symbol-mode").manipulators([
