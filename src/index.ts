@@ -10,7 +10,6 @@ import {
 import {
   clipboard,
   deletetion,
-  mouse,
   navigation,
   selection,
   system,
@@ -100,10 +99,7 @@ writeToProfile("yoshintame", [
   ]),
 
   rule("System").manipulators([
-    layerHyper([
-      map("␣").to(system.languageSwitch),
-      map("⏎").to(mouse.leftClick),
-    ]),
+    layerHyper([map("␣").to(system.languageSwitch)]),
 
     layerS([map("u").to(system.undo), map("o").to(system.redo)]),
   ]),
