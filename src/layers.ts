@@ -23,10 +23,10 @@ export const layers = [
 
   // This condition is necessary, because without it hyper + (layer) + cmd + button want work with cmd behaviour.
   // TODO: need to be invisigated why
-  map("left_command", "optionalAny")
+  map("‹⌘", "optionalAny")
     .toVar("f-layer", true)
     .toAfterKeyUp(toSetVar("f-layer", false))
-    .toIfAlone("left_command")
+    .toIfAlone("‹⌘")
     .condition(ifVar("hyper", true)),
 
   // Reset all layers

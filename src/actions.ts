@@ -1,9 +1,9 @@
 import { to$, toKey, toPointingButton } from "karabiner.ts";
 
 export const clipboard = {
-  copy: toKey("c", "left_command"),
-  paste: toKey("v", "left_command"),
-  cut: toKey("x", "left_command"),
+  copy: toKey("c", "⌘"),
+  paste: toKey("v", "⌘"),
+  cut: toKey("x", "⌘"),
 } as const;
 
 export const navigation = {
@@ -12,68 +12,68 @@ export const navigation = {
   up: toKey("↑"),
   down: toKey("↓"),
 
-  wordBackward: toKey("←", "left_option"),
-  wordForward: toKey("→", "left_option"),
-  lineBackward: toKey("←", "left_command"),
-  lineForward: toKey("→", "left_command"),
+  wordBackward: toKey("←", "⌥"),
+  wordForward: toKey("→", "⌥"),
+  lineBackward: toKey("←", "⌘"),
+  lineForward: toKey("→", "⌘"),
   fiveLineBackward: "↑↑↑↑↑",
   fiveLineForward: "↓↓↓↓↓",
 
-  pageUp: toKey("page_up"),
-  pageDown: toKey("page_down"),
-  pageStart: toKey("↑", "left_command"),
-  pageEnd: toKey("↓", "left_command"),
+  pageUp: toKey("⇞"),
+  pageDown: toKey("⇟"),
+  pageStart: toKey("↑", "⌘"),
+  pageEnd: toKey("↓", "⌘"),
 } as const;
 
 export const deletetion = {
-  backward: toKey("delete_or_backspace"),
-  forward: toKey("delete_forward"),
+  backward: toKey("⌫"),
+  forward: toKey("⌦"),
 
-  wordBackward: toKey("delete_or_backspace", "left_option"),
-  wordForward: toKey("delete_forward", "left_option"),
+  wordBackward: toKey("⌫", "⌥"),
+  wordForward: toKey("⌦", "⌥"),
 
-  lineBackward: toKey("delete_or_backspace", "left_command"),
-  lineForward: toKey("delete_forward", "left_command"),
+  lineBackward: toKey("⌫", "⌘"),
+  lineForward: toKey("⌦", "⌘"),
 
-  file: toKey("delete_or_backspace", "left_command"),
+  file: toKey("⌫", "⌘"),
 } as const;
 
 export const selection = {
-  backward: toKey("←", "left_shift"),
-  forward: toKey("→", "left_shift"),
-  up: toKey("↑", "left_shift"),
-  down: toKey("↓", "left_shift"),
-  wordBackward: toKey("←", ["left_shift", "left_option"]),
-  wordForward: toKey("→", ["left_shift", "left_option"]),
-  lineBackward: toKey("←", ["left_shift", "left_command"]),
-  lineForward: toKey("→", ["left_shift", "left_command"]),
-  pageStart: toKey("↑", ["left_shift", "left_command"]),
-  pageEnd: toKey("↓", ["left_shift", "left_command"]),
-  expandVscode: toKey("←", ["left_shift", "left_command", "left_control"]),
-  shrinkVscode: toKey("→", ["left_shift", "left_command", "left_control"]),
+  backward: toKey("←", "⇧"),
+  forward: toKey("→", "⇧"),
+  up: toKey("↑", "⇧"),
+  down: toKey("↓", "⇧"),
+  wordBackward: toKey("←", ["⇧", "⌥"]),
+  wordForward: toKey("→", ["⇧", "⌥"]),
+  lineBackward: toKey("←", ["⇧", "⌘"]),
+  lineForward: toKey("→", ["⇧", "⌘"]),
+  pageStart: toKey("↑", ["⇧", "⌘"]),
+  pageEnd: toKey("↓", ["⇧", "⌘"]),
+  expandVscode: toKey("←", ["⇧", "⌘", "⌃"]),
+  shrinkVscode: toKey("→", ["⇧", "⌘", "⌃"]),
 } as const;
 
 export const system = {
-  languageSwitch: toKey("spacebar", "left_command"),
-  undo: toKey("z", "left_command"),
-  redo: toKey("z", ["left_command", "left_shift"]),
+  languageSwitch: toKey("␣", "⌘"),
+  undo: toKey("z", "⌘"),
+  redo: toKey("z", ["⌘", "⇧"]),
 } as const;
 
 export const tabs = {
-  next: toKey("tab", "left_control"),
-  prev: toKey("tab", ["left_control", "left_shift"]),
+  next: toKey("⇥", "⌃"),
+  prev: toKey("⇥", ["⌃", "⇧"]),
 } as const;
 
 export const apps = {
-  next: toKey("tab", ["left_command", "left_shift"]),
-  prev: toKey("tab", "left_command"),
+  next: toKey("⇥", ["⌘", "⇧"]),
+  prev: toKey("⇥", "⌘"),
 } as const;
 
 export const windowsApps = {
-  next: toKey("grave_accent_and_tilde", "left_command"),
-  prev: toKey("grave_accent_and_tilde", ["left_command", "left_shift"]),
+  next: toKey("`", "⌘"),
+  prev: toKey("`", ["⌘", "⇧"]),
 
-  fullscreen: toKey("f", ["left_control", "left_command"]),
+  fullscreen: toKey("f", ["⌃", "⌘"]),
 } as const;
 
 export const yabai = {
