@@ -1,46 +1,48 @@
 import { ifVar, map, toSetVar, withCondition } from "karabiner.ts";
 
 export const layers = [
-  map("⇪", "optionalAny").toVar("hyper", 1).toAfterKeyUp(toSetVar("hyper", 0)),
+  map("⇪", "optionalAny")
+    .toVar("hyper", true)
+    .toAfterKeyUp(toSetVar("hyper", false)),
   map("s", "optionalAny")
-    .toVar("s-layer", 1)
-    .toAfterKeyUp(toSetVar("s-layer", 0))
+    .toVar("s-layer", true)
+    .toAfterKeyUp(toSetVar("s-layer", false))
     .toIfAlone("s")
-    .condition(ifVar("hyper", 1)),
+    .condition(ifVar("hyper", true)),
   map("d", "optionalAny")
-    .toVar("d-layer", 1)
-    .toAfterKeyUp(toSetVar("d-layer", 0))
+    .toVar("d-layer", true)
+    .toAfterKeyUp(toSetVar("d-layer", false))
     .toIfAlone("d")
-    .condition(ifVar("hyper", 1)),
+    .condition(ifVar("hyper", true)),
   map("f", "optionalAny")
-    .toVar("f-layer", 1)
-    .toAfterKeyUp(toSetVar("f-layer", 0))
+    .toVar("f-layer", true)
+    .toAfterKeyUp(toSetVar("f-layer", false))
     .toIfAlone("f")
-    .condition(ifVar("hyper", 1)),
+    .condition(ifVar("hyper", true)),
   map("left_command", "optionalAny")
-    .toVar("f-layer", 1)
-    .toAfterKeyUp(toSetVar("f-layer", 0))
+    .toVar("f-layer", true)
+    .toAfterKeyUp(toSetVar("f-layer", false))
     .toIfAlone("left_command")
-    .condition(ifVar("hyper", 1)),
+    .condition(ifVar("hyper", true)),
 ];
 
 export const layerF = withCondition(
-  ifVar("hyper", 1),
-  ifVar("s-layer", 1).unless(),
-  ifVar("d-layer", 1).unless(),
-  ifVar("f-layer", 1)
+  ifVar("hyper", true),
+  ifVar("s-layer", true).unless(),
+  ifVar("d-layer", true).unless(),
+  ifVar("f-layer", true)
 );
 
 export const layerD = withCondition(
-  ifVar("hyper", 1),
-  ifVar("s-layer", 1).unless(),
-  ifVar("d-layer", 1),
-  ifVar("f-layer", 1).unless()
+  ifVar("hyper", true),
+  ifVar("s-layer", true).unless(),
+  ifVar("d-layer", true),
+  ifVar("f-layer", true).unless()
 );
 
 export const layerHyper = withCondition(
-  ifVar("hyper", 1),
-  ifVar("s-layer", 1).unless(),
-  ifVar("d-layer", 1).unless(),
-  ifVar("f-layer", 1).unless()
+  ifVar("hyper", true),
+  ifVar("s-layer", true).unless(),
+  ifVar("d-layer", true).unless(),
+  ifVar("f-layer", true).unless()
 );
