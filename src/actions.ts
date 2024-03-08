@@ -43,37 +43,37 @@ export const selection = {
   forward: toKey("→", "⇧"),
   up: toKey("↑", "⇧"),
   down: toKey("↓", "⇧"),
-  wordBackward: toKey("←", ["⇧", "⌥"]),
-  wordForward: toKey("→", ["⇧", "⌥"]),
-  lineBackward: toKey("←", ["⇧", "⌘"]),
-  lineForward: toKey("→", ["⇧", "⌘"]),
-  pageStart: toKey("↑", ["⇧", "⌘"]),
-  pageEnd: toKey("↓", ["⇧", "⌘"]),
-  expandVscode: toKey("←", ["⇧", "⌘", "⌃"]),
-  shrinkVscode: toKey("→", ["⇧", "⌘", "⌃"]),
+  wordBackward: toKey("←", "⌥⇧"),
+  wordForward: toKey("→", "⌥⇧"),
+  lineBackward: toKey("←", "⌘⇧"),
+  lineForward: toKey("→", "⌘⇧"),
+  pageStart: toKey("↑", "⌘⇧"),
+  pageEnd: toKey("↓", "⌘⇧"),
+  expandVscode: toKey("←", "⌘⌃⇧"),
+  shrinkVscode: toKey("→", "⌘⌃⇧"),
 } as const;
 
 export const system = {
   languageSwitch: toKey("␣", "⌘"),
   undo: toKey("z", "⌘"),
-  redo: toKey("z", ["⌘", "⇧"]),
+  redo: toKey("z", "⌘⇧"),
 } as const;
 
 export const tabs = {
   next: toKey("⇥", "⌃"),
-  prev: toKey("⇥", ["⌃", "⇧"]),
+  prev: toKey("⇥", "⌃⇧"),
 } as const;
 
 export const apps = {
-  next: toKey("⇥", ["⌘", "⇧"]),
+  next: toKey("⇥", "⌘⇧"),
   prev: toKey("⇥", "⌘"),
 } as const;
 
 export const windowsApps = {
   next: toKey("`", "⌘"),
-  prev: toKey("`", ["⌘", "⇧"]),
+  prev: toKey("`", "⌘⇧"),
 
-  fullscreen: toKey("f", ["⌃", "⌘"]),
+  fullscreen: toKey("f", "⌘⌃"),
 } as const;
 
 export const yabai = {
