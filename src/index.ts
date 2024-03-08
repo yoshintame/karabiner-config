@@ -99,6 +99,19 @@ writeToProfile("yoshintame", [
     ]),
   ]),
 
+  rule("Disable").manipulators([
+    map("↑").toNone(),
+    map("↓").toNone(),
+    map("←").toNone(),
+    map("→").toNone(),
+    map("⌫").toNone(),
+    map("a", "⌘").toNone(),
+    map("c", "⌘").toNone(),
+    map("v", "⌘").toNone(),
+    map("x", "⌘").toNone(),
+    map("z", "⌘").toNone(),
+  ]),
+
   rule("System").manipulators([
     layerHyper([
       map("␣").to(system.languageSwitch),
