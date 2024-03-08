@@ -10,10 +10,7 @@
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-type-checked",
-    "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended",
     "plugin:unicorn/recommended",
-    "plugin:storybook/recommended",
     "prettier"
   ],
   "ignorePatterns": [

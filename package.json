@@ -19,7 +19,7 @@
     "husky": "^9.0.11",
     "karabiner.ts": "latest",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.4",
+    "typescript": "^5.4.0",
     "@t3-oss/env-core": "^0.9.2",
     "knip": "^4.5.0",
     "zod": "^3.22.4",
