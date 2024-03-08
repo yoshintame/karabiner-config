@@ -68,6 +68,8 @@ writeToProfile("yoshintame", [
   ]),
 
   rule("Selection").manipulators([
+    layerHyper([map("a").to(selection.selectAll)]),
+
     layerS([
       map("j").to(selection.backward),
       map("l").to(selection.forward),
@@ -96,6 +98,19 @@ writeToProfile("yoshintame", [
       map("e").to(clipboard.paste),
       map("q").to(clipboard.cut),
     ]),
+  ]),
+
+  rule("Disable").manipulators([
+    map("↑").toNone(),
+    map("↓").toNone(),
+    map("←").toNone(),
+    map("→").toNone(),
+    map("⌫").toNone(),
+    map("a", "⌘").toNone(),
+    map("c", "⌘").toNone(),
+    map("v", "⌘").toNone(),
+    map("x", "⌘").toNone(),
+    map("z", "⌘").toNone(),
   ]),
 
   rule("System").manipulators([
