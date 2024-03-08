@@ -69,6 +69,8 @@ writeToProfile("yoshintame", [
   ]),
 
   rule("Selection").manipulators([
+    layerHyper([map("a").to(selection.selectAll)]),
+
     layerS([
       map("j").to(selection.backward),
       map("l").to(selection.forward),

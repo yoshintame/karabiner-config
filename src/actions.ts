@@ -51,6 +51,7 @@ export const selection = {
   pageEnd: toKey("↓", "⌘⇧"),
   expandVscode: toKey("←", "⌘⌃⇧"),
   shrinkVscode: toKey("→", "⌘⌃⇧"),
+  selectAll: toKey("a", "⌘"),
 } as const;
 
 export const system = {
