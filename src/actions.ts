@@ -1,15 +1,13 @@
-import { to$, toKey } from "karabiner.ts";
+import { to$, toKey, toPointingButton } from "karabiner.ts";
 
 export const clipboard = {
-  undo: toKey("z", "left_command"),
-  redo: toKey("z", ["left_command", "left_shift"]),
   copy: toKey("c", "left_command"),
   paste: toKey("v", "left_command"),
   cut: toKey("x", "left_command"),
 } as const;
 
 export const navigation = {
-  backward: toKey("↑"),
+  backward: toKey("←"),
   forward: toKey("→"),
   up: toKey("↑"),
   down: toKey("↓"),
@@ -18,8 +16,8 @@ export const navigation = {
   wordForward: toKey("→", "left_option"),
   lineBackward: toKey("←", "left_command"),
   lineForward: toKey("→", "left_command"),
-  //   fiveLineBackward: toKey("↑", "left_command"),
-  //   fiveLineForward: toKey("↓", "left_command"),
+  fiveLineBackward: "↑↑↑↑↑",
+  fiveLineForward: "↓↓↓↓↓",
 
   pageUp: toKey("page_up"),
   pageDown: toKey("page_down"),
@@ -57,6 +55,8 @@ export const selection = {
 
 export const system = {
   languageSwitch: toKey("spacebar", "left_command"),
+  undo: toKey("z", "left_command"),
+  redo: toKey("z", ["left_command", "left_shift"]),
 } as const;
 
 export const tabs = {
@@ -79,4 +79,9 @@ export const windowsApps = {
 export const yabai = {
   split: to$("/bin/bash ~/opt/shell_commands/window-split.sh"),
   unsplit: to$("/bin/bash ~/opt/shell_commands/window-unsplit.sh"),
+};
+
+export const mouse = {
+  leftClick: toPointingButton("button1"),
+  rightClick: toPointingButton("button2"),
 };

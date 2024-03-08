@@ -28,6 +28,14 @@ export const layers = [
     .toAfterKeyUp(toSetVar("f-layer", false))
     .toIfAlone("left_command")
     .condition(ifVar("hyper", true)),
+
+  // Reset all layers
+  map("⎋", "⌘⇧")
+    .toVar("hyper", false)
+    .toVar("s-layer", false)
+    .toVar("d-layer", false)
+    .toVar("f-layer", false)
+    .toNotificationMessage("layers", "Reset all layers"),
 ];
 
 // Explicit using of all existing layers in the conditions of necessity, then that without them the layers cease to be properly triggered
@@ -35,30 +43,22 @@ export const layers = [
 
 // unless is needed, because if use "ifVar("", false)" it want work
 // TODO: need to be invisigated why
-export const layerHyper = withCondition(
-  ifVar("hyper", true),
-  ifVar("s-layer", true).unless(),
-  ifVar("d-layer", true).unless(),
-  ifVar("f-layer", true).unless()
-);
+export function layer(...activeLayers: string[]) {
+  const conditions = [
+    { key: "hyper", flag: activeLayers.includes("H") },
+    { key: "s-layer", flag: activeLayers.includes("S") },
+    { key: "d-layer", flag: activeLayers.includes("D") },
+    { key: "f-layer", flag: activeLayers.includes("F") },
+  ].map(({ key, flag }) =>
+    flag ? ifVar(key, true) : ifVar(key, true).unless()
+  );
 
-export const layerS = withCondition(
-  ifVar("hyper", true),
-  ifVar("s-layer", true),
-  ifVar("d-layer", true).unless(),
-  ifVar("f-layer", true).unless()
-);
+  return withCondition(...conditions);
+}
 
-export const layerD = withCondition(
-  ifVar("hyper", true),
-  ifVar("s-layer", true).unless(),
-  ifVar("d-layer", true),
-  ifVar("f-layer", true).unless()
-);
-
-export const layerF = withCondition(
-  ifVar("hyper", true),
-  ifVar("s-layer", true).unless(),
-  ifVar("d-layer", true).unless(),
-  ifVar("f-layer", true)
-);
+export const layerHyper = layer("H");
+export const layerS = layer("H", "S");
+export const layerD = layer("H", "D");
+export const layerSD = layer("H", "S", "D");
+export const layerF = layer("H", "F");
+export const layerSF = layer("H", "S", "F");
