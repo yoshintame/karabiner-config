@@ -10,6 +10,7 @@ import {
 import {
   clipboard,
   deletetion,
+  mouse,
   navigation,
   selection,
   system,
@@ -118,6 +119,7 @@ writeToProfile("yoshintame", [
       map("␣").to(system.languageSwitch),
       map("m").to(system.undo),
       map(".").to(system.redo),
+      map("c").to(mouse.leftClick),
     ]),
   ]),
 
