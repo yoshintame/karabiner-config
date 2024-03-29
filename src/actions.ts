@@ -4,6 +4,7 @@ export const clipboard = {
   copy: toKey("c", "⌘"),
   paste: toKey("v", "⌘"),
   cut: toKey("x", "⌘"),
+  manager: toKey("v", "⌘⇧"),
 } as const;
 
 export const navigation = {

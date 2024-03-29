@@ -84,6 +84,7 @@ writeToProfile("yoshintame", [
       map("w").to(clipboard.copy),
       map("e").to(clipboard.paste),
       map("q").to(clipboard.cut),
+      map("e", "⌘").to(clipboard.manager),
     ]),
   ]),
 
