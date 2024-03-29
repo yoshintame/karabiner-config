@@ -15,15 +15,7 @@ import {
   selection,
   system,
 } from "./actions";
-import {
-  layerD,
-  layerF,
-  layerHyper,
-  layerS,
-  layerSD,
-  layerSF,
-  layers,
-} from "./layers";
+import { layerD, layerHyper, layerS, layerSD, layers } from "./layers";
 
 writeToProfile("yoshintame", [
   rule("Layers").manipulators(layers),
@@ -32,16 +24,14 @@ writeToProfile("yoshintame", [
     layerHyper([
       map("u").to(deletetion.backward),
       map("o").to(deletetion.forward),
+
+      map("u", "⌘").to(deletetion.lineBackward),
+      map("o", "⌘").to(deletetion.lineForward),
     ]),
 
     layerD([
       map("u").to(deletetion.wordBackward),
       map("o").to(deletetion.wordForward),
-    ]),
-
-    layerF([
-      map("u").to(deletetion.lineBackward),
-      map("o").to(deletetion.lineForward),
     ]),
   ]),
 
@@ -51,6 +41,11 @@ writeToProfile("yoshintame", [
       map("l").to(navigation.forward),
       map("i").to(navigation.up),
       map("k").to(navigation.down),
+
+      map("j", "⌘").to(navigation.lineBackward),
+      map("l", "⌘").to(navigation.lineForward),
+      map("i", "⌘").to(navigation.pageStart),
+      map("k", "⌘").to(navigation.pageEnd),
     ]),
 
     layerD([
@@ -58,13 +53,6 @@ writeToProfile("yoshintame", [
       map("l").to(navigation.wordForward),
       map("i").toTypeSequence(navigation.fiveLineBackward),
       map("k").toTypeSequence(navigation.fiveLineForward),
-    ]),
-
-    layerF([
-      map("j").to(navigation.lineBackward),
-      map("l").to(navigation.lineForward),
-      map("i").to(navigation.pageStart),
-      map("k").to(navigation.pageEnd),
     ]),
   ]),
 
@@ -76,6 +64,11 @@ writeToProfile("yoshintame", [
       map("l").to(selection.forward),
       map("i").to(selection.up),
       map("k").to(selection.down),
+
+      map("j", "⌘").to(selection.lineBackward),
+      map("l", "⌘").to(selection.lineForward),
+      map("i", "⌘").to(selection.pageStart),
+      map("k", "⌘").to(selection.pageEnd),
     ]),
 
     layerSD([
@@ -83,13 +76,6 @@ writeToProfile("yoshintame", [
       map("l").to(selection.wordForward),
       map("i").to(selection.shrinkVscode),
       map("k").to(selection.expandVscode),
-    ]),
-
-    layerSF([
-      map("j").to(selection.lineBackward),
-      map("l").to(selection.lineForward),
-      map("i").to(selection.pageStart),
-      map("k").to(selection.pageEnd),
     ]),
   ]),
 

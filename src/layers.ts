@@ -15,26 +15,13 @@ export const layers = [
     .toAfterKeyUp(toSetVar("d-layer", false))
     .toIfAlone("d")
     .condition(ifVar("hyper", true)),
-  map("f", "optionalAny")
-    .toVar("f-layer", true)
-    .toAfterKeyUp(toSetVar("f-layer", false))
-    .toIfAlone("f")
-    .condition(ifVar("hyper", true)),
-
-  // This condition is necessary, because without it hyper + (layer) + cmd + button want work with cmd behaviour.
-  // TODO: need to be invisigated why
-  map("‹⌘", "optionalAny")
-    .toVar("f-layer", true)
-    .toAfterKeyUp(toSetVar("f-layer", false))
-    .toIfAlone("‹⌘")
-    .condition(ifVar("hyper", true)),
 
   // Reset all layers
   map("⎋", "⌘⇧")
     .toVar("hyper", false)
     .toVar("s-layer", false)
     .toVar("d-layer", false)
-    .toVar("f-layer", false)
+    .toVar("cmd-layer", false)
     .toNotificationMessage("layers", "Reset all layers"),
 ];
 
@@ -48,7 +35,7 @@ export function layer(...activeLayers: string[]) {
     { key: "hyper", flag: activeLayers.includes("H") },
     { key: "s-layer", flag: activeLayers.includes("S") },
     { key: "d-layer", flag: activeLayers.includes("D") },
-    { key: "f-layer", flag: activeLayers.includes("F") },
+    { key: "cmd-layer", flag: activeLayers.includes("F") },
   ].map(({ key, flag }) =>
     flag ? ifVar(key, true) : ifVar(key, true).unless()
   );
