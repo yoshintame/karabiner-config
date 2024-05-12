@@ -59,6 +59,7 @@ export const system = {
   languageSwitch: toKey("␣", "⌘"),
   undo: toKey("z", "⌘"),
   redo: toKey("z", "⌘⇧"),
+  return: toKey("⏎"),
 } as const;
 
 export const tabs = {

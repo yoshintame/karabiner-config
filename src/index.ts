@@ -95,6 +95,7 @@ writeToProfile("yoshintame", [
     map("←").toNone(),
     map("→").toNone(),
     map("⌫").toNone(),
+    map("⏎").toNone(),
     map("a", "⌘").toNone(),
     map("c", "⌘").toNone(),
     map("v", "⌘").toNone(),
@@ -104,6 +105,7 @@ writeToProfile("yoshintame", [
 
   rule("System").manipulators([
     layerHyper([
+      map(";").to(system.return),
       map("␣").to(system.languageSwitch),
       map("m").to(system.undo),
       map(".").to(system.redo),
