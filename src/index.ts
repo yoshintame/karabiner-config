@@ -1,5 +1,4 @@
 import {
-  ifInputSource,
   layer,
   map,
   rule,
@@ -112,9 +111,7 @@ writeToProfile("yoshintame", [
     ]),
   ]),
 
-  rule("Keyboard Layout", ifInputSource({ language: "en" })).manipulators(
-    colemakLayout
-  ),
+  rule("Keyboard Layout").manipulators(colemakLayout),
 
   layer("/", "symbol-mode").manipulators([
     withMapper(["⌘", "⌥", "⌃", "⇧", "⇪"])((k, index) =>
