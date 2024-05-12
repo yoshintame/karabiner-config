@@ -1,4 +1,5 @@
 import {
+  ifInputSource,
   layer,
   map,
   rule,
@@ -15,6 +16,7 @@ import {
   selection,
   system,
 } from "./actions";
+import { colemakLayout } from "./keyboard-layouts";
 import { layerD, layerHyper, layerS, layerSD, layers } from "./layers";
 
 writeToProfile("yoshintame", [
@@ -109,6 +111,10 @@ writeToProfile("yoshintame", [
       map("c").to(mouse.leftClick),
     ]),
   ]),
+
+  rule("Keyboard Layout", ifInputSource({ language: "en" })).manipulators(
+    colemakLayout
+  ),
 
   layer("/", "symbol-mode").manipulators([
     withMapper(["⌘", "⌥", "⌃", "⇧", "⇪"])((k, index) =>

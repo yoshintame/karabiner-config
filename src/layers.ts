@@ -1,10 +1,11 @@
 import { ifVar, map, toSetVar, withCondition } from "karabiner.ts";
 
-// Hyper condition on all letters layers is necessary because if it wasn't there, those buttons alone would be delayed due to the layer trigger
 export const layers = [
+  //Hyper layers
   map("⇪", "optionalAny")
     .toVar("hyper", true)
     .toAfterKeyUp(toSetVar("hyper", false)),
+
   map("s", "optionalAny")
     .toVar("s-layer", true)
     .toAfterKeyUp(toSetVar("s-layer", false))
@@ -16,12 +17,27 @@ export const layers = [
     .toIfAlone("d")
     .condition(ifVar("hyper", true)),
 
+  // Toggle layers
+  map("␣", "fn")
+    .condition(ifVar("keyboard-layout", 0))
+    .toVar("keyboard-layout", "default")
+    .toNotificationMessage("Keyboard layout", "default"),
+  map("␣", "fn")
+    .condition(ifVar("keyboard-layout", "colemak"))
+    .toVar("keyboard-layout", "default")
+    .toNotificationMessage("Keyboard layout", "default"),
+  map("␣", "fn")
+    .condition(ifVar("keyboard-layout", "default"))
+    .toVar("keyboard-layout", "colemak")
+    .toNotificationMessage("Keyboard layout", "colemak"),
+
   // Reset all layers
   map("⎋", "⌘⇧")
     .toVar("hyper", false)
     .toVar("s-layer", false)
     .toVar("d-layer", false)
     .toVar("cmd-layer", false)
+    .toVar("keyboard-layout", 0)
     .toNotificationMessage("layers", "Reset all layers"),
 ];
 
