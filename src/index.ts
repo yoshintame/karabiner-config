@@ -111,6 +111,8 @@ writeToProfile("yoshintame", [
       map(".").to(system.redo),
       map("c").to(mouse.leftClick),
     ]),
+
+    layerS([map(";").to(system.returnShifted)]),
   ]),
 
   rule("Keyboard Layout").manipulators(colemakLayout),
