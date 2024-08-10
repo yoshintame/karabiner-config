@@ -3,6 +3,6 @@
 
 bun lint:fix
 bun typecheck
-# bun format
+bun run build
 
 

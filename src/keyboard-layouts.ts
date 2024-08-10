@@ -1,13 +1,13 @@
 import {
-  ifInputSource,
-  ifVar,
-  map,
-  toKey,
-  withMapper,
-  type Condition,
-  type ConditionBuilder,
-  type FromKeyParam,
-  type ToKeyParam,
+    ifInputSource,
+    ifVar,
+    map,
+    toKey,
+    withMapper,
+    type Condition,
+    type ConditionBuilder,
+    type FromKeyParam,
+    type ToKeyParam,
 } from "karabiner.ts";
 
 export const colemakLayout = [
