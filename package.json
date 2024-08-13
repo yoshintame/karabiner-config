@@ -2,7 +2,8 @@
   "name": "yoshintame-karabiner-config",
   "description": "yoshintame karabiner config in karabiner.ts",
   "scripts": {
-    "build": "bun run src/index.ts",
+    "dev": "MODE=development bun run src/index.ts",
+    "build": "MODE=build bun run src/index.ts",
     "format": "prettier src/**/*.ts --write",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives",
     "lint:fix": "eslint src --ext ts,tsx --report-unused-disable-directives --fix",

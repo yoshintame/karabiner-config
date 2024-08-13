@@ -89,3 +89,7 @@ export const mouse = {
   leftClick: toPointingButton("button1"),
   rightClick: toPointingButton("button2"),
 };
+
+export const raycast = {
+  toggle: toKey("␣", "Hyper"),
+} as const;

@@ -2135,6 +2135,45 @@
               {
                 "type": "basic",
                 "from": {
+                  "key_code": "f"
+                },
+                "to": [
+                  {
+                    "key_code": "spacebar",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
                   "key_code": "semicolon"
                 },
                 "to": [
