@@ -1,45 +1,20 @@
-import { ifVar, map, toSetVar, withCondition } from "karabiner.ts";
+import { ifVar, map, rule, toSetVar, withCondition } from "karabiner.ts";
 
-export const layers = [
+export const hyperLayers = rule("Hyper Layers").manipulators([
   //Hyper layers
   map("⇪", "optionalAny")
     .toVar("hyper", true)
     .toAfterKeyUp(toSetVar("hyper", false)),
-
+  // .condition(ifApp("com.github.wez.wezterm").unless()),
   map("s", "optionalAny")
     .toVar("s-layer", true)
     .toAfterKeyUp(toSetVar("s-layer", false))
-    .toIfAlone("s")
     .condition(ifVar("hyper", true)),
   map("d", "optionalAny")
     .toVar("d-layer", true)
     .toAfterKeyUp(toSetVar("d-layer", false))
-    .toIfAlone("d")
     .condition(ifVar("hyper", true)),
-
-  // Toggle layers
-  map("␣", "fn")
-    .condition(ifVar("keyboard-layout", 0))
-    .toVar("keyboard-layout", "default")
-    .toNotificationMessage("Keyboard layout", "default"),
-  map("␣", "fn")
-    .condition(ifVar("keyboard-layout", "colemak"))
-    .toVar("keyboard-layout", "default")
-    .toNotificationMessage("Keyboard layout", "default"),
-  map("␣", "fn")
-    .condition(ifVar("keyboard-layout", "default"))
-    .toVar("keyboard-layout", "colemak")
-    .toNotificationMessage("Keyboard layout", "colemak"),
-
-  // Reset all layers
-  map("⎋", "⌘⇧")
-    .toVar("hyper", false)
-    .toVar("s-layer", false)
-    .toVar("d-layer", false)
-    .toVar("cmd-layer", false)
-    .toVar("keyboard-layout", 0)
-    .toNotificationMessage("layers", "Reset all layers"),
-];
+]);
 
 // Explicit using of all existing layers in the conditions of necessity, then that without them the layers cease to be properly triggered
 // TODO: need to be invisigated why

@@ -2,6 +2,7 @@ import {
     ifInputSource,
     ifVar,
     map,
+    rule,
     toKey,
     withMapper,
     type Condition,
@@ -10,7 +11,7 @@ import {
     type ToKeyParam,
 } from "karabiner.ts";
 
-export const colemakLayout = [
+export const colemakLayoutRule = rule("Keyboard Layout").manipulators([
   withMapper({
     q: "q", w: "w", e: "f", r: "p", t: "b", y: "j", u: "l", i: "u", o: "y", p: ";",
     a: "a", s: "r", d: "s", f: "t", g: "g", h: "m", j: "n", k: "e", l: "i", ";": "o",
@@ -21,7 +22,7 @@ export const colemakLayout = [
       ifInputSource({ language: "en" }),
     ])
   ),
-];
+])
 
 const bindKeyboardLayout = (
   from: FromKeyParam,

@@ -13,17 +13,20 @@ export const navigation = {
   up: toKey("↑"),
   down: toKey("↓"),
 
+  optedUp: toKey("↑", "⌥"),
+  optedDown: toKey("↓", "⌥"),
   wordBackward: toKey("←", "⌥"),
   wordForward: toKey("→", "⌥"),
+
   lineBackward: toKey("←", "⌘"),
   lineForward: toKey("→", "⌘"),
-  fiveLineBackward: "↑↑↑↑↑",
-  fiveLineForward: "↓↓↓↓↓",
-
-  pageUp: toKey("⇞"),
-  pageDown: toKey("⇟"),
   pageStart: toKey("↑", "⌘"),
   pageEnd: toKey("↓", "⌘"),
+
+  fiveLineBackward: "↑↑↑↑↑",
+  fiveLineForward: "↓↓↓↓↓",
+  pageUp: toKey("⇞"),
+  pageDown: toKey("⇟"),
 } as const;
 
 export const deletetion = {
