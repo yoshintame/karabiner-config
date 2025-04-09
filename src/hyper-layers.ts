@@ -1,6 +1,6 @@
 import { ifVar, map, rule, toSetVar, withCondition } from "karabiner.ts";
 
-export const hyperLayers = rule("Hyper Layers").manipulators([
+export const hyperMode = rule("hyper-mode").manipulators([
   //Hyper layers
   map("⇪", "optionalAny")
     .toVar("hyper", true)

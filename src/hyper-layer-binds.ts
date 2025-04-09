@@ -82,10 +82,13 @@ const clipboardHyperRule = rule("Clipboard").manipulators([
 const systemHyperRule = rule("System").manipulators([
   layerHyper([
     map(";").to(system.return),
+    map(";", "⌘").to(system.returnCmd),
+    map("c").to(system.prefix),
+    map("h").to(system.escape),
     map("␣").to(system.languageSwitch),
     map("m").to(system.undo),
     map(".").to(system.redo),
-    map("c").to(mouse.leftClick),
+    map("x").to(mouse.leftClick),
     map("f").to(raycast.toggle),
   ]),
   layerS([map(";").to(system.returnShifted)]),

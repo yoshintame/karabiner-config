@@ -63,7 +63,11 @@ export const system = {
   undo: toKey("z", "⌘"),
   redo: toKey("z", "⌘⇧"),
   return: toKey("⏎"),
+  returnCmd: toKey("⏎", "⌘"),
   returnShifted: toKey("⏎", "⇧"),
+  escape: toKey("⎋"),
+  prefix: toKey("b", "⌃"),
+  space: toKey("␣"),
 } as const;
 
 export const tabs = {

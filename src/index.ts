@@ -10,7 +10,7 @@ import {
   selecetionHyperRule,
   systemHyperRule,
 } from "./hyper-layer-binds";
-import { hyperLayers } from "./hyper-layers";
+import { hyperMode } from "./hyper-layers";
 import { colemakLayoutRule } from "./keyboard-layouts";
 import { toggleLayers } from "./toggle-layers";
 import { symbolModeLayer, utilsRule } from "./utils";
@@ -29,7 +29,7 @@ const buildProfile = {
 writeToProfile(isDevelopment ? "yoshintame" : buildProfile, [
   toggleLayers,
 
-  hyperLayers,
+  hyperMode,
   navigationHyperRule,
   selecetionHyperRule,
   deletetionHyperRule,
