@@ -1,8 +1,5 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+bun run check
+bun run typecheck
 
-bun lint:fix
-bun typecheck
 bun run build
-
-
+git add build/karabiner.json
