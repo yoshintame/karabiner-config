@@ -1,4 +1,4 @@
-import { map, rule } from "karabiner.ts";
+import { map, rule } from 'karabiner.ts'
 
 import {
   clipboard,
@@ -8,91 +8,91 @@ import {
   raycast,
   selection,
   system,
-} from "./actions";
-import { layerD, layerHyper, layerS, layerSD } from "./hyper-layers";
+} from './actions'
+import { layerD, layerHyper, layerS, layerSD } from './hyper-layers'
 
-const deletetionHyperRule = rule("Deletetion").manipulators([
+const deletetionHyperRule = rule('Deletetion').manipulators([
   layerHyper([
-    map("u").to(deletetion.backward),
-    map("o").to(deletetion.forward),
+    map('u').to(deletetion.backward),
+    map('o').to(deletetion.forward),
 
-    map("u", "⌘").to(deletetion.lineBackward),
-    map("o", "⌘").to(deletetion.lineForward),
+    map('u', '⌘').to(deletetion.lineBackward),
+    map('o', '⌘').to(deletetion.lineForward),
   ]),
 
   layerD([
-    map("u").to(deletetion.wordBackward),
-    map("o").to(deletetion.wordForward),
+    map('u').to(deletetion.wordBackward),
+    map('o').to(deletetion.wordForward),
   ]),
-]);
+])
 
-const navigationHyperRule = rule("Navigation").manipulators([
+const navigationHyperRule = rule('Navigation').manipulators([
   layerHyper([
-    map("j").to(navigation.backward),
-    map("l").to(navigation.forward),
-    map("i").to(navigation.up),
-    map("k").to(navigation.down),
+    map('j').to(navigation.backward),
+    map('l').to(navigation.forward),
+    map('i').to(navigation.up),
+    map('k').to(navigation.down),
 
-    map("j", "⌘").to(navigation.lineBackward),
-    map("l", "⌘").to(navigation.lineForward),
-    map("i", "⌘").to(navigation.pageStart),
-    map("k", "⌘").to(navigation.pageEnd),
+    map('j', '⌘').to(navigation.lineBackward),
+    map('l', '⌘').to(navigation.lineForward),
+    map('i', '⌘').to(navigation.pageStart),
+    map('k', '⌘').to(navigation.pageEnd),
   ]),
 
   layerD([
-    map("j").to(navigation.wordBackward),
-    map("l").to(navigation.wordForward),
-    map("i").to(navigation.optedUp),
-    map("k").to(navigation.optedDown),
+    map('j').to(navigation.wordBackward),
+    map('l').to(navigation.wordForward),
+    map('i').to(navigation.optedUp),
+    map('k').to(navigation.optedDown),
   ]),
-]);
+])
 
-const selecetionHyperRule = rule("Selection").manipulators([
-  layerHyper([map("a").to(selection.selectAll)]),
+const selecetionHyperRule = rule('Selection').manipulators([
+  layerHyper([map('a').to(selection.selectAll)]),
 
   layerS([
-    map("j").to(selection.backward),
-    map("l").to(selection.forward),
-    map("i").to(selection.up),
-    map("k").to(selection.down),
+    map('j').to(selection.backward),
+    map('l').to(selection.forward),
+    map('i').to(selection.up),
+    map('k').to(selection.down),
 
-    map("j", "⌘").to(selection.lineBackward),
-    map("l", "⌘").to(selection.lineForward),
-    map("i", "⌘").to(selection.pageStart),
-    map("k", "⌘").to(selection.pageEnd),
+    map('j', '⌘').to(selection.lineBackward),
+    map('l', '⌘').to(selection.lineForward),
+    map('i', '⌘').to(selection.pageStart),
+    map('k', '⌘').to(selection.pageEnd),
   ]),
 
   layerSD([
-    map("j").to(selection.wordBackward),
-    map("l").to(selection.wordForward),
-    map("i").to(selection.shrinkVscode),
-    map("k").to(selection.expandVscode),
+    map('j').to(selection.wordBackward),
+    map('l').to(selection.wordForward),
+    map('i').to(selection.shrinkVscode),
+    map('k').to(selection.expandVscode),
   ]),
-]);
+])
 
-const clipboardHyperRule = rule("Clipboard").manipulators([
+const clipboardHyperRule = rule('Clipboard').manipulators([
   layerHyper([
-    map("w").to(clipboard.copy),
-    map("e").to(clipboard.paste),
-    map("q").to(clipboard.cut),
-    map("e", "⌘").to(clipboard.manager),
+    map('w').to(clipboard.copy),
+    map('e').to(clipboard.paste),
+    map('q').to(clipboard.cut),
+    map('e', '⌘').to(clipboard.manager),
   ]),
-]);
+])
 
-const systemHyperRule = rule("System").manipulators([
+const systemHyperRule = rule('System').manipulators([
   layerHyper([
-    map(";").to(system.return),
-    map(";", "⌘").to(system.returnCmd),
-    map("c").to(system.prefix),
-    map("h").to(system.escape),
-    map("␣").to(system.languageSwitch),
-    map("m").to(system.undo),
-    map(".").to(system.redo),
-    map("x").to(mouse.leftClick),
-    map("f").to(raycast.toggle),
+    map(';').to(system.return),
+    map(';', '⌘').to(system.returnCmd),
+    map('c').to(system.prefix),
+    map('h').to(system.escape),
+    map('␣').to(system.languageSwitch),
+    map('m').to(system.undo),
+    map('.').to(system.redo),
+    map('x').to(mouse.leftClick),
+    map('f').to(raycast.toggle),
   ]),
-  layerS([map(";").to(system.returnShifted)]),
-]);
+  layerS([map(';').to(system.returnShifted)]),
+])
 
 export {
   clipboardHyperRule,
@@ -100,4 +100,4 @@ export {
   navigationHyperRule,
   selecetionHyperRule,
   systemHyperRule,
-};
+}

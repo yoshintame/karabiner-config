@@ -29,7 +29,8 @@
     "baseUrl": "./src",
     "paths": {
       "@/*": ["*"]
-    }
+    },
+    "plugins": [{ "name": "ts-plugin-sort-import-suggestions" }]
   },
   "include": ["src"]
 }

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.10/schema.json",
+  "vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
+  "files": {
+    "ignoreUnknown": false,
+    "includes": [
+      "**",
+      "!**/build",
+      "!**/public",
+      "!**/dist",
+      "!**/node_modules",
+      "!**/coverage",
+      "!**/package-lock.json",
+      "!**/bun.lock",
+      "!**/pnpm-lock.yaml",
+      "!**/routeTree.gen.ts",
+      "!**/generated",
+      "!**/vitest.config.ts",
+      "!**/storybook-static",
+      "!**/src/assets/**/*",
+      "!**/dev-dist",
+      "!**/src/keyboard-layouts.ts"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "useEditorconfig": true,
+    "formatWithErrors": true,
+    "indentStyle": "space"
+  },
+  "javascript": {
+    "formatter": {
+      "semicolons": "asNeeded",
+      "quoteStyle": "single"
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              [":BUN:", ":NODE:"],
+              ":BLANK_LINE:",
+              ":PACKAGE:",
+              ":BLANK_LINE:",
+              ":PACKAGE_WITH_PROTOCOL:",
+              ":BLANK_LINE:",
+              "@/shared/**",
+              ":BLANK_LINE:",
+              ":ALIAS:",
+              ":BLANK_LINE:",
+              ":PATH:",
+              ":BLANK_LINE:",
+              ":URL:"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "noNonNullAssertion": "off",
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "requireAscii": true,
+            "filenameCases": ["kebab-case"]
+          }
+        },
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error"
+      }
+    },
+    "includes": [
+      "**",
+      "!**/tsconfig.json",
+      "!**/tsconfig.*.json",
+      "!**/tsconfig.node.json",
+      "!**/tsconfig*.json",
+      "!**/vite.config.ts",
+      "!**/postcss.config.mjs",
+      "!**/tailwind.config.js",
+      "!**/commitlint.config.cjs",
+      "!**/playwright.config.ts",
+      "!**/vitest.setup.ts",
+      "!**/components.json",
+      "!**/tsr.config.json",
+      "!**/knip.json"
+    ]
+  }
+}
