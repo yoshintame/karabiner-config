@@ -6,7 +6,7 @@ export const disablesRule = rule('Disables').manipulators([
   map('←').toNone(),
   map('→').toNone(),
   map('⌫').toNone(),
-  map('⏎').toNone(),
+  //   map('⏎').toNone(),
   map('a', '⌘').toNone(),
   map('c', '⌘').toNone(),
   map('v', '⌘').toNone(),

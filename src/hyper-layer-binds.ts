@@ -3,9 +3,9 @@ import { map, rule } from 'karabiner.ts'
 import {
   clipboard,
   deletetion,
+  hyper,
   mouse,
   navigation,
-  raycast,
   selection,
   system,
 } from './actions'
@@ -89,7 +89,7 @@ const systemHyperRule = rule('System').manipulators([
     map('m').to(system.undo),
     map('.').to(system.redo),
     map('x').to(mouse.leftClick),
-    map('f').to(raycast.toggle),
+    map('f').to(hyper.spotlight),
   ]),
   layerS([map(';').to(system.returnShifted)]),
 ])

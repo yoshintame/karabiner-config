@@ -1831,7 +1831,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "spacebar",
+                    "key_code": "f",
                     "modifiers": [
                       "command",
                       "option",
@@ -3641,17 +3641,6 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "return_or_enter"
-                },
-                "to": [
-                  {
-                    "key_code": "vk_none"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
                   "key_code": "a",
                   "modifiers": {
                     "mandatory": [
@@ -4125,6 +4114,28 @@
                     "type": "variable_if",
                     "name": "symbol-mode",
                     "value": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Other",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "return_or_enter"
+                },
+                "to": [
+                  {
+                    "key_code": "1",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control",
+                      "shift"
+                    ]
                   }
                 ]
               }

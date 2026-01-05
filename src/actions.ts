@@ -1,4 +1,4 @@
-import { to$, toKey, toPointingButton } from 'karabiner.ts'
+import { toKey, toPointingButton } from 'karabiner.ts'
 
 export const clipboard = {
   copy: toKey('c', '⌘'),
@@ -87,16 +87,21 @@ export const windowsApps = {
   fullscreen: toKey('f', '⌘⌃'),
 } as const
 
-export const yabai = {
-  split: to$('/bin/bash ~/opt/shell_commands/window-split.sh'),
-  unsplit: to$('/bin/bash ~/opt/shell_commands/window-unsplit.sh'),
-}
-
 export const mouse = {
   leftClick: toPointingButton('button1'),
   rightClick: toPointingButton('button2'),
 }
 
-export const raycast = {
-  toggle: toKey('␣', 'Hyper'),
-} as const
+export const hyper = {
+  spotlight: toKey('f', 'Hyper'),
+  aiOverlay: toKey('o', 'Hyper'),
+  translateOverlay: toKey('t', 'Hyper'),
+  passwordsOverlay: toKey('p', 'Hyper'),
+
+  screenshot: toKey('s', '⌘⌃⇧'),
+  screenshotArea: toKey('s', '⌘⌃⇧'),
+  screenshotWindow: toKey('s', '⌘⌃⇧'),
+  screenshotFullscreen: toKey('s', '⌘⌃⇧'),
+
+  record: toKey('r', '⌘⌃⇧'),
+}
