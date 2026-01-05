@@ -1,4 +1,4 @@
-import { toKey, toPointingButton } from 'karabiner.ts'
+import { toInputSource, toKey, toPointingButton } from 'karabiner.ts'
 
 export const clipboard = {
   copy: toKey('c', '⌘'),
@@ -68,6 +68,7 @@ export const system = {
   escape: toKey('⎋'),
   prefix: toKey('b', '⌃'),
   space: toKey('␣'),
+  ABCLayout: toInputSource({ input_source_id: 'com.apple.keylayout.ABC' }),
 } as const
 
 export const tabs = {
@@ -104,4 +105,6 @@ export const hyper = {
   screenshotFullscreen: toKey('s', '⌘⌃⇧'),
 
   record: toKey('r', '⌘⌃⇧'),
+
+  leader: toKey('1', 'Hyper'),
 }

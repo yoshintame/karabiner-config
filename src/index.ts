@@ -1,7 +1,9 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { map, rule, toKey, writeToProfile } from 'karabiner.ts'
+import { map, rule, writeToProfile } from 'karabiner.ts'
+
+import { hyper, system } from '@/actions'
 
 import { disablesRule } from './disables'
 import {
@@ -75,5 +77,5 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
 
   symbolModeLayer,
 
-  rule('Other').manipulators([map('⏎').to(toKey('1', 'Hyper'))]),
+  rule('Other').manipulators([map('⏎').to(system.ABCLayout).to(hyper.leader)]),
 ])
