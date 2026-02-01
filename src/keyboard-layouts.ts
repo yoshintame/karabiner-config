@@ -1,14 +1,14 @@
 import {
-    type Condition,
-    type ConditionBuilder,
-    type FromKeyParam,
     ifInputSource,
     ifVar,
     map,
     rule,
     toKey,
-    type ToKeyParam,
     withMapper,
+    type Condition,
+    type ConditionBuilder,
+    type FromKeyParam,
+    type ToKeyParam,
 } from "karabiner.ts";
 
 export const colemakLayoutRule = rule("Keyboard Layout").manipulators([

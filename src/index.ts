@@ -77,5 +77,8 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
 
   symbolModeLayer,
 
-  rule('Other').manipulators([map('⏎').to(system.ABCLayout).to(hyper.leader)]),
+  rule('Other').manipulators([
+    map('⏎').to(system.ABCLayout).to(hyper.leaderInApp),
+    map('right_command').to(hyper.leaderGlobal),
+  ]),
 ])

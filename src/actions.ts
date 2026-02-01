@@ -106,5 +106,6 @@ export const hyper = {
 
   record: toKey('r', '⌘⌃⇧'),
 
-  leader: toKey('1', 'Hyper'),
+  leaderInApp: toKey('1', 'Hyper'),
+  leaderGlobal: toKey('f18'),
 }

@@ -3789,23 +3789,12 @@
                       "name": "symbol-mode",
                       "value": 1
                     }
-                  },
-                  {
-                    "set_variable": {
-                      "name": "__layer",
-                      "value": 1
-                    }
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_unless",
                     "name": "symbol-mode",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "__layer",
                     "value": 1
                   }
                 ],
@@ -3818,12 +3807,6 @@
                   {
                     "set_variable": {
                       "name": "symbol-mode",
-                      "value": 0
-                    }
-                  },
-                  {
-                    "set_variable": {
-                      "name": "__layer",
                       "value": 0
                     }
                   }
@@ -4141,6 +4124,17 @@
                       "control",
                       "shift"
                     ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_command"
+                },
+                "to": [
+                  {
+                    "key_code": "f18"
                   }
                 ]
               }
