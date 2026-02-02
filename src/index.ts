@@ -3,7 +3,7 @@ import path from 'node:path'
 
 import { map, rule, toKey, writeToProfile } from 'karabiner.ts'
 
-import { hyper, system } from '@/actions'
+import { system } from '@/actions'
 
 import { disablesRule } from './disables'
 import {
@@ -78,11 +78,10 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
   symbolModeLayer,
 
   rule('Other').manipulators([
-    map('⏎').to(system.ABCLayout).to(hyper.leaderInApp),
-    map('right_command').to(hyper.leaderGlobal),
+    map('⏎').to(system.ABCLayout).to(system.leaderInApp),
+    map('right_command').to(system.leaderGlobal),
     map('left_shift', 'optionalAny')
       .to(toKey('left_shift'))
-      .toIfAlone(toKey('␣', '⌘')),
-    // .toIfAlone(system.ABCLayout), doesnt work in karabiner for some reason
+      .toIfAlone(system.languageSwitch),
   ]),
 ])

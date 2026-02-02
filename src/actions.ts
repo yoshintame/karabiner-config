@@ -59,7 +59,6 @@ export const selection = {
 } as const
 
 export const system = {
-  languageSwitch: toKey('␣', '⌘'),
   undo: toKey('z', '⌘'),
   redo: toKey('z', '⌘⇧'),
   return: toKey('⏎'),
@@ -68,7 +67,12 @@ export const system = {
   escape: toKey('⎋'),
   prefix: toKey('b', '⌃'),
   space: toKey('␣'),
+
   ABCLayout: toInputSource({ input_source_id: 'com.apple.keylayout.ABC' }),
+  languageSwitch: toKey('␣', '⌘'),
+
+  leaderInApp: toKey('1', 'Hyper'),
+  leaderGlobal: toKey('f18'),
 } as const
 
 export const tabs = {
@@ -105,7 +109,4 @@ export const hyper = {
   screenshotFullscreen: toKey('s', '⌘⌃⇧'),
 
   record: toKey('r', '⌘⌃⇧'),
-
-  leaderInApp: toKey('1', 'Hyper'),
-  leaderGlobal: toKey('f18'),
 }
