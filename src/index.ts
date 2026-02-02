@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { map, rule, writeToProfile } from 'karabiner.ts'
+import { map, rule, toKey, writeToProfile } from 'karabiner.ts'
 
 import { hyper, system } from '@/actions'
 
@@ -80,5 +80,9 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
   rule('Other').manipulators([
     map('⏎').to(system.ABCLayout).to(hyper.leaderInApp),
     map('right_command').to(hyper.leaderGlobal),
+    map('left_shift', 'optionalAny')
+      .to(toKey('left_shift'))
+      .toIfAlone(toKey('␣', '⌘')),
+    // .toIfAlone(system.ABCLayout), doesnt work in karabiner for some reason
   ]),
 ])
