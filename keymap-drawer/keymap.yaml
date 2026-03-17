@@ -1,0 +1,67 @@
+layout:
+  qmk_info_json: layout.json
+
+draw_config:
+  key_w: 60
+  key_h: 56
+  shrink_wide_legends: 6
+  footer_text: "Karabiner-Elements Keymap"
+  svg_extra_style: |
+    rect.nav      { fill: #42a5f5; } text.nav      { fill: white; }
+    rect.del      { fill: #ef5350; } text.del      { fill: white; }
+    rect.clip     { fill: #66bb6a; } text.clip     { fill: white; }
+    rect.sys      { fill: #ab47bc; } text.sys      { fill: white; }
+    rect.layer    { fill: #ff9800; } text.layer    { fill: white; }
+    rect.disabled { fill: #455a64; } text.disabled { fill: #90a4ae; }
+    rect.sel      { fill: #7c4dff; } text.sel      { fill: white; }
+    rect.wordsel  { fill: #e040fb; } text.wordsel  { fill: white; }
+    rect.remap    { fill: #00bcd4; } text.remap    { fill: white; }
+
+layers:
+  # ── Hyper (CapsLock held) ─────────────────────────────────────────────────
+  Hyper:
+    - ["~",  "!",  "@",  "#",  "$",  "%",  "^",  "&",  "*",  "(",  ")",  "_",  "+",  {t: "⌫ off", type: disabled}]
+    - ["Tab",  {t: Cut, h: Q, type: clip},  {t: Copy, h: W, type: clip},  {t: Paste, h: E, type: clip},  "R",  "T",  "Y",  {t: "⌫", h: U, type: del},  {t: "↑", h: I, type: nav},  {t: "⌦", h: O, type: del},  "P",  "[",  "]",  "\\"]
+    - [{t: "⇪ HYPER", type: layer},  {t: All, h: A, type: sys},  {t: "▶Sel", h: S, type: layer},  {t: "▶Wrd", h: D, type: layer},  {t: Find, h: F, type: sys},  "G",  {t: Esc, h: H, type: sys},  {t: "←", h: J, type: nav},  {t: "↓", h: K, type: nav},  {t: "→", h: L, type: nav},  {t: "⏎", h: ";", type: sys},  "'",  "Return"]
+    - ["Shift",  "Z",  {t: Click, h: X, type: sys},  {t: "^B", h: C, type: sys},  "V",  "B",  "N",  {t: Undo, h: M, type: sys},  ",",  {t: Redo, h: ".", type: sys},  "/",  "Shift"]
+    - ["Fn",  "Ctrl",  "Opt",  "⌘",  {t: "Lang Switch", h: "⌘Space", type: sys},  "⌘",  "Opt"]
+
+  # ── Hyper + ⌘ (CapsLock + Cmd held) ──────────────────────────────────────
+  Hyper + ⌘:
+    - ["~",  "!",  "@",  "#",  "$",  "%",  "^",  "&",  "*",  "(",  ")",  "_",  "+",  "Delete"]
+    - ["Tab",  "Q",  "W",  {t: "⌘⇧V", h: E, type: clip},  "R",  "T",  "Y",  {t: "Line⌫", h: U, type: del},  {t: Top, h: I, type: nav},  {t: "Line⌦", h: O, type: del},  "P",  "[",  "]",  "\\"]
+    - ["⇪ HYPER",  "A",  "S",  "D",  "F",  "G",  "H",  {t: Home, h: J, type: nav},  {t: Bottom, h: K, type: nav},  {t: End, h: L, type: nav},  {t: "⌘⏎", h: ";", type: sys},  "'",  "Return"]
+    - ["Shift",  "Z",  "X",  "C",  "V",  "B",  "N",  "M",  ",",  ".",  "/",  "Shift"]
+    - ["Fn",  "Ctrl",  "Opt",  "⌘",  "",  "⌘",  "Opt"]
+
+  # ── Hyper + D (Word Level Nav & Delete) ───────────────────────────────────
+  Hyper + D:
+    - ["~",  "!",  "@",  "#",  "$",  "%",  "^",  "&",  "*",  "(",  ")",  "_",  "+",  "Delete"]
+    - ["Tab",  "Q",  "W",  "E",  "R",  "T",  "Y",  {t: "Word⌫", h: U, type: del},  {t: "Opt↑", h: I, type: nav},  {t: "Word⌦", h: O, type: del},  "P",  "[",  "]",  "\\"]
+    - ["⇪ HYPER",  "A",  "S",  {t: "▶ Word", h: D, type: layer},  "F",  "G",  "H",  {t: "Word←", h: J, type: nav},  {t: "Opt↓", h: K, type: nav},  {t: "Word→", h: L, type: nav},  ";",  "'",  "Return"]
+    - ["Shift",  "Z",  "X",  "C",  "V",  "B",  "N",  "M",  ",",  ".",  "/",  "Shift"]
+    - ["Fn",  "Ctrl",  "Opt",  "⌘",  "",  "⌘",  "Opt"]
+
+  # ── Hyper + S (Selection) ─────────────────────────────────────────────────
+  Hyper + S:
+    - ["~",  "!",  "@",  "#",  "$",  "%",  "^",  "&",  "*",  "(",  ")",  "_",  "+",  "Delete"]
+    - ["Tab",  "Q",  "W",  "E",  "R",  "T",  "Y",  "U",  {t: "Sel↑", h: I, type: sel},  "O",  "P",  "[",  "]",  "\\"]
+    - ["⇪ HYPER",  "A",  {t: "▶Sel", h: S, type: layer},  "D",  "F",  "G",  "H",  {t: "Sel←", h: J, type: sel},  {t: "Sel↓", h: K, type: sel},  {t: "Sel→", h: L, type: sel},  {t: "⇧⏎", h: ";", type: sel},  "'",  "Return"]
+    - ["Shift",  "Z",  "X",  "C",  "V",  "B",  "N",  "M",  ",",  ".",  "/",  "Shift"]
+    - ["Fn",  "Ctrl",  "Opt",  "⌘",  "",  "⌘",  "Opt"]
+
+  # ── Hyper + S + D (Word Selection) ────────────────────────────────────────
+  Hyper + S + D:
+    - ["~",  "!",  "@",  "#",  "$",  "%",  "^",  "&",  "*",  "(",  ")",  "_",  "+",  "Delete"]
+    - ["Tab",  "Q",  "W",  "E",  "R",  "T",  "Y",  "U",  {t: Shrink, h: I, type: wordsel},  "O",  "P",  "[",  "]",  "\\"]
+    - ["⇪ HYPER",  "A",  {t: "▶ Sel", h: S, type: layer},  {t: "▶ Word", h: D, type: layer},  "F",  "G",  "H",  {t: "SelW←", h: J, type: wordsel},  {t: Expand, h: K, type: wordsel},  {t: "SelW→", h: L, type: wordsel},  ";",  "'",  "Return"]
+    - ["Shift",  "Z",  "X",  "C",  "V",  "B",  "N",  "M",  ",",  ".",  "/",  "Shift"]
+    - ["Fn",  "Ctrl",  "Opt",  "⌘",  "",  "⌘",  "Opt"]
+
+  # ── Base Modifications ───────────────────────────────────────────────────
+  Base:
+    - ["~",  "!",  "@",  "#",  "$",  "%",  "^",  "&",  "*",  "(",  ")",  "_",  "+",  {t: disabled, type: disabled}]
+    - ["Tab",  "Q",  "W",  "E",  "R",  "T",  "Y",  "U",  "I",  "O",  "P",  "[",  "]",  "\\"]
+    - ["Caps",  "A",  "S",  "D",  "F",  "G",  "H",  "J",  "K",  "L",  ";",  "'",  {t: "ABC+Leader", h: "⏎", type: remap}]
+    - ["Shift",  "Z",  "X",  "C",  "V",  "B",  "N",  "M",  ",",  ".",  {t: SymbolMode, h: "/", type: layer},  "Shift"]
+    - [{t: "Layout Toggle", h: "Fn+Space", type: remap},  "Ctrl",  "Opt",  "⌘",  "",  {t: Leader, h: "⌘R", type: remap},  "Opt"]
