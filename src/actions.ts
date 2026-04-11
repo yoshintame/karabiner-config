@@ -97,16 +97,4 @@ export const mouse = {
   rightClick: toPointingButton('button2'),
 }
 
-export const hyper = {
-  spotlight: toKey('f', 'Hyper'),
-  aiOverlay: toKey('o', 'Hyper'),
-  translateOverlay: toKey('t', 'Hyper'),
-  passwordsOverlay: toKey('p', 'Hyper'),
-
-  screenshot: toKey('s', '⌘⌃⇧'),
-  screenshotArea: toKey('s', '⌘⌃⇧'),
-  screenshotWindow: toKey('s', '⌘⌃⇧'),
-  screenshotFullscreen: toKey('s', '⌘⌃⇧'),
-
-  record: toKey('r', '⌘⌃⇧'),
-}
+export { proxy } from './generated/proxy-bindings'
