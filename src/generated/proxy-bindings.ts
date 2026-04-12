@@ -9,6 +9,7 @@ export const proxy = {
   roulette: toKey('x' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   rouletteClear: toKey('z' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   spotlight: toKey('f' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
+  leaderInApp: toKey('l' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   screenshotArea: toKey('1' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   screenshotFull: toKey('2' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   screenshotWindow: toKey('3' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),

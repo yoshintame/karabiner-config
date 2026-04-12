@@ -1,5 +1,7 @@
 import { toInputSource, toKey, toPointingButton } from 'karabiner.ts'
 
+import { proxy } from './generated/proxy-bindings'
+
 export const clipboard = {
   copy: toKey('c', '⌘'),
   paste: toKey('v', '⌘'),
@@ -71,7 +73,7 @@ export const system = {
   ABCLayout: toInputSource({ input_source_id: 'com.apple.keylayout.ABC' }),
   languageSwitch: toKey('␣', '⌘'),
 
-  leaderInApp: toKey('1', 'Hyper'),
+  leaderInApp: proxy.leaderInApp,
   leaderGlobal: toKey('f18'),
 } as const
 
@@ -97,4 +99,4 @@ export const mouse = {
   rightClick: toPointingButton('button2'),
 }
 
-export { proxy } from './generated/proxy-bindings'
+export { proxy }
