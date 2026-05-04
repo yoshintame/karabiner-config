@@ -10,6 +10,7 @@ import {
   clipboardHyperRule,
   deletetionHyperRule,
   navigationHyperRule,
+  screenshotHyperRule,
   selecetionHyperRule,
   systemHyperRule,
 } from './hyper-layer-binds'
@@ -68,6 +69,7 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
   selecetionHyperRule,
   deletetionHyperRule,
   clipboardHyperRule,
+  screenshotHyperRule,
   systemHyperRule,
 
   colemakLayoutRule,

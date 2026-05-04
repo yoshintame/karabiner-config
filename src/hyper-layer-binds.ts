@@ -79,6 +79,16 @@ const clipboardHyperRule = rule('Clipboard').manipulators([
   ]),
 ])
 
+const screenshotHyperRule = rule('Screenshot').manipulators([
+  layerHyper([
+    map(1).to(proxy.screenshotFull),
+    map(2).to(proxy.screenshotArea),
+    map(3).to(proxy.screenshotVideo),
+    map(4).to(proxy.screenshotOcr),
+    map(5).to(proxy.screenshotWindow),
+  ]),
+])
+
 const systemHyperRule = rule('System').manipulators([
   layerHyper([
     map(';').to(system.return),
@@ -98,6 +108,7 @@ export {
   clipboardHyperRule,
   deletetionHyperRule,
   navigationHyperRule,
+  screenshotHyperRule,
   selecetionHyperRule,
   systemHyperRule,
 }
