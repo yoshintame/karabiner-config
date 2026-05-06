@@ -16,6 +16,7 @@ import {
 } from './hyper-layer-binds'
 import { hyperMode } from './hyper-layers'
 import { colemakLayoutRule } from './keyboard-layouts'
+import { optionTapRule } from './option-tap'
 import { toggleLayers } from './toggle-layers'
 import { symbolModeLayer, utilsRule } from './utils'
 
@@ -76,6 +77,8 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
 
   disablesRule,
   utilsRule,
+
+  optionTapRule,
 
   symbolModeLayer,
 
