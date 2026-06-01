@@ -7,7 +7,7 @@ const SWITCHER_HOTKEY_KEY = '\\'
 const SWITCHER_HOTKEY_MODS = '⌘⌥⌃⇧'
 
 const LAST_APP_DEEPLINK =
-  'raycast://extensions/raycast/raycast-app-switcher/switch-to-last'
+  'raycast://extensions/yoshintame/raycast-app-switcher/switch-to-last'
 
 const TIMEOUT = { 'basic.to_if_alone_timeout_milliseconds': 300 } as const
 

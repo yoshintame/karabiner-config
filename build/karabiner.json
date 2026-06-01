@@ -4025,7 +4025,7 @@
                 ],
                 "to_if_alone": [
                   {
-                    "shell_command": "open raycast://extensions/raycast/raycast-app-switcher/switch-to-last"
+                    "shell_command": "open raycast://extensions/yoshintame/raycast-app-switcher/switch-to-last"
                   }
                 ],
                 "parameters": {
