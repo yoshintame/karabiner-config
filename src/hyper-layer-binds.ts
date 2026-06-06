@@ -95,7 +95,7 @@ const systemHyperRule = rule('System').manipulators([
     map(';', '⌘').to(system.returnCmd),
     map('c').to(system.prefix),
     map('h').to(system.escape),
-    map('␣').to(system.languageSwitch),
+    map('␣').toNone(),
     map('m').to(system.undo),
     map('.').to(system.redo),
     map('x').to(mouse.leftClick),
