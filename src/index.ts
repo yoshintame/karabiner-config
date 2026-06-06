@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { map, rule, toKey, writeToProfile } from 'karabiner.ts'
+import { ifInputSource, map, rule, toKey, writeToProfile } from 'karabiner.ts'
 
 import { system } from '@/actions'
 
@@ -87,6 +87,11 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
     map('right_command').to(system.leaderGlobal),
     map('left_shift', 'optionalAny')
       .to(toKey('left_shift'))
-      .toIfAlone(system.languageSwitch),
+      .toIfAlone(system.russianLayout)
+      .condition(ifInputSource({ language: 'en' })),
+    map('left_shift', 'optionalAny')
+      .to(toKey('left_shift'))
+      .toIfAlone(system.ABCLayout)
+      .condition(ifInputSource({ language: 'en' }).unless()),
   ]),
 ])

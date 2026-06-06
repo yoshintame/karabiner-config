@@ -71,7 +71,9 @@ export const system = {
   space: toKey('␣'),
 
   ABCLayout: toInputSource({ input_source_id: 'com.apple.keylayout.ABC' }),
-  languageSwitch: toKey('␣', '⌘'),
+  russianLayout: toInputSource({
+    input_source_id: 'com.apple.keylayout.RussianWin',
+  }),
 
   leaderInApp: proxy.leaderInApp,
   leaderGlobal: toKey('f18'),
