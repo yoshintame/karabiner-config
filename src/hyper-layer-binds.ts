@@ -89,6 +89,16 @@ const screenshotHyperRule = rule('Screenshot').manipulators([
   ]),
 ])
 
+const pasteHistoryHyperRule = rule('Paste History').manipulators([
+  layerHyper([
+    map(1, '⌘').to(proxy.pasteHistory1),
+    map(2, '⌘').to(proxy.pasteHistory2),
+    map(3, '⌘').to(proxy.pasteHistory3),
+    map(4, '⌘').to(proxy.pasteHistory4),
+    map(5, '⌘').to(proxy.pasteHistory5),
+  ]),
+])
+
 const systemHyperRule = rule('System').manipulators([
   layerHyper([
     map(';').to(system.return),
@@ -108,6 +118,7 @@ export {
   clipboardHyperRule,
   deletetionHyperRule,
   navigationHyperRule,
+  pasteHistoryHyperRule,
   screenshotHyperRule,
   selecetionHyperRule,
   systemHyperRule,

@@ -1537,6 +1537,231 @@
             ]
           },
           {
+            "description": "Paste History",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "1",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f13",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "2",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f14",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "3",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f15",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "4",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f16",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "5",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f17",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "Screenshot",
             "manipulators": [
               {
@@ -1889,10 +2114,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "spacebar",
-                    "modifiers": [
-                      "command"
-                    ]
+                    "key_code": "vk_none"
                   }
                 ],
                 "conditions": [
@@ -4414,9 +4636,51 @@
                 ],
                 "to_if_alone": [
                   {
-                    "key_code": "spacebar",
-                    "modifiers": [
-                      "command"
+                    "select_input_source": {
+                      "input_source_id": "com.apple.keylayout.RussianWin"
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "en"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "left_shift",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_shift"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "select_input_source": {
+                      "input_source_id": "com.apple.keylayout.ABC"
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "en"
+                      }
                     ]
                   }
                 ]

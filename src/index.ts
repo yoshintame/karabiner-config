@@ -10,6 +10,7 @@ import {
   clipboardHyperRule,
   deletetionHyperRule,
   navigationHyperRule,
+  pasteHistoryHyperRule,
   screenshotHyperRule,
   selecetionHyperRule,
   systemHyperRule,
@@ -70,6 +71,7 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
   selecetionHyperRule,
   deletetionHyperRule,
   clipboardHyperRule,
+  pasteHistoryHyperRule,
   screenshotHyperRule,
   systemHyperRule,
 
