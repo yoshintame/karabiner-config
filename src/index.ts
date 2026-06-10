@@ -18,6 +18,7 @@ import {
 import { hyperMode } from './hyper-layers'
 import { colemakLayoutRule } from './keyboard-layouts'
 import { optionTapRule } from './option-tap'
+import { quitAppRule } from './quit-app-binds'
 import { toggleLayers } from './toggle-layers'
 import { symbolModeLayer, utilsRule } from './utils'
 
@@ -74,6 +75,8 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
   pasteHistoryHyperRule,
   screenshotHyperRule,
   systemHyperRule,
+
+  quitAppRule,
 
   colemakLayoutRule,
 
