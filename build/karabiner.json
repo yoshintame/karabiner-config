@@ -209,6 +209,39 @@
             ]
           },
           {
+            "description": "tab-mode",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "tab"
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "numpad",
+                      "value": true
+                    }
+                  }
+                ],
+                "to_after_key_up": [
+                  {
+                    "set_variable": {
+                      "name": "numpad",
+                      "value": false
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "switcher-active",
+                      "value": false
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "Navigation",
             "manipulators": [
               {
@@ -240,6 +273,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -274,6 +312,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -307,6 +350,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -339,6 +387,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -381,6 +434,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -421,6 +479,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -463,6 +526,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -504,6 +572,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -539,6 +612,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -576,6 +654,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -612,6 +695,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -647,6 +735,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -689,6 +782,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -724,6 +822,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -761,6 +864,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -797,6 +905,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -832,6 +945,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -875,6 +993,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -916,6 +1039,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -959,6 +1087,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1001,6 +1134,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1038,6 +1176,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1074,6 +1217,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -1113,6 +1261,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1150,6 +1303,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -1189,6 +1347,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1221,6 +1384,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -1263,6 +1431,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1304,6 +1477,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1340,6 +1518,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1375,6 +1558,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -1417,6 +1605,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1453,6 +1646,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1488,6 +1686,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -1530,6 +1733,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -1580,6 +1788,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1623,6 +1836,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -1668,6 +1886,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1711,6 +1934,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -1756,6 +1984,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               }
@@ -1800,6 +2033,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1838,6 +2076,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -1878,6 +2121,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -1916,6 +2164,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -1956,6 +2209,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               }
@@ -1993,6 +2251,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -2035,6 +2298,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -2071,6 +2339,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -2104,6 +2377,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -2136,6 +2414,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -2172,6 +2455,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -2210,6 +2498,11 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -2242,6 +2535,11 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -2282,6 +2580,49 @@
                     "type": "variable_unless",
                     "name": "cmd-layer",
                     "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "comma"
+                },
+                "to": [
+                  {
+                    "key_code": "tab"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
                   }
                 ]
               },
@@ -2317,6 +2658,775 @@
                   {
                     "type": "variable_unless",
                     "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "comma"
+                },
+                "to": [
+                  {
+                    "key_code": "tab",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Numpad",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "u"
+                },
+                "to": [
+                  {
+                    "key_code": "1"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "numpad",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "i"
+                },
+                "to": [
+                  {
+                    "key_code": "2"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "numpad",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "o"
+                },
+                "to": [
+                  {
+                    "key_code": "3"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "numpad",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j"
+                },
+                "to": [
+                  {
+                    "key_code": "4"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "numpad",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "k"
+                },
+                "to": [
+                  {
+                    "key_code": "5"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "numpad",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l"
+                },
+                "to": [
+                  {
+                    "key_code": "6"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "numpad",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "semicolon"
+                },
+                "to": [
+                  {
+                    "key_code": "0"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "numpad",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "m"
+                },
+                "to": [
+                  {
+                    "key_code": "7"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "numpad",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "comma"
+                },
+                "to": [
+                  {
+                    "key_code": "8"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "numpad",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "period"
+                },
+                "to": [
+                  {
+                    "key_code": "9"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "numpad",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Switching",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "e"
+                },
+                "to": [
+                  {
+                    "key_code": "backslash",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control",
+                      "shift"
+                    ]
+                  },
+                  {
+                    "set_variable": {
+                      "name": "switcher-active",
+                      "value": true
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "numpad",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "w"
+                },
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/yoshintame/raycast-app-switcher/current-app-windows"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "switcher-active",
+                      "value": true
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "numpad",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "q"
+                },
+                "to": [
+                  {
+                    "key_code": "tab",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "numpad",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Quit App",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "P=$(osascript -e 'tell application \"System Events\" to unix id of first process whose frontmost is true'); [ -n \"$P\" ] && kill -9 \"$P\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "B=$(osascript -e 'tell application \"System Events\" to bundle identifier of first process whose frontmost is true'); P=$(osascript -e 'tell application \"System Events\" to unix id of first process whose frontmost is true'); [ -n \"$P\" ] && kill -9 \"$P\"; [ -n \"$B\" ] && { sleep 0.7; open -b \"$B\"; }"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "escape"
+                },
+                "to": [
+                  {
+                    "key_code": "escape",
+                    "modifiers": [
+                      "command",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "numpad",
                     "value": true
                   }
                 ]

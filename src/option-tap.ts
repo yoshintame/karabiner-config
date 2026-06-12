@@ -3,8 +3,8 @@ import { map, rule, to$, toKey } from 'karabiner.ts'
 // Tap left option emits Hyper+\ (Cmd+Ctrl+Alt+Shift+backslash). Bind this chord
 // in Raycast Settings to the "All Apps (Except Pinned)" command — Raycast
 // natively toggles its hotkey (open if closed, close if open). No state sync needed.
-const SWITCHER_HOTKEY_KEY = '\\'
-const SWITCHER_HOTKEY_MODS = '⌘⌥⌃⇧'
+export const SWITCHER_HOTKEY_KEY = '\\'
+export const SWITCHER_HOTKEY_MODS = '⌘⌥⌃⇧'
 
 const LAST_APP_DEEPLINK =
   'raycast://extensions/yoshintame/raycast-app-switcher/switch-to-last'

@@ -10,12 +10,14 @@ import {
   clipboardHyperRule,
   deletetionHyperRule,
   navigationHyperRule,
+  numpadHyperRule,
   pasteHistoryHyperRule,
   screenshotHyperRule,
   selecetionHyperRule,
+  switchingHyperRule,
   systemHyperRule,
 } from './hyper-layer-binds'
-import { hyperMode } from './hyper-layers'
+import { hyperMode, tabMode } from './hyper-layers'
 import { colemakLayoutRule } from './keyboard-layouts'
 import { optionTapRule } from './option-tap'
 import { quitAppRule } from './quit-app-binds'
@@ -68,6 +70,7 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
   toggleLayers,
 
   hyperMode,
+  tabMode,
   navigationHyperRule,
   selecetionHyperRule,
   deletetionHyperRule,
@@ -75,6 +78,8 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
   pasteHistoryHyperRule,
   screenshotHyperRule,
   systemHyperRule,
+  numpadHyperRule,
+  switchingHyperRule,
 
   quitAppRule,
 

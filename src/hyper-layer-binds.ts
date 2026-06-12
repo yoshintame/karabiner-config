@@ -1,6 +1,7 @@
-import { map, rule } from 'karabiner.ts'
+import { map, rule, toKey } from 'karabiner.ts'
 
 import {
+  apps,
   clipboard,
   deletetion,
   mouse,
@@ -9,7 +10,17 @@ import {
   selection,
   system,
 } from './actions'
-import { layerD, layerHyper, layerS, layerSD } from './hyper-layers'
+import {
+  layerD,
+  layerHyper,
+  layerNumpad,
+  layerS,
+  layerSD,
+} from './hyper-layers'
+import { SWITCHER_HOTKEY_KEY, SWITCHER_HOTKEY_MODS } from './option-tap'
+
+const WINDOW_SWITCHER_DEEPLINK =
+  'raycast://extensions/yoshintame/raycast-app-switcher/current-app-windows'
 
 const deletetionHyperRule = rule('Deletetion').manipulators([
   layerHyper([
@@ -110,16 +121,48 @@ const systemHyperRule = rule('System').manipulators([
     map('.').to(system.redo),
     map('x').to(mouse.leftClick),
     map('f').to(proxy.spotlight),
+    map(',').to(toKey('⇥')),
   ]),
-  layerS([map(';').to(system.returnShifted)]),
+  layerS([map(';').to(system.returnShifted), map(',').to(toKey('⇥', '⇧'))]),
+])
+
+const numpadHyperRule = rule('Numpad').manipulators([
+  layerNumpad([
+    map('u').to(1),
+    map('i').to(2),
+    map('o').to(3),
+
+    map('j').to(4),
+    map('k').to(5),
+    map('l').to(6),
+    map(';').to(0),
+
+    map('m').to(7),
+    map(',').to(8),
+    map('.').to(9),
+  ]),
+])
+
+const switchingHyperRule = rule('Switching').manipulators([
+  layerNumpad([
+    map('e')
+      .to(SWITCHER_HOTKEY_KEY, SWITCHER_HOTKEY_MODS)
+      .toVar('switcher-active', true),
+    map('w')
+      .to$(`open ${WINDOW_SWITCHER_DEEPLINK}`)
+      .toVar('switcher-active', true),
+    map('q').to(apps.prev),
+  ]),
 ])
 
 export {
   clipboardHyperRule,
   deletetionHyperRule,
   navigationHyperRule,
+  numpadHyperRule,
   pasteHistoryHyperRule,
   screenshotHyperRule,
   selecetionHyperRule,
+  switchingHyperRule,
   systemHyperRule,
 }
