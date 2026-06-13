@@ -5339,30 +5339,6 @@
                 "parameters": {
                   "basic.to_if_alone_timeout_milliseconds": 300
                 }
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "right_option",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_option"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "shell_command": "open raycast://extensions/yoshintame/raycast-app-switcher/switch-to-last"
-                  }
-                ],
-                "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 300
-                }
               }
             ]
           },
