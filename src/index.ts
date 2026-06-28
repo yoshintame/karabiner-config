@@ -19,6 +19,7 @@ import {
 } from './hyper-layer-binds'
 import { hyperMode, tabMode } from './hyper-layers'
 import { colemakLayoutRule } from './keyboard-layouts'
+import { numberRowRule } from './number-row'
 import { optionTapRule } from './option-tap'
 import { quitAppRule } from './quit-app-binds'
 import { toggleLayers } from './toggle-layers'
@@ -84,6 +85,8 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
   quitAppRule,
 
   colemakLayoutRule,
+
+  numberRowRule,
 
   disablesRule,
   utilsRule,
