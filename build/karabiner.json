@@ -5122,7 +5122,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "1",
+                    "key_code": "5",
                     "modifiers": [
                       "shift"
                     ]
@@ -5196,7 +5196,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "period"
+                    "key_code": "slash"
                   }
                 ],
                 "conditions": [
@@ -5217,7 +5217,10 @@
                 },
                 "to": [
                   {
-                    "key_code": "slash"
+                    "key_code": "backslash",
+                    "modifiers": [
+                      "shift"
+                    ]
                   }
                 ],
                 "conditions": [
@@ -5238,7 +5241,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "comma"
+                    "key_code": "period"
                   }
                 ],
                 "conditions": [
@@ -5259,10 +5262,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "slash",
-                    "modifiers": [
-                      "shift"
-                    ]
+                    "key_code": "slash"
                   }
                 ],
                 "conditions": [
@@ -5427,7 +5427,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "slash"
+                    "key_code": "comma"
                   }
                 ],
                 "conditions": [
@@ -5448,7 +5448,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "backslash",
+                    "key_code": "slash",
                     "modifiers": [
                       "shift"
                     ]
@@ -5496,6 +5496,95 @@
               {
                 "type": "basic",
                 "from": {
+                  "key_code": "1",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "1",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "2",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "4",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "en"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "2",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "select_input_source": {
+                      "input_source_id": "com.apple.keylayout.ABC"
+                    }
+                  }
+                ],
+                "to_after_key_up": [
+                  {
+                    "key_code": "4",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  },
+                  {
+                    "select_input_source": {
+                      "input_source_id": "com.apple.keylayout.RussianWin"
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "en"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
                   "key_code": "3",
                   "modifiers": {
                     "mandatory": [
@@ -5505,7 +5594,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "period",
+                    "key_code": "3",
                     "modifiers": [
                       "shift"
                     ]
@@ -5537,9 +5626,11 @@
                     "select_input_source": {
                       "input_source_id": "com.apple.keylayout.ABC"
                     }
-                  },
+                  }
+                ],
+                "to_after_key_up": [
                   {
-                    "key_code": "period",
+                    "key_code": "3",
                     "modifiers": [
                       "shift"
                     ]
@@ -5573,7 +5664,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "comma",
+                    "key_code": "6",
                     "modifiers": [
                       "shift"
                     ]
@@ -5605,9 +5696,11 @@
                     "select_input_source": {
                       "input_source_id": "com.apple.keylayout.ABC"
                     }
-                  },
+                  }
+                ],
+                "to_after_key_up": [
                   {
-                    "key_code": "comma",
+                    "key_code": "6",
                     "modifiers": [
                       "shift"
                     ]
@@ -5725,7 +5818,9 @@
                     "select_input_source": {
                       "input_source_id": "com.apple.keylayout.ABC"
                     }
-                  },
+                  }
+                ],
+                "to_after_key_up": [
                   {
                     "key_code": "quote"
                   },
@@ -5749,7 +5844,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "1",
+                  "key_code": "8",
                   "modifiers": {
                     "mandatory": [
                       "shift"
@@ -5758,7 +5853,26 @@
                 },
                 "to": [
                   {
-                    "key_code": "3",
+                    "key_code": "8",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "9",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "comma",
                     "modifiers": [
                       "shift"
                     ]
@@ -5767,117 +5881,6 @@
                 "conditions": [
                   {
                     "type": "input_source_if",
-                    "input_sources": [
-                      {
-                        "language": "en"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "1",
-                  "modifiers": {
-                    "mandatory": [
-                      "shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "select_input_source": {
-                      "input_source_id": "com.apple.keylayout.ABC"
-                    }
-                  }
-                ],
-                "to_after_key_up": [
-                  {
-                    "key_code": "3",
-                    "modifiers": [
-                      "shift"
-                    ]
-                  },
-                  {
-                    "select_input_source": {
-                      "input_source_id": "com.apple.keylayout.RussianWin"
-                    }
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "input_source_unless",
-                    "input_sources": [
-                      {
-                        "language": "en"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "2",
-                  "modifiers": {
-                    "mandatory": [
-                      "shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "4",
-                    "modifiers": [
-                      "shift"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "input_source_if",
-                    "input_sources": [
-                      {
-                        "language": "en"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "2",
-                  "modifiers": {
-                    "mandatory": [
-                      "shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "select_input_source": {
-                      "input_source_id": "com.apple.keylayout.ABC"
-                    }
-                  }
-                ],
-                "to_after_key_up": [
-                  {
-                    "key_code": "4",
-                    "modifiers": [
-                      "shift"
-                    ]
-                  },
-                  {
-                    "select_input_source": {
-                      "input_source_id": "com.apple.keylayout.RussianWin"
-                    }
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "input_source_unless",
                     "input_sources": [
                       {
                         "language": "en"
@@ -5898,9 +5901,31 @@
                 },
                 "to": [
                   {
-                    "key_code": "5",
+                    "select_input_source": {
+                      "input_source_id": "com.apple.keylayout.ABC"
+                    }
+                  }
+                ],
+                "to_after_key_up": [
+                  {
+                    "key_code": "comma",
                     "modifiers": [
                       "shift"
+                    ]
+                  },
+                  {
+                    "select_input_source": {
+                      "input_source_id": "com.apple.keylayout.RussianWin"
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "en"
+                      }
                     ]
                   }
                 ]
@@ -5917,7 +5942,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "6",
+                    "key_code": "period",
                     "modifiers": [
                       "shift"
                     ]
@@ -5953,7 +5978,7 @@
                 ],
                 "to_after_key_up": [
                   {
-                    "key_code": "6",
+                    "key_code": "period",
                     "modifiers": [
                       "shift"
                     ]
