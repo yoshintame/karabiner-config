@@ -1,4 +1,4 @@
-// GENERATED FILE — do not edit. Source: ../../../shared/proxy-bindings.yaml
+// GENERATED FILE — do not edit. Source: modules/shared/proxy-bindings.yaml
 import type { ModifierParam, ToKeyParam } from 'karabiner.ts'
 import { toKey } from 'karabiner.ts'
 
