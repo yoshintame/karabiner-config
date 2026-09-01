@@ -22,6 +22,9 @@ import { SWITCHER_HOTKEY_KEY, SWITCHER_HOTKEY_MODS } from './option-tap'
 const WINDOW_SWITCHER_DEEPLINK =
   'raycast://extensions/yoshintame/raycast-app-switcher/current-app-windows'
 
+const VSCODE_WINDOW_SWITCHER_DEEPLINK =
+  'raycast://extensions/yoshintame/raycast-app-switcher/app-windows-by-id?arguments=%7B%22appIdentifier%22%3A%22com.microsoft.VSCode%22%7D'
+
 const deletetionHyperRule = rule('Deletetion').manipulators([
   layerHyper([
     map('u').to(deletetion.backward),
@@ -144,6 +147,7 @@ const numpadHyperRule = rule('Numpad').manipulators([
 ])
 
 const switchingHyperRule = rule('Switching').manipulators([
+  layerHyper([map('n').to$(`open '${VSCODE_WINDOW_SWITCHER_DEEPLINK}'`)]),
   layerNumpad([
     map('e')
       .to(SWITCHER_HOTKEY_KEY, SWITCHER_HOTKEY_MODS)

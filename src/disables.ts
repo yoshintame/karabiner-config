@@ -14,6 +14,9 @@ export const disablesRule = rule('Disables').manipulators([
   map('x', '⌘').toNone(),
   map('z', '⌘').toNone(),
 
+  map('`', '⌘').toNone(),
+  map('`', '⌘⇧').toNone(),
+
   map(';').toNone().condition(en()),
   map(';', '⇧').toNone().condition(en()),
   map("'").toNone().condition(en()),
