@@ -2,7 +2,7 @@
   "name": "yoshintame-karabiner-config",
   "description": "yoshintame karabiner config in karabiner.ts",
   "scripts": {
-    "generate:proxy": "bun run ../../../packages/proxy-bindings/src/cli.ts generate -c ../../../modules/proxy-bindings/proxy-bindings.yaml",
+    "generate:proxy": "bun run ../../../../packages/proxy-bindings/src/cli.ts generate -c ../../../../modules/shared/proxy-bindings.yaml",
     "dev": "MODE=development bun run src/index.ts",
     "prebuild": "bun run generate:proxy",
     "build": "MODE=build bun run src/index.ts",
