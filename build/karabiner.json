@@ -3248,7 +3248,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open raycast://extensions/yoshintame/raycast-app-switcher/current-app-windows"
+                    "shell_command": "/opt/homebrew/bin/hs -c \"switchCurrentAppWindows()\""
                   },
                   {
                     "set_variable": {

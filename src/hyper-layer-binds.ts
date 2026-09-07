@@ -19,9 +19,6 @@ import {
 } from './hyper-layers'
 import { SWITCHER_HOTKEY_KEY, SWITCHER_HOTKEY_MODS } from './option-tap'
 
-const WINDOW_SWITCHER_DEEPLINK =
-  'raycast://extensions/yoshintame/raycast-app-switcher/current-app-windows'
-
 const VSCODE_WINDOW_SWITCHER_DEEPLINK =
   'raycast://extensions/yoshintame/raycast-app-switcher/app-windows-by-id?arguments=%7B%22appIdentifier%22%3A%22com.microsoft.VSCode%22%7D'
 
@@ -153,7 +150,7 @@ const switchingHyperRule = rule('Switching').manipulators([
       .to(SWITCHER_HOTKEY_KEY, SWITCHER_HOTKEY_MODS)
       .toVar('switcher-active', true),
     map('w')
-      .to$(`open ${WINDOW_SWITCHER_DEEPLINK}`)
+      .to$('/opt/homebrew/bin/hs -c "switchCurrentAppWindows()"')
       .toVar('switcher-active', true),
     map('q').to(apps.prev),
   ]),
