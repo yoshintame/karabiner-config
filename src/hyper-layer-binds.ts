@@ -144,13 +144,13 @@ const numpadHyperRule = rule('Numpad').manipulators([
 ])
 
 const switchingHyperRule = rule('Switching').manipulators([
-  layerHyper([map('n').to$(`open '${VSCODE_WINDOW_SWITCHER_DEEPLINK}'`)]),
+  layerHyper([
+    map('n').to$(`open '${VSCODE_WINDOW_SWITCHER_DEEPLINK}'`),
+    map('p').to$('/opt/homebrew/bin/hs -c "switchCurrentAppWindows()"'),
+  ]),
   layerNumpad([
     map('e')
       .to(SWITCHER_HOTKEY_KEY, SWITCHER_HOTKEY_MODS)
-      .toVar('switcher-active', true),
-    map('w')
-      .to$('/opt/homebrew/bin/hs -c "switchCurrentAppWindows()"')
       .toVar('switcher-active', true),
     map('q').to(apps.prev),
   ]),

@@ -3189,28 +3189,16 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "e"
+                  "key_code": "p"
                 },
                 "to": [
                   {
-                    "key_code": "backslash",
-                    "modifiers": [
-                      "command",
-                      "option",
-                      "control",
-                      "shift"
-                    ]
-                  },
-                  {
-                    "set_variable": {
-                      "name": "switcher-active",
-                      "value": true
-                    }
+                    "shell_command": "/opt/homebrew/bin/hs -c \"switchCurrentAppWindows()\""
                   }
                 ],
                 "conditions": [
                   {
-                    "type": "variable_unless",
+                    "type": "variable_if",
                     "name": "hyper",
                     "value": true
                   },
@@ -3230,13 +3218,8 @@
                     "value": true
                   },
                   {
-                    "type": "variable_if",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
                     "type": "variable_unless",
-                    "name": "switcher-active",
+                    "name": "numpad",
                     "value": true
                   }
                 ]
@@ -3244,11 +3227,17 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "w"
+                  "key_code": "e"
                 },
                 "to": [
                   {
-                    "shell_command": "/opt/homebrew/bin/hs -c \"switchCurrentAppWindows()\""
+                    "key_code": "backslash",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control",
+                      "shift"
+                    ]
                   },
                   {
                     "set_variable": {
