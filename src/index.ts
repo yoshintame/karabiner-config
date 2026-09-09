@@ -1,7 +1,14 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { ifInputSource, map, rule, toKey, writeToProfile } from 'karabiner.ts'
+import {
+  ifInputSource,
+  map,
+  rule,
+  toKey,
+  toSetVar,
+  writeToProfile,
+} from 'karabiner.ts'
 
 import { system } from '@/actions'
 
@@ -22,6 +29,7 @@ import { colemakLayoutRule } from './keyboard-layouts'
 import { numberRowRule } from './number-row'
 import { optionTapRule } from './option-tap'
 import { quitAppRule } from './quit-app-binds'
+import { rcmdLayerRule } from './rcmd-layer-binds'
 import { toggleLayers } from './toggle-layers'
 import { symbolModeLayer, utilsRule } from './utils'
 
@@ -81,6 +89,7 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
   systemHyperRule,
   numpadHyperRule,
   switchingHyperRule,
+  rcmdLayerRule,
 
   quitAppRule,
 
@@ -97,7 +106,10 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
 
   rule('Other').manipulators([
     map('⏎').to(system.ABCLayout).to(system.leaderInApp),
-    map('right_command').to(system.leaderGlobal),
+    map('right_command')
+      .toVar('rcmd-layer', true)
+      .toAfterKeyUp(toSetVar('rcmd-layer', false))
+      .toIfAlone(system.leaderGlobal),
     map('left_shift', 'optionalAny')
       .to(toKey('left_shift'))
       .toIfAlone(system.russianLayout)

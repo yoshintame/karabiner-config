@@ -37,6 +37,7 @@ export function layer(...activeLayers: string[]) {
     { key: 'd-layer', flag: activeLayers.includes('D') },
     { key: 'cmd-layer', flag: activeLayers.includes('F') },
     { key: 'numpad', flag: activeLayers.includes('N') },
+    { key: 'rcmd-layer', flag: activeLayers.includes('R') },
   ].map(({ key, flag }) =>
     flag ? ifVar(key, true) : ifVar(key, true).unless(),
   )
@@ -55,3 +56,4 @@ export const layerSD = layer('H', 'S', 'D')
 export const layerF = layer('H', 'F')
 export const layerSF = layer('H', 'S', 'F')
 export const layerNumpad = layer('N')
+export const layerRcmd = layer('R')
