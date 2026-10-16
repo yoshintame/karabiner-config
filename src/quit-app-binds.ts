@@ -3,9 +3,9 @@ import { map, rule, toKey } from 'karabiner.ts'
 import { layerHyper } from './hyper-layers'
 
 const frontPid =
-  "osascript -e 'tell application \"System Events\" to unix id of first process whose frontmost is true'"
+  'osascript -e \'tell application "System Events" to unix id of first process whose frontmost is true\''
 const frontBundle =
-  "osascript -e 'tell application \"System Events\" to bundle identifier of first process whose frontmost is true'"
+  'osascript -e \'tell application "System Events" to bundle identifier of first process whose frontmost is true\''
 
 export const quitAppRule = rule('Quit App').manipulators([
   layerHyper([
