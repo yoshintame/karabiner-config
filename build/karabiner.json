@@ -240,13 +240,7 @@
                 ],
                 "to_if_alone": [
                   {
-                    "key_code": "f19",
-                    "modifiers": [
-                      "command",
-                      "option",
-                      "control",
-                      "shift"
-                    ]
+                    "key_code": "f19"
                   }
                 ]
               }
