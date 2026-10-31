@@ -1,4 +1,5 @@
 import { ifVar, map, rule, toSetVar, withCondition } from 'karabiner.ts'
+import { proxy } from './generated/proxy-bindings'
 
 export const hyperMode = rule('hyper-mode').manipulators([
   //Hyper layers
@@ -22,7 +23,8 @@ export const tabMode = rule('tab-mode').manipulators([
     .toAfterKeyUp([
       toSetVar('numpad', false),
       toSetVar('switcher-active', false),
-    ]),
+    ])
+    .toIfAlone(proxy.aiAccept),
 ])
 
 // Explicit using of all existing layers in the conditions of necessity, then that without them the layers cease to be properly triggered
