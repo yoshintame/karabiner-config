@@ -1,6 +1,4 @@
-import { ifInputSource, map, rule } from 'karabiner.ts'
-
-const en = () => ifInputSource({ language: 'en' })
+import { map, rule } from 'karabiner.ts'
 
 export const disablesRule = rule('Disables').manipulators([
   map('↑').toNone(),
@@ -17,14 +15,6 @@ export const disablesRule = rule('Disables').manipulators([
   map('`', '⌘').toNone(),
   map('`', '⌘⇧').toNone(),
 
-  map(';').toNone().condition(en()),
-  map(';', '⇧').toNone().condition(en()),
-  map("'").toNone().condition(en()),
-  map("'", '⇧').toNone().condition(en()),
-  map(',').toNone().condition(en()),
-  map(',', '⇧').toNone().condition(en()),
-  map('.').toNone().condition(en()),
-  map('.', '⇧').toNone().condition(en()),
   map('/').toNone(),
   map('/', '⇧').toNone(),
 ])

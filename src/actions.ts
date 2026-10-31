@@ -75,6 +75,8 @@ export const system = {
     input_source_id: 'com.apple.keylayout.RussianWin',
   }),
 
+  keySwitcherConvert: toKey('left_control'),
+
   leaderInApp: proxy.leaderInApp,
   leaderGlobal: toKey('f18'),
 } as const

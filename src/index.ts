@@ -1,14 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import {
-  ifInputSource,
-  map,
-  rule,
-  toKey,
-  toSetVar,
-  writeToProfile,
-} from 'karabiner.ts'
+import { map, rule, toKey, toSetVar, writeToProfile } from 'karabiner.ts'
 
 import { system } from '@/actions'
 
@@ -112,11 +105,6 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
       .toIfAlone(system.leaderGlobal),
     map('left_shift', 'optionalAny')
       .to(toKey('left_shift'))
-      .toIfAlone(system.russianLayout)
-      .condition(ifInputSource({ language: 'en' })),
-    map('left_shift', 'optionalAny')
-      .to(toKey('left_shift'))
-      .toIfAlone(system.ABCLayout)
-      .condition(ifInputSource({ language: 'en' }).unless()),
+      .toIfAlone(system.keySwitcherConvert),
   ]),
 ])
