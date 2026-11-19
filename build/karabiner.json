@@ -47,13 +47,7 @@
                   },
                   {
                     "set_variable": {
-                      "name": "cmd-layer",
-                      "value": false
-                    }
-                  },
-                  {
-                    "set_variable": {
-                      "name": "numpad",
+                      "name": "tab-layer",
                       "value": false
                     }
                   },
@@ -70,7 +64,10 @@
                     }
                   },
                   {
-                    "shell_command": "pkill -x keySwitcher; osascript -e 'display notification \"Гостевой режим: обычная клавиатура\" with title \"Karabiner\"'"
+                    "shell_command": "pkill -x keySwitcher"
+                  },
+                  {
+                    "shell_command": "osascript -e 'display notification \"Guest mode: stock keyboard\" with title \"Karabiner\"'"
                   }
                 ],
                 "parameters": {
@@ -102,7 +99,10 @@
                     }
                   },
                   {
-                    "shell_command": "open -g -b com.granin.keyswitcher; osascript -e 'display notification \"Гостевой режим выключен\" with title \"Karabiner\"'"
+                    "shell_command": "open -g -b com.granin.keyswitcher"
+                  },
+                  {
+                    "shell_command": "osascript -e 'display notification \"Guest mode off\" with title \"Karabiner\"'"
                   }
                 ],
                 "parameters": {
@@ -147,14 +147,11 @@
                   {
                     "set_variable": {
                       "name": "keyboard-layout",
-                      "value": "default"
+                      "value": "qwerty"
                     }
                   },
                   {
-                    "set_notification_message": {
-                      "id": "Keyboard layout",
-                      "text": "default"
-                    }
+                    "shell_command": "osascript -e 'display notification \"Layout: qwerty\" with title \"Karabiner\"'"
                   }
                 ]
               },
@@ -184,14 +181,11 @@
                   {
                     "set_variable": {
                       "name": "keyboard-layout",
-                      "value": "default"
+                      "value": "qwerty"
                     }
                   },
                   {
-                    "set_notification_message": {
-                      "id": "Keyboard layout",
-                      "text": "default"
-                    }
+                    "shell_command": "osascript -e 'display notification \"Layout: qwerty\" with title \"Karabiner\"'"
                   }
                 ]
               },
@@ -209,7 +203,7 @@
                   {
                     "type": "variable_if",
                     "name": "keyboard-layout",
-                    "value": "default"
+                    "value": "qwerty"
                   },
                   {
                     "type": "variable_unless",
@@ -225,17 +219,14 @@
                     }
                   },
                   {
-                    "set_notification_message": {
-                      "id": "Keyboard layout",
-                      "text": "colemak"
-                    }
+                    "shell_command": "osascript -e 'display notification \"Layout: colemak\" with title \"Karabiner\"'"
                   }
                 ]
               }
             ]
           },
           {
-            "description": "hyper-mode",
+            "description": "Layers",
             "manipulators": [
               {
                 "type": "basic",
@@ -348,12 +339,7 @@
                     "value": 1
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "description": "tab-mode",
-            "manipulators": [
+              },
               {
                 "type": "basic",
                 "from": {
@@ -362,7 +348,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "numpad",
+                      "name": "tab-layer",
                       "value": true
                     }
                   }
@@ -370,7 +356,7 @@
                 "to_after_key_up": [
                   {
                     "set_variable": {
-                      "name": "numpad",
+                      "name": "tab-layer",
                       "value": false
                     }
                   },
@@ -388,108 +374,46 @@
                     "value": 1
                   }
                 ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_command"
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "rcmd-layer",
+                      "value": true
+                    }
+                  }
+                ],
+                "to_after_key_up": [
+                  {
+                    "set_variable": {
+                      "name": "rcmd-layer",
+                      "value": false
+                    }
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "f18"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
               }
             ]
           },
           {
             "description": "Navigation",
             "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "j"
-                },
-                "to": [
-                  {
-                    "key_code": "left_arrow"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l"
-                },
-                "to": [
-                  {
-                    "key_code": "right_arrow"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
               {
                 "type": "basic",
                 "from": {
@@ -518,12 +442,50 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
                     "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j"
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -566,12 +528,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -589,19 +546,11 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": [
-                      "command"
-                    ]
-                  }
+                  "key_code": "l"
                 },
                 "to": [
                   {
-                    "key_code": "left_arrow",
-                    "modifiers": [
-                      "command"
-                    ]
+                    "key_code": "right_arrow"
                   }
                 ],
                 "conditions": [
@@ -622,68 +571,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [
-                      "command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_arrow",
-                    "modifiers": [
-                      "command"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -734,12 +622,58 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
                     "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -790,12 +724,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -813,64 +742,18 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "j"
-                },
-                "to": [
-                  {
-                    "key_code": "left_arrow",
-                    "modifiers": [
-                      "option"
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
                     ]
                   }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l"
                 },
                 "to": [
                   {
                     "key_code": "right_arrow",
                     "modifiers": [
-                      "option"
+                      "command"
                     ]
                   }
                 ],
@@ -886,18 +769,13 @@
                     "value": true
                   },
                   {
-                    "type": "variable_if",
+                    "type": "variable_unless",
                     "name": "d-layer",
                     "value": true
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -943,12 +821,53 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
                     "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j"
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -994,12 +913,53 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
                     "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l"
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1050,114 +1010,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "j"
-                },
-                "to": [
-                  {
-                    "key_code": "left_arrow",
-                    "modifiers": [
-                      "shift"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l"
-                },
-                "to": [
-                  {
-                    "key_code": "right_arrow",
-                    "modifiers": [
-                      "shift"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1203,12 +1056,53 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
                     "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j"
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1254,12 +1148,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1277,75 +1166,12 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": [
-                      "command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "left_arrow",
-                    "modifiers": [
-                      "command",
-                      "shift"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [
-                      "command"
-                    ]
-                  }
+                  "key_code": "l"
                 },
                 "to": [
                   {
                     "key_code": "right_arrow",
                     "modifiers": [
-                      "command",
                       "shift"
                     ]
                   }
@@ -1368,12 +1194,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1425,12 +1246,59 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
                     "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1482,12 +1350,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1505,65 +1368,18 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "j"
-                },
-                "to": [
-                  {
-                    "key_code": "left_arrow",
-                    "modifiers": [
-                      "option",
-                      "shift"
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
                     ]
                   }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l"
                 },
                 "to": [
                   {
                     "key_code": "right_arrow",
                     "modifiers": [
-                      "option",
+                      "command",
                       "shift"
                     ]
                   }
@@ -1580,18 +1396,13 @@
                     "value": true
                   },
                   {
-                    "type": "variable_if",
+                    "type": "variable_unless",
                     "name": "d-layer",
                     "value": true
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1639,12 +1450,54 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
                     "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j"
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "option",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1692,12 +1545,54 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
                     "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l"
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "option",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1715,7 +1610,7 @@
             ]
           },
           {
-            "description": "Deletetion",
+            "description": "Deletion",
             "manipulators": [
               {
                 "type": "basic",
@@ -1745,12 +1640,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1793,12 +1683,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1849,12 +1734,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1905,12 +1785,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -1956,12 +1831,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2007,12 +1877,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2032,6 +1897,52 @@
           {
             "description": "Clipboard",
             "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "q"
+                },
+                "to": [
+                  {
+                    "key_code": "x",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
               {
                 "type": "basic",
                 "from": {
@@ -2063,12 +1974,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2114,63 +2020,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "q"
-                },
-                "to": [
-                  {
-                    "key_code": "x",
-                    "modifiers": [
-                      "command"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2222,12 +2072,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2286,12 +2131,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2345,12 +2185,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2404,12 +2239,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2463,12 +2293,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2522,12 +2347,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2581,12 +2401,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2635,12 +2450,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2689,12 +2499,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2743,12 +2548,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2797,12 +2597,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2850,12 +2645,186 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
                     "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "comma"
+                },
+                "to": [
+                  {
+                    "key_code": "tab"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "h"
+                },
+                "to": [
+                  {
+                    "key_code": "escape"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "m"
+                },
+                "to": [
+                  {
+                    "key_code": "z",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "period"
+                },
+                "to": [
+                  {
+                    "key_code": "z",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2906,12 +2875,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -2957,211 +2921,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "h"
-                },
-                "to": [
-                  {
-                    "key_code": "escape"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "spacebar"
-                },
-                "to": [
-                  {
-                    "key_code": "vk_none"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "m"
-                },
-                "to": [
-                  {
-                    "key_code": "z",
-                    "modifiers": [
-                      "command"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "period"
-                },
-                "to": [
-                  {
-                    "key_code": "z",
-                    "modifiers": [
-                      "command",
-                      "shift"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3204,12 +2964,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3258,12 +3013,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3281,11 +3031,11 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "comma"
+                  "key_code": "spacebar"
                 },
                 "to": [
                   {
-                    "key_code": "tab"
+                    "key_code": "vk_none"
                   }
                 ],
                 "conditions": [
@@ -3306,12 +3056,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3357,12 +3102,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3408,12 +3148,7 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3431,7 +3166,246 @@
             ]
           },
           {
-            "description": "Numpad",
+            "description": "Switching",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "n"
+                },
+                "to": [
+                  {
+                    "shell_command": "open 'raycast://extensions/yoshintame/raycast-app-switcher/app-windows-by-id?arguments=%7B%22appIdentifier%22%3A%22com.microsoft.VSCode%22%7D'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "p"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/hs -c \"switchCurrentAppWindows()\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Quit App",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "P=$(osascript -e 'tell application \"System Events\" to unix id of first process whose frontmost is true'); [ -n \"$P\" ] && kill -9 \"$P\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "B=$(osascript -e 'tell application \"System Events\" to bundle identifier of first process whose frontmost is true'); P=$(osascript -e 'tell application \"System Events\" to unix id of first process whose frontmost is true'); [ -n \"$P\" ] && kill -9 \"$P\"; [ -n \"$B\" ] && { sleep 0.7; open -b \"$B\"; }"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "escape"
+                },
+                "to": [
+                  {
+                    "key_code": "escape",
+                    "modifiers": [
+                      "command",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Tab Layer",
             "manipulators": [
               {
                 "type": "basic",
@@ -3460,13 +3434,8 @@
                     "value": true
                   },
                   {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
                     "type": "variable_if",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3513,13 +3482,8 @@
                     "value": true
                   },
                   {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
                     "type": "variable_if",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3566,13 +3530,8 @@
                     "value": true
                   },
                   {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
                     "type": "variable_if",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3619,13 +3578,8 @@
                     "value": true
                   },
                   {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
                     "type": "variable_if",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3672,13 +3626,8 @@
                     "value": true
                   },
                   {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
                     "type": "variable_if",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3725,13 +3674,8 @@
                     "value": true
                   },
                   {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
                     "type": "variable_if",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3778,13 +3722,8 @@
                     "value": true
                   },
                   {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
                     "type": "variable_if",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3831,13 +3770,8 @@
                     "value": true
                   },
                   {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
                     "type": "variable_if",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3884,13 +3818,8 @@
                     "value": true
                   },
                   {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
                     "type": "variable_if",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3937,13 +3866,8 @@
                     "value": true
                   },
                   {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
                     "type": "variable_if",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -3954,107 +3878,6 @@
                   {
                     "type": "variable_unless",
                     "name": "switcher-active",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "Switching",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "n"
-                },
-                "to": [
-                  {
-                    "shell_command": "open 'raycast://extensions/yoshintame/raycast-app-switcher/app-windows-by-id?arguments=%7B%22appIdentifier%22%3A%22com.microsoft.VSCode%22%7D'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "p"
-                },
-                "to": [
-                  {
-                    "shell_command": "/opt/homebrew/bin/hs -c \"switchCurrentAppWindows()\""
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
                     "value": true
                   },
                   {
@@ -4103,13 +3926,8 @@
                     "value": true
                   },
                   {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
                     "type": "variable_if",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -4159,13 +3977,8 @@
                     "value": true
                   },
                   {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
                     "type": "variable_if",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
@@ -4224,179 +4037,11 @@
                   },
                   {
                     "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
+                    "name": "tab-layer",
                     "value": true
                   },
                   {
                     "type": "variable_if",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "Quit App",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "q",
-                  "modifiers": {
-                    "mandatory": [
-                      "command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "P=$(osascript -e 'tell application \"System Events\" to unix id of first process whose frontmost is true'); [ -n \"$P\" ] && kill -9 \"$P\""
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "r",
-                  "modifiers": {
-                    "mandatory": [
-                      "command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "B=$(osascript -e 'tell application \"System Events\" to bundle identifier of first process whose frontmost is true'); P=$(osascript -e 'tell application \"System Events\" to unix id of first process whose frontmost is true'); [ -n \"$P\" ] && kill -9 \"$P\"; [ -n \"$B\" ] && { sleep 0.7; open -b \"$B\"; }"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "escape"
-                },
-                "to": [
-                  {
-                    "key_code": "escape",
-                    "modifiers": [
-                      "command",
-                      "option"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "cmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "numpad",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
                     "name": "rcmd-layer",
                     "value": true
                   },
@@ -7722,7 +7367,7 @@
             ]
           },
           {
-            "description": "Utils",
+            "description": "Reset",
             "manipulators": [
               {
                 "type": "basic",
@@ -7756,12 +7401,6 @@
                   },
                   {
                     "set_variable": {
-                      "name": "cmd-layer",
-                      "value": false
-                    }
-                  },
-                  {
-                    "set_variable": {
                       "name": "keyboard-layout",
                       "value": 0
                     }
@@ -7784,7 +7423,7 @@
             ]
           },
           {
-            "description": "Option Tap → Raycast Switcher",
+            "description": "Modifier Taps",
             "manipulators": [
               {
                 "type": "basic",
@@ -7822,11 +7461,39 @@
                     "value": 1
                   }
                 ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "left_shift",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_shift"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "left_control"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
               }
             ]
           },
           {
-            "description": "Layer - symbol-mode",
+            "description": "Layer - slash-layer",
             "manipulators": [
               {
                 "type": "basic",
@@ -7836,7 +7503,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "symbol-mode",
+                      "name": "slash-layer",
                       "value": 1
                     }
                   },
@@ -7850,7 +7517,7 @@
                 "conditions": [
                   {
                     "type": "variable_unless",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -7872,7 +7539,7 @@
                 "to_after_key_up": [
                   {
                     "set_variable": {
-                      "name": "symbol-mode",
+                      "name": "slash-layer",
                       "value": 0
                     }
                   },
@@ -7897,7 +7564,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -7920,7 +7587,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -7943,7 +7610,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -7966,7 +7633,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -7989,7 +7656,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -8012,7 +7679,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -8035,7 +7702,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -8058,7 +7725,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -8081,7 +7748,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -8104,7 +7771,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -8127,7 +7794,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -8150,7 +7817,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -8173,7 +7840,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -8196,7 +7863,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -8219,7 +7886,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -8242,7 +7909,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "symbol-mode",
+                    "name": "slash-layer",
                     "value": 1
                   },
                   {
@@ -8255,7 +7922,7 @@
             ]
           },
           {
-            "description": "Other",
+            "description": "Leaders",
             "manipulators": [
               {
                 "type": "basic",
@@ -8276,68 +7943,6 @@
                       "control",
                       "shift"
                     ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "right_command"
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "rcmd-layer",
-                      "value": true
-                    }
-                  }
-                ],
-                "to_after_key_up": [
-                  {
-                    "set_variable": {
-                      "name": "rcmd-layer",
-                      "value": false
-                    }
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "f18"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "left_shift",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "left_shift"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "left_control"
                   }
                 ],
                 "conditions": [

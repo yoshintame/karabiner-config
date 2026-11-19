@@ -9,5 +9,6 @@ export default defineConfig({
     ...(preset.ignorePatterns ?? []),
     'build/**',
     'keymap-drawer/**',
+    'src/keymap/**',
   ],
 })
