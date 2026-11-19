@@ -3626,7 +3626,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/opt/homebrew/bin/hs -c \"switchCurrentAppWindows()\""
+                    "key_code": "f19",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control",
+                      "shift"
+                    ]
                   }
                 ],
                 "conditions": [

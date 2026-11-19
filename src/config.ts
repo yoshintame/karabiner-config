@@ -6,7 +6,6 @@ export const config = {
   },
   apps: {
     keySwitcher: { bundleId: 'com.granin.keyswitcher', process: 'keySwitcher' },
-    hammerspoonCli: '/opt/homebrew/bin/hs',
   },
   deeplinks: {
     vscodeWindows:
