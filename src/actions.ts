@@ -101,9 +101,7 @@ export const windows = {
   next: toKey('`', '⌘'),
   prev: toKey('`', '⌘⇧'),
   fullscreen: toKey('f', '⌘⌃'),
-  currentApp: to$(
-    `${config.apps.hammerspoonCli} -c "switchCurrentAppWindows()"`,
-  ),
+  currentApp: proxy.currentAppWindows,
   vscode: to$(`open '${config.deeplinks.vscodeWindows}'`),
 } as const
 
