@@ -1,39 +1,44 @@
 # AGENTS.md
 
-Karabiner-Elements config authored in TypeScript via [karabiner.ts](https://github.com/evan-liu/karabiner.ts). Rules live in `src/` and compile to a single `karabiner.json`.
+Karabiner-Elements config authored in TypeScript via [karabiner.ts](https://github.com/evan-liu/karabiner.ts). Rules live in `src/` and compile to a single profile in `build/karabiner.json`.
 
-## dev vs build — how a change is applied
+## How a change reaches Karabiner
 
-`src/index.ts` picks the write target from `MODE`:
+`build/karabiner.json` is the live config. The dotfiles module `modules/home/karabiner/default.nix` links `~/.config/karabiner/karabiner.json` to it (through the nix store; `readlink -f` resolves to this file). Karabiner-Elements watches the file and reloads.
 
-```ts
-writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [...])
-```
+| Command                      | Effect                                                          |
+| ---------------------------- | --------------------------------------------------------------- |
+| `bun run build`              | Writes `build/karabiner.json` — **applies the config live**     |
+| `bun run dev`                | Same in watch mode: every save under `src/` is applied live     |
+| `bun src/index.ts --dry-run` | Prints the generated profile to stdout without writing anything |
 
-| Command         | `MODE`        | Writes to                                                                      | Effect                                                                         |
-| --------------- | ------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `bun run dev`   | `development` | live `~/.config/karabiner/karabiner.json` (the `yoshintame` profile, in place) | **Applies the config live.** Karabiner-Elements watches this file and reloads. |
-| `bun run build` | `build`       | repo artifact `build/karabiner.json`                                           | **Only regenerates the tracked artifact.** Does NOT touch the live config.     |
+Write the live file only with a working state. For intermediate refactoring steps compare `--dry-run` output with the committed `build/karabiner.json` instead. If a change does not apply, kickstart the console user server: `launchctl kickstart -k gui/$(id -u)/org.pqrs.service.agent.karabiner_console_user_server`.
 
-**These are two separate destinations — running `build` alone does not change what Karabiner is running.** The live file `~/.config/karabiner/karabiner.json` is a real file that Karabiner-Elements owns and rewrites (it is not a live symlink to `build/karabiner.json`, even though the dotfiles nix-link declares one — Karabiner replaces it with a plain file at runtime). So a `build`-only write lands on `build/karabiner.json`, which Karabiner is not watching, and nothing reloads.
+## Layout of `src/`
 
-## After editing any `src/**.ts`
+Dependencies point down only: `keymap` → `actions` → `engine`; `config` is read by all of them.
 
-Run **both**, in this order:
+- `config.ts` — user settings: profile name, timings, app bundle ids, binary paths, deeplinks. No such literal belongs anywhere else.
+- `keymap/` — declarations only, one file per layer: which key does what. No `toVar`, conditions, shell commands or other mechanics.
+  - `layers.ts` — the layer registry and triggers (Caps Lock → hyper with s/d sublayers, Tab, right ⌘); exports `hyper(...sublayers)`, `tab()`, `rcmd()`, used as `hyper('s', 'd')({ i: … })` or `hyper()(withModifier('⌘')({ … }))`.
+  - `base.ts` — rebinds of the base layer: Colemak grids and Fn+Space, number-row symbol band, modifier taps, Enter leader, disables, guest mode, ⌘⇧⎋ reset.
+  - `hyper.ts`, `tab.ts`, `rcmd.ts`, `slash.ts` — binds of the Caps Lock, Tab, right ⌘ and `/` layers. Layers are named after their trigger key, not after what they hold.
+- `actions.ts` — named output events: text editing, apps and windows (including shell commands), input sources and keySwitcher, mouse, terminal, proxy chords. Unused entries are kept on purpose as a library.
+- `engine/` — Karabiner mechanics, no concrete keys or settings: `defineLayers` (layer variables, every-layer conditions, hold triggers, reset), `grid` (QWERTY-positional tables, `___` = untouched key), `characters` (type a character in either input source, via ABC when RussianWin lacks it), `defineLayouts`, `defineGuestMode` (toggle and guard), `keys` (disable, tap-alone), `notify`, `profile` (build / `--dry-run`).
+- `index.ts` — rule order only. Karabiner fires the first matching manipulator across all rules, so the order matters.
+- `generated/proxy-bindings.ts` — codegen from `~/.dotfiles/modules/shared/proxy-bindings.yaml` (`mise run dot:proxy-bindings`); do not edit.
 
-1. `bun run build` — regenerate `build/karabiner.json` (the committed artifact; the dotfiles flake reads it through the submodule gitlink).
-2. `bun run dev` — write the live profile so the change actually takes effect now.
+`src/keymap/` is excluded from oxfmt and hand-aligned: bind rows are column-aligned with movement keys in `i j k l` order, positional grids are QMK-style (one quoted cell per key, a comment row of QWERTY or digit labels above). oxlint still checks it. User-facing text (notifications) is in English.
 
-Then verify and commit:
+## After editing `src/**`
 
-- `bun run typecheck` — `tsc --noEmit`.
-- Confirm the change reached the live file, e.g. `grep -c '<marker>' ~/.config/karabiner/karabiner.json`.
-- Commit `src/**` **and** the regenerated `build/karabiner.json` together. The live `~/.config/karabiner/karabiner.json` is not tracked here — don't try to commit it.
-
-If a live change doesn't apply immediately, toggle the profile back and forth in Karabiner-Elements, or kickstart the console_user_server (`launchctl kickstart -k gui/$(id -u)/org.pqrs.service.agent.karabiner_console_user_server`).
+1. `bun run build` — regenerate and apply.
+2. `bun test` — checks that `build/karabiner.json` matches the sources and that every rule but `Guest Mode` is guarded.
+3. `bun run typecheck`, `bunx oxlint`, `bunx oxfmt --check` (or `hk check --all --slow` for everything CI runs).
+4. Commit `src/**` together with the regenerated `build/karabiner.json`.
 
 ## Gotchas
 
-- **`bun run check` (`biome check --write`) reformats every file it matches, not just the ones you edited.** After running it, stage only the files you actually changed — revert biome's incidental reformatting of unrelated files (`git checkout -- <file>`) so it doesn't leak into your commit.
 - **Submodule.** This repo is a git submodule of `~/.dotfiles`. After committing here, bump the gitlink in the parent (`git -C ~/.dotfiles add modules/home/karabiner/config` + commit), or the flake keeps pinning the old submodule commit.
-- **Commit hooks.** husky runs `commitlint` (Conventional Commits required) and lint-staged (`tsc --noEmit` + `biome check --write`) on staged files only.
+- **Hooks.** hk runs oxfmt, oxlint and `bun test` on pre-commit (so a commit with a stale `build/karabiner.json` is rejected; the hook only checks, it never rebuilds) and Conventional Commits on commit-msg; install once per clone with `hk install --mise`.
+- **Unset variables equal 0.** `variable_if x false` never matches an unset variable; layer "off" checks use `variable_unless x true`.

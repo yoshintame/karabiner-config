@@ -13,14 +13,13 @@ Synchronize `keymap-drawer/` artifacts with the actual state of the TypeScript s
 
 Read these files to understand current bindings:
 
-- `src/actions.ts` — all action definitions (navigation, deletion, clipboard, selection, system)
-- `src/hyper-layer-binds.ts` — which keys trigger which actions per layer
-- `src/hyper-layers.ts` — layer activation logic (Hyper, S, D, SD)
-- `src/index.ts` — top-level rules and other binds (Enter→ABC+Leader, ⌘R→Leader)
-- `src/disables.ts` — disabled standard shortcuts
-- `src/utils.ts` — symbol mode and utility rules
-- `src/keyboard-layouts.ts` — Colemak layout toggle
-- `src/toggle-layers.ts` — layer toggle logic (Fn+Space)
+- `src/actions.ts` — all action definitions (text editing, apps, input, mouse, terminal)
+- `src/keymap/layers.ts` — which keys activate which layers (Hyper + S/D, Tab, right ⌘)
+- `src/keymap/hyper.ts` — which keys trigger which actions per Hyper layer combination
+- `src/keymap/tab.ts` — Tab layer: numpad digits and app switching
+- `src/keymap/rcmd.ts` — right ⌘ layer binds
+- `src/keymap/slash.ts` — `/`-held symbol layer
+- `src/keymap/base.ts` — base layer: Colemak layouts and Fn+Space, number-row symbol band, left ⌥/⇧ taps, Enter→ABC+in-app leader, disabled shortcuts, guest mode, ⌘⇧⎋ reset
 
 ## Step 2: Update keymap-drawer YAML
 
@@ -28,12 +27,12 @@ Update `keymap-drawer/keymap.yaml` to match the source. Preserve the existing st
 
 **Layers** (6 total):
 
-1. `Hyper` — CapsLock held. Keys from `layerHyper()` in hyper-layer-binds.ts
-2. `Hyper + ⌘` — CapsLock+Cmd. Keys with `'⌘'` modifier in `layerHyper()`
-3. `Hyper + D` — CapsLock+D. Keys from `layerD()` (word-level nav/delete)
-4. `Hyper + S` — CapsLock+S. Keys from `layerS()` (character selection)
-5. `Hyper + S + D` — CapsLock+S+D. Keys from `layerSD()` (word selection)
-6. `Base` — Non-hyper remaps from `index.ts`, `disables.ts`, `utils.ts`
+1. `Hyper` — CapsLock held. Keys under `hyper()` in `keymap/hyper.ts`
+2. `Hyper + ⌘` — CapsLock+Cmd. Keys under `withModifier('⌘')(hyper()(…))`
+3. `Hyper + D` — CapsLock+D. Keys under `hyper('d')` (word-level nav/delete)
+4. `Hyper + S` — CapsLock+S. Keys under `hyper('s')` (character selection)
+5. `Hyper + S + D` — CapsLock+S+D. Keys under `hyper('s', 'd')` (word selection)
+6. `Base` — Non-hyper remaps from `keymap/base.ts`
 
 **YAML format**: Each row is a single inline list `[...]` so the file visually resembles a keyboard.
 Plain keys as strings, modified keys as `{t: Action, h: KeyLetter, type: category}`.
