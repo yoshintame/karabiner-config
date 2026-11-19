@@ -6,6 +6,7 @@ import { map, rule, toKey, toSetVar, writeToProfile } from 'karabiner.ts'
 import { system } from '@/actions'
 
 import { disablesRule } from './disables'
+import { guardGuestMode, guestModeRule } from './guest-mode'
 import {
   clipboardHyperRule,
   deletetionHyperRule,
@@ -68,7 +69,7 @@ const buildProfile = {
   karabinerJsonPath,
 }
 
-writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
+const customRules = [
   toggleLayers,
 
   hyperMode,
@@ -107,4 +108,9 @@ writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
       .to(toKey('left_shift'))
       .toIfAlone(system.keySwitcherConvert),
   ]),
+]
+
+writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
+  guestModeRule,
+  ...guardGuestMode(customRules),
 ])
