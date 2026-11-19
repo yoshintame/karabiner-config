@@ -27,7 +27,9 @@ import { rcmdLayerRule } from './rcmd-layer-binds'
 import { toggleLayers } from './toggle-layers'
 import { symbolModeLayer, utilsRule } from './utils'
 
-const isDevelopment = process.env['MODE'] === 'development'
+const mode = process.env['MODE']
+const isDevelopment = mode === 'development'
+const isDryRun = mode === 'dry-run'
 const profileName = 'yoshintame'
 
 const karabinerJsonPath = path.resolve(
@@ -110,7 +112,10 @@ const customRules = [
   ]),
 ]
 
-writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
-  guestModeRule,
-  ...guardGuestMode(customRules),
-])
+const target = isDryRun
+  ? '--dry-run'
+  : isDevelopment
+    ? 'yoshintame'
+    : buildProfile
+
+writeToProfile(target, [guestModeRule, ...guardGuestMode(customRules)])

@@ -11,9 +11,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "karabiner.ts": "latest",
-    "type-fest": "^5.0.1",
-    "es-toolkit": "^1.39.4"
+    "es-toolkit": "^1.39.4",
+    "karabiner.ts": "1.38.0",
+    "type-fest": "^5.0.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.10",
