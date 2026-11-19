@@ -1,6 +1,6 @@
 import { ifInputSource, map, rule, toKey } from 'karabiner.ts'
 
-import { system } from '@/actions'
+import { system } from '#src/actions'
 
 const en = () => ifInputSource({ language: 'en' })
 const notEn = () => ifInputSource({ language: 'en' }).unless()

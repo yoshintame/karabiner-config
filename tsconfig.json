@@ -1,36 +1,13 @@
 {
+  "extends": ["@tsconfig/strictest", "@tsconfig/bun"],
   "compilerOptions": {
-    /* Base options */
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "target": "es2022",
-    "verbatimModuleSyntax": true,
-    "allowJs": true,
-    "resolveJsonModule": true,
-    "moduleDetection": "force",
-
-    /* Strictness */
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
+    "types": ["bun"],
+    "lib": ["ES2024"],
+    "target": "ES2024",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
-
-    "moduleResolution": "Bundler",
-    "module": "ESNext",
-    "noEmit": true,
-    "lib": ["ES2020"],
-    "useDefineForClassFields": true,
-
-    /* Aliases */
-    "baseUrl": "./src",
-    "paths": {
-      "@/*": ["*"]
-    },
-    "plugins": [{ "name": "ts-plugin-sort-import-suggestions" }]
-  },
-  "include": ["src"]
+    "resolveJsonModule": true,
+    "noUncheckedSideEffectImports": true
+  }
 }

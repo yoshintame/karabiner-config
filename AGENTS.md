@@ -10,10 +10,10 @@ Karabiner-Elements config authored in TypeScript via [karabiner.ts](https://gith
 writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [...])
 ```
 
-| Command | `MODE` | Writes to | Effect |
-|---|---|---|---|
-| `bun run dev` | `development` | live `~/.config/karabiner/karabiner.json` (the `yoshintame` profile, in place) | **Applies the config live.** Karabiner-Elements watches this file and reloads. |
-| `bun run build` | `build` | repo artifact `build/karabiner.json` | **Only regenerates the tracked artifact.** Does NOT touch the live config. |
+| Command         | `MODE`        | Writes to                                                                      | Effect                                                                         |
+| --------------- | ------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `bun run dev`   | `development` | live `~/.config/karabiner/karabiner.json` (the `yoshintame` profile, in place) | **Applies the config live.** Karabiner-Elements watches this file and reloads. |
+| `bun run build` | `build`       | repo artifact `build/karabiner.json`                                           | **Only regenerates the tracked artifact.** Does NOT touch the live config.     |
 
 **These are two separate destinations — running `build` alone does not change what Karabiner is running.** The live file `~/.config/karabiner/karabiner.json` is a real file that Karabiner-Elements owns and rewrites (it is not a live symlink to `build/karabiner.json`, even though the dotfiles nix-link declares one — Karabiner replaces it with a plain file at runtime). So a `build`-only write lands on `build/karabiner.json`, which Karabiner is not watching, and nothing reloads.
 

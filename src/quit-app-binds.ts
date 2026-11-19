@@ -1,6 +1,6 @@
 import { map, rule, toKey } from 'karabiner.ts'
 
-import { layerHyper } from './hyper-layers'
+import { layerHyper } from '#src/hyper-layers'
 
 const frontPid =
   'osascript -e \'tell application "System Events" to unix id of first process whose frontmost is true\''

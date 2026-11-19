@@ -1,0 +1,19 @@
+amends "package://github.com/yoshintame/hk-config/releases/download/v0.5.0/hk-config@0.5.0#/presets/ts.pkl"
+
+local generated = List("build/**", "keymap-drawer/**")
+
+steps {
+  ["newlines"] {
+    exclude = generated
+  }
+  ["trailing_whitespace"] {
+    exclude = generated
+  }
+  ["test"] {
+    profiles = List()
+  }
+  ["depscheck"] {
+    check = "bun run depscheck"
+    profiles = List("slow")
+  }
+}

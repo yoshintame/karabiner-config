@@ -9,15 +9,15 @@ import {
   proxy,
   selection,
   system,
-} from './actions'
+} from '#src/actions'
 import {
   layerD,
   layerHyper,
   layerNumpad,
   layerS,
   layerSD,
-} from './hyper-layers'
-import { SWITCHER_HOTKEY_KEY, SWITCHER_HOTKEY_MODS } from './option-tap'
+} from '#src/hyper-layers'
+import { SWITCHER_HOTKEY_KEY, SWITCHER_HOTKEY_MODS } from '#src/option-tap'
 
 const VSCODE_WINDOW_SWITCHER_DEEPLINK =
   'raycast://extensions/yoshintame/raycast-app-switcher/app-windows-by-id?arguments=%7B%22appIdentifier%22%3A%22com.microsoft.VSCode%22%7D'

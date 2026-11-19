@@ -1,12 +1,10 @@
-import fs from 'node:fs'
 import path from 'node:path'
 
 import { map, rule, toKey, toSetVar, writeToProfile } from 'karabiner.ts'
 
-import { system } from '@/actions'
-
-import { disablesRule } from './disables'
-import { guardGuestMode, guestModeRule } from './guest-mode'
+import { system } from '#src/actions'
+import { disablesRule } from '#src/disables'
+import { guardGuestMode, guestModeRule } from '#src/guest-mode'
 import {
   clipboardHyperRule,
   deletetionHyperRule,
@@ -17,59 +15,24 @@ import {
   selecetionHyperRule,
   switchingHyperRule,
   systemHyperRule,
-} from './hyper-layer-binds'
-import { hyperMode, tabMode } from './hyper-layers'
-import { colemakLayoutRule } from './keyboard-layouts'
-import { numberRowRule } from './number-row'
-import { optionTapRule } from './option-tap'
-import { quitAppRule } from './quit-app-binds'
-import { rcmdLayerRule } from './rcmd-layer-binds'
-import { toggleLayers } from './toggle-layers'
-import { symbolModeLayer, utilsRule } from './utils'
-
-const mode = process.env['MODE']
-const isDevelopment = mode === 'development'
-const isDryRun = mode === 'dry-run'
-const profileName = 'yoshintame'
+} from '#src/hyper-layer-binds'
+import { hyperMode, tabMode } from '#src/hyper-layers'
+import { colemakLayoutRule } from '#src/keyboard-layouts'
+import { numberRowRule } from '#src/number-row'
+import { optionTapRule } from '#src/option-tap'
+import { quitAppRule } from '#src/quit-app-binds'
+import { rcmdLayerRule } from '#src/rcmd-layer-binds'
+import { toggleLayers } from '#src/toggle-layers'
+import { symbolModeLayer, utilsRule } from '#src/utils'
 
 const karabinerJsonPath = path.resolve(
   import.meta.dirname,
   '../build/karabiner.json',
 )
 
-const dir = path.dirname(karabinerJsonPath)
-if (!fs.existsSync(dir)) {
-  fs.mkdirSync(dir, { recursive: true })
-}
-if (!fs.existsSync(karabinerJsonPath)) {
-  fs.writeFileSync(
-    karabinerJsonPath,
-    JSON.stringify(
-      {
-        global: {
-          show_in_menu_bar: true,
-        },
-        profiles: [
-          {
-            name: profileName,
-            complex_modifications: {
-              rules: [],
-            },
-            selected: true,
-          },
-        ],
-      },
-      null,
-      2,
-    ),
-  )
-}
-
-const buildProfile = {
-  name: profileName,
-  dryRun: false,
-  karabinerJsonPath,
-}
+const target = process.argv.includes('--dry-run')
+  ? '--dry-run'
+  : { name: 'yoshintame', dryRun: false, karabinerJsonPath }
 
 const customRules = [
   toggleLayers,
@@ -111,11 +74,5 @@ const customRules = [
       .toIfAlone(system.keySwitcherConvert),
   ]),
 ]
-
-const target = isDryRun
-  ? '--dry-run'
-  : isDevelopment
-    ? 'yoshintame'
-    : buildProfile
 
 writeToProfile(target, [guestModeRule, ...guardGuestMode(customRules)])

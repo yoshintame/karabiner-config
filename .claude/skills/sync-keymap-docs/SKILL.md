@@ -27,6 +27,7 @@ Read these files to understand current bindings:
 Update `keymap-drawer/keymap.yaml` to match the source. Preserve the existing structure:
 
 **Layers** (6 total):
+
 1. `Hyper` — CapsLock held. Keys from `layerHyper()` in hyper-layer-binds.ts
 2. `Hyper + ⌘` — CapsLock+Cmd. Keys with `'⌘'` modifier in `layerHyper()`
 3. `Hyper + D` — CapsLock+D. Keys from `layerD()` (word-level nav/delete)
@@ -37,12 +38,27 @@ Update `keymap-drawer/keymap.yaml` to match the source. Preserve the existing st
 **YAML format**: Each row is a single inline list `[...]` so the file visually resembles a keyboard.
 Plain keys as strings, modified keys as `{t: Action, h: KeyLetter, type: category}`.
 Example:
+
 ```yaml
-- ["Tab",  {t: Cut, h: Q, type: clip},  {t: Copy, h: W, type: clip},  "R",  "T",  ...]
-- ["⇪ HYPER",  {t: All, h: A, type: sys},  {t: "▶Sel", h: S, type: layer},  "G",  ...]
+- [
+    'Tab',
+    { t: Cut, h: Q, type: clip },
+    { t: Copy, h: W, type: clip },
+    'R',
+    'T',
+    ...,
+  ]
+- [
+    '⇪ HYPER',
+    { t: All, h: A, type: sys },
+    { t: '▶Sel', h: S, type: layer },
+    'G',
+    ...,
+  ]
 ```
 
 **CSS types** for coloring:
+
 - `nav` (#42a5f5) — navigation keys
 - `del` (#ef5350) — deletion keys
 - `clip` (#66bb6a) — clipboard keys
@@ -54,6 +70,7 @@ Example:
 - `remap` (#00bcd4) — base remaps (Enter→Leader, layout toggle)
 
 Each layer must have exactly **60 keys** (ANSI 60% layout):
+
 - Row 0: 14 keys (13×1u + backspace)
 - Row 1: 14 keys (tab + 13×1u)
 - Row 2: 13 keys (caps + 11×1u + return)
@@ -80,6 +97,7 @@ If any command fails with key count mismatch, fix `keymap.yaml` and retry.
 ## Step 4: Update documentation
 
 Update `keymap-drawer/docs/karabiner-keymap.md`:
+
 - Update binding tables to match actual source
 - Keep the existing document structure (color legend, layer sections with SVG images, additional features)
 - Each layer section has: description, `![Layer](images/layer-*.svg)`, and a table of bindings

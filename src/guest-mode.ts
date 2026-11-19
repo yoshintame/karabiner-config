@@ -3,8 +3,8 @@ import {
   ifVar,
   map,
   type Rule,
-  type RuleBuilder,
   rule,
+  type RuleBuilder,
   to$,
   toSetVar,
 } from 'karabiner.ts'

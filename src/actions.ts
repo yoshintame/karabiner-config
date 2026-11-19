@@ -1,6 +1,6 @@
 import { toInputSource, toKey, toPointingButton } from 'karabiner.ts'
 
-import { proxy } from './generated/proxy-bindings'
+import { proxy } from '#src/generated/proxy-bindings'
 
 export const clipboard = {
   copy: toKey('c', '⌘'),
