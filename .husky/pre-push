@@ -1,5 +1,0 @@
-bun run check
-bun run typecheck
-
-bun run build
-git add build/karabiner.json

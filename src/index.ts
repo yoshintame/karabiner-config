@@ -1,116 +1,55 @@
-import fs from 'node:fs'
-import path from 'node:path'
-
-import { map, rule, toKey, toSetVar, writeToProfile } from 'karabiner.ts'
-
-import { system } from '@/actions'
-
-import { disablesRule } from './disables'
-import { guardGuestMode, guestModeRule } from './guest-mode'
+import { config } from '#src/config'
+import { writeProfile } from '#src/engine/profile'
 import {
-  clipboardHyperRule,
-  deletetionHyperRule,
-  navigationHyperRule,
-  numpadHyperRule,
-  pasteHistoryHyperRule,
-  screenshotHyperRule,
-  selecetionHyperRule,
-  switchingHyperRule,
-  systemHyperRule,
-} from './hyper-layer-binds'
-import { hyperMode, tabMode } from './hyper-layers'
-import { colemakLayoutRule } from './keyboard-layouts'
-import { numberRowRule } from './number-row'
-import { optionTapRule } from './option-tap'
-import { quitAppRule } from './quit-app-binds'
-import { rcmdLayerRule } from './rcmd-layer-binds'
-import { toggleLayers } from './toggle-layers'
-import { symbolModeLayer, utilsRule } from './utils'
-
-const isDevelopment = process.env['MODE'] === 'development'
-const profileName = 'yoshintame'
-
-const karabinerJsonPath = path.resolve(
-  import.meta.dirname,
-  '../build/karabiner.json',
-)
-
-const dir = path.dirname(karabinerJsonPath)
-if (!fs.existsSync(dir)) {
-  fs.mkdirSync(dir, { recursive: true })
-}
-if (!fs.existsSync(karabinerJsonPath)) {
-  fs.writeFileSync(
-    karabinerJsonPath,
-    JSON.stringify(
-      {
-        global: {
-          show_in_menu_bar: true,
-        },
-        profiles: [
-          {
-            name: profileName,
-            complex_modifications: {
-              rules: [],
-            },
-            selected: true,
-          },
-        ],
-      },
-      null,
-      2,
-    ),
-  )
-}
-
-const buildProfile = {
-  name: profileName,
-  dryRun: false,
-  karabinerJsonPath,
-}
-
-const customRules = [
-  toggleLayers,
-
-  hyperMode,
-  tabMode,
-  navigationHyperRule,
-  selecetionHyperRule,
-  deletetionHyperRule,
-  clipboardHyperRule,
-  pasteHistoryHyperRule,
-  screenshotHyperRule,
-  systemHyperRule,
-  numpadHyperRule,
-  switchingHyperRule,
-  rcmdLayerRule,
-
-  quitAppRule,
-
-  colemakLayoutRule,
-
-  numberRowRule,
-
   disablesRule,
-  utilsRule,
+  guestMode,
+  layoutsRule,
+  layoutToggleRule,
+  leadersRule,
+  modifierTapsRule,
+  numberRowRule,
+  resetRule,
+} from '#src/keymap/base'
+import {
+  clipboardRule,
+  deletionRule,
+  navigationRule,
+  pasteHistoryRule,
+  quitAppRule,
+  screenshotRule,
+  selectionRule,
+  switchingRule,
+  systemRule,
+} from '#src/keymap/hyper'
+import { layerTriggersRule } from '#src/keymap/layers'
+import { rcmdLayerRule } from '#src/keymap/rcmd'
+import { slashLayerRule } from '#src/keymap/slash'
+import { tabLayerRule } from '#src/keymap/tab'
 
-  optionTapRule,
+writeProfile(config.profile, [
+  guestMode.rule,
+  ...guestMode.guard([
+    slashLayerRule,
+    layoutToggleRule,
+    layerTriggersRule,
 
-  symbolModeLayer,
+    navigationRule,
+    selectionRule,
+    deletionRule,
+    clipboardRule,
+    pasteHistoryRule,
+    screenshotRule,
+    systemRule,
+    switchingRule,
+    quitAppRule,
+    tabLayerRule,
+    rcmdLayerRule,
 
-  rule('Other').manipulators([
-    map('⏎').to(system.ABCLayout).to(system.leaderInApp),
-    map('right_command')
-      .toVar('rcmd-layer', true)
-      .toAfterKeyUp(toSetVar('rcmd-layer', false))
-      .toIfAlone(system.leaderGlobal),
-    map('left_shift', 'optionalAny')
-      .to(toKey('left_shift'))
-      .toIfAlone(system.keySwitcherConvert),
+    layoutsRule,
+    numberRowRule,
+    disablesRule,
+    resetRule,
+    modifierTapsRule,
+    leadersRule,
   ]),
-]
-
-writeToProfile(isDevelopment ? 'yoshintame' : buildProfile, [
-  guestModeRule,
-  ...guardGuestMode(customRules),
 ])

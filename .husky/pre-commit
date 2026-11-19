@@ -1,4 +1,0 @@
-bun run lint-staged
-
-bun run build
-git add build/karabiner.json

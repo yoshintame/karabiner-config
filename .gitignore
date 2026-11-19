@@ -1,3 +1,16 @@
+# Dependencies
+node_modules
+
+# Build outputs
+out
+dist
+dist-ssr
+*.tgz
+
+# Code coverage
+coverage
+*.lcov
+
 # Logs
 logs
 *.log
@@ -6,33 +19,31 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
-node_modules
-dist
-dist-ssr
-*.local
+# Environment variables
 .env
+.env.keys
+.env*.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-!.vscode/launch.json
+# Caches
+.eslintcache
+.cache
+*.tsbuildinfo
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# IDEs and editors
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-/test-results/
-/playwright-report/
-/playwright/.cache/
 
-# storybook
-storybook-static
+# OS-specific files
+.DS_Store
 
-# tests
-/coverage/
-
-/cerf/*
-!cerf/.gitkeep
+# Editors
+.vscode
