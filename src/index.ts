@@ -29,6 +29,7 @@ import { tabLayerRule } from '#src/keymap/tab'
 writeProfile(config.profile, [
   guestMode.rule,
   ...guestMode.guard([
+    slashLayerRule,
     layoutToggleRule,
     layerTriggersRule,
 
@@ -49,7 +50,6 @@ writeProfile(config.profile, [
     disablesRule,
     resetRule,
     modifierTapsRule,
-    slashLayerRule,
     leadersRule,
   ]),
 ])

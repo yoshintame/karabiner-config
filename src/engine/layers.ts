@@ -108,7 +108,16 @@ export const defineLayers = <
   }
 }
 
-export const keyLayer = (key: LayerKeyParam, variable: string) => ({
-  rule: (manipulators: ManipulatorMap) =>
-    layer(key, variable).manipulators(manipulators),
+export const keyLayer = (
+  key: LayerKeyParam,
+  variable: string,
+  { tap }: { tap?: ToEvent } = {},
+) => ({
+  rule: (manipulators: ManipulatorMap) => {
+    const builder = layer(key, variable)
+    if (tap !== undefined)
+      builder.configKey((trigger) => trigger.toIfAlone(tap), true)
+    return builder.manipulators(manipulators)
+  },
+  toReset: [toSetVar(variable, 0), toSetVar('__layer', 0)],
 })

@@ -1,8 +1,9 @@
 import { toPaste } from 'karabiner.ts'
 
+import { none } from '#src/engine/keys'
 import { keyLayer } from '#src/engine/layers'
 
-const slashLayer = keyLayer('/', 'slash-layer')
+export const slashLayer = keyLayer('/', 'slash-layer', { tap: none })
 
 export const slashLayerRule = slashLayer.rule({
   1:   toPaste('⌘'),

@@ -64,6 +64,24 @@
                     }
                   },
                   {
+                    "set_variable": {
+                      "name": "slash-layer",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "keyboard-layout",
+                      "value": "qwerty"
+                    }
+                  },
+                  {
                     "shell_command": "pkill -x keySwitcher"
                   },
                   {
@@ -119,23 +137,37 @@
             ]
           },
           {
-            "description": "Toggle Layers",
+            "description": "Layer - slash-layer",
             "manipulators": [
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "spacebar",
-                  "modifiers": {
-                    "mandatory": [
-                      "fn"
-                    ]
-                  }
+                  "key_code": "slash"
                 },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "slash-layer",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 1
+                    }
+                  }
+                ],
                 "conditions": [
                   {
-                    "type": "variable_if",
-                    "name": "keyboard-layout",
-                    "value": 0
+                    "type": "variable_unless",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "__layer",
+                    "value": 1
                   },
                   {
                     "type": "variable_unless",
@@ -143,18 +175,399 @@
                     "value": 1
                   }
                 ],
-                "to": [
+                "to_if_alone": [
+                  {
+                    "key_code": "vk_none"
+                  }
+                ],
+                "to_after_key_up": [
                   {
                     "set_variable": {
-                      "name": "keyboard-layout",
-                      "value": "qwerty"
+                      "name": "slash-layer",
+                      "value": 0
                     }
                   },
                   {
-                    "shell_command": "osascript -e 'display notification \"Layout: qwerty\" with title \"Karabiner\"'"
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
                   }
                 ]
               },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "1"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⌘\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "2"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⌥\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "3"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⌃\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "4"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⇧\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "5"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⇪\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "left_arrow"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"←\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_arrow"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"→\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "up_arrow"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"↑\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "down_arrow"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"↓\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "spacebar"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"␣\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "return_or_enter"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⏎\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "tab"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⇥\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "escape"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⎋\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "delete_or_backspace"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⌫\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "delete_forward"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⌦\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "caps_lock"
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⇪\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "slash-layer",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Layout Toggle",
+            "manipulators": [
               {
                 "type": "basic",
                 "from": {
@@ -199,18 +612,6 @@
                     ]
                   }
                 },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "keyboard-layout",
-                    "value": "qwerty"
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ],
                 "to": [
                   {
                     "set_variable": {
@@ -220,6 +621,13 @@
                   },
                   {
                     "shell_command": "osascript -e 'display notification \"Layout: colemak\" with title \"Karabiner\"'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
                   }
                 ]
               }
@@ -6883,6 +7291,86 @@
               {
                 "type": "basic",
                 "from": {
+                  "key_code": "7",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "7",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "en"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "7",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "select_input_source": {
+                      "input_source_id": "com.apple.keylayout.ABC"
+                    }
+                  }
+                ],
+                "to_after_key_up": [
+                  {
+                    "key_code": "7",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  },
+                  {
+                    "select_input_source": {
+                      "input_source_id": "com.apple.keylayout.RussianWin"
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "en"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
                   "key_code": "8",
                   "modifiers": {
                     "mandatory": [
@@ -7326,24 +7814,6 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "slash"
-                },
-                "to": [
-                  {
-                    "key_code": "vk_none"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
                   "key_code": "slash",
                   "modifiers": {
                     "mandatory": [
@@ -7401,15 +7871,42 @@
                   },
                   {
                     "set_variable": {
-                      "name": "keyboard-layout",
+                      "name": "tab-layer",
+                      "value": false
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "rcmd-layer",
+                      "value": false
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "switcher-active",
+                      "value": false
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "slash-layer",
                       "value": 0
                     }
                   },
                   {
-                    "set_notification_message": {
-                      "id": "layers",
-                      "text": "Reset all layers"
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
                     }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "keyboard-layout",
+                      "value": "qwerty"
+                    }
+                  },
+                  {
+                    "shell_command": "osascript -e 'display notification \"Layers reset\" with title \"Karabiner\"'"
                   }
                 ],
                 "conditions": [
@@ -7483,435 +7980,6 @@
                   }
                 ],
                 "conditions": [
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "Layer - slash-layer",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "slash"
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "slash-layer",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "set_variable": {
-                      "name": "__layer",
-                      "value": 1
-                    }
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_unless",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "__layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "slash"
-                  }
-                ],
-                "to_after_key_up": [
-                  {
-                    "set_variable": {
-                      "name": "slash-layer",
-                      "value": 0
-                    }
-                  },
-                  {
-                    "set_variable": {
-                      "name": "__layer",
-                      "value": 0
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "1"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⌘\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "2"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⌥\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "3"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⌃\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "4"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⇧\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "5"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⇪\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "left_arrow"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"←\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "right_arrow"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"→\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "up_arrow"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"↑\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "down_arrow"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"↓\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "spacebar"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"␣\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "return_or_enter"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⏎\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "tab"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⇥\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "escape"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⎋\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "delete_or_backspace"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⌫\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "delete_forward"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⌦\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "caps_lock"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"⇪\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "slash-layer",
-                    "value": 1
-                  },
                   {
                     "type": "variable_unless",
                     "name": "guest-mode",

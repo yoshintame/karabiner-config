@@ -36,15 +36,12 @@ export const defineLayouts = <
           ),
         ),
       ),
-    toggle: (key: FromKeyParam, modifiers: ModifierParam, name: Name) => {
-      const toggle = (from: string | number, to: string) =>
-        map(key, modifiers).condition(ifVar(variable, from)).to(select(to))
-      return [
-        toggle(0, BASE_LAYOUT),
-        toggle(name, BASE_LAYOUT),
-        toggle(BASE_LAYOUT, name),
-      ]
-    },
-    toReset: [toSetVar(variable, 0)],
+    toggle: (key: FromKeyParam, modifiers: ModifierParam, name: Name) => [
+      map(key, modifiers)
+        .condition(ifVar(variable, name))
+        .to(select(BASE_LAYOUT)),
+      map(key, modifiers).to(select(name)),
+    ],
+    toReset: [toSetVar(variable, BASE_LAYOUT)],
   }
 }
