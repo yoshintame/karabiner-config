@@ -662,7 +662,7 @@
                     }
                   },
                   {
-                    "key_code": "f12",
+                    "key_code": "f18",
                     "modifiers": [
                       "command",
                       "option",
@@ -706,7 +706,7 @@
                 ],
                 "to_if_alone": [
                   {
-                    "key_code": "f12",
+                    "key_code": "f18",
                     "modifiers": [
                       "command",
                       "option",
@@ -756,7 +756,7 @@
                 ],
                 "to_if_alone": [
                   {
-                    "key_code": "f12",
+                    "key_code": "f18",
                     "modifiers": [
                       "command",
                       "option",

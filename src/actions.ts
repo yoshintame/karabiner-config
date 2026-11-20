@@ -84,9 +84,9 @@ const frontBundle =
 export const apps = {
   next: toKey('⇥', '⌘'),
   prev: toKey('⇥', '⌘⇧'),
-  switcherNext: toKey('f12', '⌘⌥⌃'),
-  switcherPrev: toKey('f12', '⌘⌥⌃⇧'),
-  switcherCommit: toKey('f12', '⌘⌥⇧'),
+  switcherNext: toKey('f18', '⌘⌥⌃'),
+  switcherPrev: toKey('f18', '⌘⌥⌃⇧'),
+  switcherCommit: toKey('f18', '⌘⌥⇧'),
 
   // Tap left option emits Hyper+\ (Cmd+Ctrl+Alt+Shift+backslash). Bind this chord
   // in Raycast Settings to the "All Apps (Except Pinned)" command — Raycast
