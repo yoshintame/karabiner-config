@@ -28,6 +28,9 @@ export const proxy = {
   pasteHistory4: toKey('f16' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   pasteHistory5: toKey('f17' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   currentAppWindows: toKey('f19' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
+  appSwitcherNext: toKey('f20' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
+  appSwitcherPrev: toKey('f20' as ToKeyParam, '⌘⌥⌃' as ModifierParam),
+  appSwitcherCommit: toKey('f20' as ToKeyParam, '⌘⌥⇧' as ModifierParam),
 } as const
 
 export type ProxyBindingId = keyof typeof proxy

@@ -24,6 +24,7 @@ type Trigger = {
   key: FromKeyParam
   anyModifiers?: boolean
   tap?: ToEvent
+  release?: ToEvent[]
 }
 
 type LayerSpec<Name extends string> = {
@@ -61,7 +62,11 @@ export const defineLayers = <
       suspendedBy === undefined ? [] : [toSetVar(suspendedBy, false)]
     const held = from
       .toVar(variable, true)
-      .toAfterKeyUp([toSetVar(variable, false), ...release])
+      .toAfterKeyUp([
+        toSetVar(variable, false),
+        ...release,
+        ...(trigger.release ?? []),
+      ])
     if (trigger.tap !== undefined) held.toIfAlone(trigger.tap)
     if (within !== undefined)
       held.condition(ifVar(specOf(within).variable, true))

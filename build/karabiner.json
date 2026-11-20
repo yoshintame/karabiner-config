@@ -660,6 +660,14 @@
                       "name": "hyper",
                       "value": false
                     }
+                  },
+                  {
+                    "key_code": "f20",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "shift"
+                    ]
                   }
                 ],
                 "conditions": [
@@ -694,6 +702,16 @@
                       "name": "s-layer",
                       "value": false
                     }
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "f20",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control"
+                    ]
                   }
                 ],
                 "conditions": [
@@ -733,6 +751,17 @@
                       "name": "d-layer",
                       "value": false
                     }
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "f20",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control",
+                      "shift"
+                    ]
                   }
                 ],
                 "conditions": [
