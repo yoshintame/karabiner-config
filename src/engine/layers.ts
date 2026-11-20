@@ -23,7 +23,7 @@ const isBuilder = (
 type Trigger = {
   key: FromKeyParam
   anyModifiers?: boolean
-  tap?: ToEvent
+  tap?: ToEvent | ToEvent[]
   release?: ToEvent[]
 }
 

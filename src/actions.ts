@@ -1,4 +1,4 @@
-import { to$, toKey, toPointingButton } from 'karabiner.ts'
+import { to$, type ToEvent, toKey, toPointingButton } from 'karabiner.ts'
 
 import { config } from '#src/config'
 import { toAbc, toRussian } from '#src/engine/input-sources'
@@ -84,9 +84,9 @@ const frontBundle =
 export const apps = {
   next: toKey('⇥', '⌘'),
   prev: toKey('⇥', '⌘⇧'),
-  switcherNext: toKey('f18', '⌘⌥⌃'),
-  switcherPrev: toKey('f18', '⌘⌥⌃⇧'),
-  switcherCommit: toKey('f18', '⌘⌥⇧'),
+  switcherNext: [toKey('f18', '⌘⌥⌃'), proxy.appSwitcherNext] as ToEvent[],
+  switcherPrev: [toKey('f18', '⌘⌥⌃⇧'), proxy.appSwitcherPrev] as ToEvent[],
+  switcherCommit: [toKey('f18', '⌘⌥⇧'), proxy.appSwitcherCommit] as ToEvent[],
 
   // Tap left option emits Hyper+\ (Cmd+Ctrl+Alt+Shift+backslash). Bind this chord
   // in Raycast Settings to the "All Apps (Except Pinned)" command — Raycast
