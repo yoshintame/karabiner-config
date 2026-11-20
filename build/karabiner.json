@@ -662,7 +662,7 @@
                     }
                   },
                   {
-                    "key_code": "f20",
+                    "key_code": "f12",
                     "modifiers": [
                       "command",
                       "option",
@@ -706,11 +706,12 @@
                 ],
                 "to_if_alone": [
                   {
-                    "key_code": "f20",
+                    "key_code": "f12",
                     "modifiers": [
                       "command",
                       "option",
-                      "control"
+                      "control",
+                      "shift"
                     ]
                   }
                 ],
@@ -755,12 +756,11 @@
                 ],
                 "to_if_alone": [
                   {
-                    "key_code": "f20",
+                    "key_code": "f12",
                     "modifiers": [
                       "command",
                       "option",
-                      "control",
-                      "shift"
+                      "control"
                     ]
                   }
                 ],
