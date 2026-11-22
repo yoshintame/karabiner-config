@@ -39,6 +39,6 @@ Dependencies point down only: `keymap` → `actions` → `engine`; `config` is r
 
 ## Gotchas
 
-- **Submodule.** This repo is a git submodule of `~/.dotfiles`. After committing here, bump the gitlink in the parent (`git -C ~/.dotfiles add modules/home/karabiner/config` + commit), or the flake keeps pinning the old submodule commit.
+- **Flake input.** `~/.dotfiles` reads this repo as the flake input `karabiner-config`. On the Mac `~/.config/karabiner/karabiner.json` links this clone's `build/karabiner.json`, so `bun run build` applies at once; without the clone it links the locked revision in `/nix/store`. The parent needs no manual bump: Renovate moves the input rev, `flake.lock` and the submodule pointer `modules/home/karabiner/config` (`update = none`) in one PR once a commit is pushed.
 - **Hooks.** hk runs oxfmt, oxlint and `bun test` on pre-commit (so a commit with a stale `build/karabiner.json` is rejected; the hook only checks, it never rebuilds) and Conventional Commits on commit-msg; install once per clone with `hk install --mise`.
 - **Unset variables equal 0.** `variable_if x false` never matches an unset variable; layer "off" checks use `variable_unless x true`.
