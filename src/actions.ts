@@ -86,7 +86,8 @@ export const apps = {
   prev: toKey('⇥', '⌘⇧'),
   switcherNext: [toKey('f18', '⌘⌥⌃'), proxy.appSwitcherNext] as ToEvent[],
   switcherPrev: [toKey('f18', '⌘⌥⌃⇧'), proxy.appSwitcherPrev] as ToEvent[],
-  switcherCommit: [toKey('f18', '⌘⌥⇧'), proxy.appSwitcherCommit] as ToEvent[],
+  switcherCommit: proxy.appSwitcherCommit,
+  switcherArm: proxy.appSwitcherArm,
 
   // Tap left option emits Hyper+\ (Cmd+Ctrl+Alt+Shift+backslash). Bind this chord
   // in Raycast Settings to the "All Apps (Except Pinned)" command — Raycast

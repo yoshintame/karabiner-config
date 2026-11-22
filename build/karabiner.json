@@ -652,6 +652,15 @@
                       "name": "hyper",
                       "value": true
                     }
+                  },
+                  {
+                    "key_code": "f20",
+                    "modifiers": [
+                      "control"
+                    ]
+                  },
+                  {
+                    "key_code": "vk_none"
                   }
                 ],
                 "to_after_key_up": [
@@ -662,19 +671,10 @@
                     }
                   },
                   {
-                    "key_code": "f18",
-                    "modifiers": [
-                      "command",
-                      "option",
-                      "shift"
-                    ]
-                  },
-                  {
                     "key_code": "f20",
                     "modifiers": [
-                      "command",
                       "option",
-                      "shift"
+                      "control"
                     ]
                   }
                 ],
@@ -726,7 +726,6 @@
                     "key_code": "f20",
                     "modifiers": [
                       "command",
-                      "option",
                       "control"
                     ]
                   }
@@ -783,9 +782,7 @@
                     "key_code": "f20",
                     "modifiers": [
                       "command",
-                      "option",
-                      "control",
-                      "shift"
+                      "option"
                     ]
                   }
                 ],
