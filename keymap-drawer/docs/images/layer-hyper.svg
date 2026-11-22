@@ -124,88 +124,83 @@ path.combo {
 }
 /* End Tabler Icons Cleanup */
 
-/* Navigation - Blue */
-rect.nav { fill: #42a5f5; }
-text.nav { fill: white; }
-/* Deletion - Red */
-rect.del { fill: #ef5350; }
-text.del { fill: white; }
-/* Clipboard - Green */
-rect.clip { fill: #66bb6a; }
-text.clip { fill: white; }
-/* System - Purple */
-rect.sys { fill: #ab47bc; }
-text.sys { fill: white; }
-/* Layer Activator - Orange */
-rect.layer { fill: #ff9800; }
-text.layer { fill: white; }
-/* Disabled - Dark */
-rect.disabled { fill: #455a64; }
-text.disabled { fill: #90a4ae; }
-/* Selection - Deep Purple */
-rect.sel { fill: #7c4dff; }
-text.sel { fill: white; }
-/* Word Selection - Pink */
-rect.wordsel { fill: #e040fb; }
-text.wordsel { fill: white; }
-/* Remap - Cyan */
-rect.remap { fill: #00bcd4; }
-text.remap { fill: white; }
+rect.nav      { fill: #42a5f5; } text.nav      { fill: white; }
+rect.del      { fill: #ef5350; } text.del      { fill: white; }
+rect.clip     { fill: #66bb6a; } text.clip     { fill: white; }
+rect.sys      { fill: #ab47bc; } text.sys      { fill: white; }
+rect.layer    { fill: #ff9800; } text.layer    { fill: white; }
+rect.disabled { fill: #455a64; } text.disabled { fill: #90a4ae; }
+rect.sel      { fill: #7c4dff; } text.sel      { fill: white; }
+rect.wordsel  { fill: #e040fb; } text.wordsel  { fill: white; }
+rect.remap    { fill: #00bcd4; } text.remap    { fill: white; }
+rect.app      { fill: #26a69a; } text.app      { fill: white; }
+rect.num      { fill: #fdd835; } text.num      { fill: #212121; }
+rect.sym      { fill: #8d6e63; } text.sym      { fill: white; }
 </style>
 <g transform="translate(30, 0)" class="layer-Hyper">
 <text x="0" y="28" class="label" id="Hyper">Hyper:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 28)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">~</text>
+<text x="0" y="0" class="key tap">`</text>
 </g>
-<g transform="translate(84, 28)" class="key keypos-1">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">!</text>
+<g transform="translate(84, 28)" class="key app keypos-1">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
+<text x="0" y="0" class="key app tap">Full</text>
+<text x="0" y="24" class="key app hold">1</text>
+<text x="0" y="-24" class="key app shifted">shot</text>
 </g>
-<g transform="translate(140, 28)" class="key keypos-2">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">@</text>
+<g transform="translate(140, 28)" class="key app keypos-2">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
+<text x="0" y="0" class="key app tap">Area</text>
+<text x="0" y="24" class="key app hold">2</text>
+<text x="0" y="-24" class="key app shifted">shot</text>
 </g>
-<g transform="translate(196, 28)" class="key keypos-3">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">#</text>
+<g transform="translate(196, 28)" class="key app keypos-3">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
+<text x="0" y="0" class="key app tap">Video</text>
+<text x="0" y="24" class="key app hold">3</text>
+<text x="0" y="-24" class="key app shifted">shot</text>
 </g>
-<g transform="translate(252, 28)" class="key keypos-4">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">$</text>
+<g transform="translate(252, 28)" class="key app keypos-4">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
+<text x="0" y="0" class="key app tap">OCR</text>
+<text x="0" y="24" class="key app hold">4</text>
+<text x="0" y="-24" class="key app shifted">shot</text>
 </g>
-<g transform="translate(308, 28)" class="key keypos-5">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">%</text>
+<g transform="translate(308, 28)" class="key app keypos-5">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
+<text x="0" y="0" class="key app tap">Window</text>
+<text x="0" y="24" class="key app hold">5</text>
+<text x="0" y="-24" class="key app shifted">shot</text>
 </g>
 <g transform="translate(364, 28)" class="key keypos-6">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">^</text>
+<text x="0" y="0" class="key tap">6</text>
 </g>
 <g transform="translate(420, 28)" class="key keypos-7">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">&amp;</text>
+<text x="0" y="0" class="key tap">7</text>
 </g>
 <g transform="translate(476, 28)" class="key keypos-8">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">*</text>
+<text x="0" y="0" class="key tap">8</text>
 </g>
 <g transform="translate(532, 28)" class="key keypos-9">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">(</text>
+<text x="0" y="0" class="key tap">9</text>
 </g>
 <g transform="translate(588, 28)" class="key keypos-10">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">)</text>
+<text x="0" y="0" class="key tap">0</text>
 </g>
 <g transform="translate(644, 28)" class="key keypos-11">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">_</text>
+<text x="0" y="0" class="key tap">-</text>
 </g>
 <g transform="translate(700, 28)" class="key keypos-12">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">+</text>
+<text x="0" y="0" class="key tap">=</text>
 </g>
 <g transform="translate(770, 28)" class="key disabled keypos-13">
 <rect rx="6" ry="6" x="-40" y="-26" width="80" height="52" class="key disabled"/>
@@ -259,9 +254,12 @@ text.remap { fill: white; }
 <text x="0" y="0" class="key del tap">⌦</text>
 <text x="0" y="24" class="key del hold">O</text>
 </g>
-<g transform="translate(616, 84)" class="key keypos-24">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">P</text>
+<g transform="translate(616, 84)" class="key app keypos-24">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
+<text x="0" y="0" class="key app tap">
+<tspan x="0" dy="-1.2em">App</tspan><tspan x="0" dy="1.2em">Win</tspan>
+</text>
+<text x="0" y="24" class="key app hold">P</text>
 </g>
 <g transform="translate(672, 84)" class="key keypos-25">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -278,8 +276,9 @@ text.remap { fill: white; }
 <g transform="translate(49, 140)" class="key layer keypos-28">
 <rect rx="6" ry="6" x="-47" y="-26" width="94" height="52" class="key layer"/>
 <text x="0" y="0" class="key layer tap">
-<tspan x="0" dy="-0.6em">⇪</tspan><tspan x="0" dy="1.2em">HYPER</tspan>
+<tspan x="0" dy="-0.0em">⇪</tspan><tspan x="0" dy="1.2em">HYPER</tspan>
 </text>
+<text x="0" y="-24" class="key layer shifted"><tspan style="font-size: 60%">arm/commit</tspan></text>
 </g>
 <g transform="translate(126, 140)" class="key sys keypos-29">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sys"/>
@@ -290,16 +289,18 @@ text.remap { fill: white; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key layer"/>
 <text x="0" y="0" class="key layer tap">▶Sel</text>
 <text x="0" y="24" class="key layer hold">S</text>
+<text x="0" y="-24" class="key layer shifted"><tspan style="font-size: 75%">tap App◀</tspan></text>
 </g>
 <g transform="translate(238, 140)" class="key layer keypos-31">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key layer"/>
 <text x="0" y="0" class="key layer tap">▶Wrd</text>
 <text x="0" y="24" class="key layer hold">D</text>
+<text x="0" y="-24" class="key layer shifted"><tspan style="font-size: 75%">tap App▶</tspan></text>
 </g>
-<g transform="translate(294, 140)" class="key sys keypos-32">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sys"/>
-<text x="0" y="0" class="key sys tap">Find</text>
-<text x="0" y="24" class="key sys hold">F</text>
+<g transform="translate(294, 140)" class="key app keypos-32">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
+<text x="0" y="0" class="key app tap"><tspan style="font-size: 86%">Raycast</tspan></text>
+<text x="0" y="24" class="key app hold">F</text>
 </g>
 <g transform="translate(350, 140)" class="key keypos-33">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -364,18 +365,22 @@ text.remap { fill: white; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">B</text>
 </g>
-<g transform="translate(434, 196)" class="key keypos-47">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">N</text>
+<g transform="translate(434, 196)" class="key app keypos-47">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
+<text x="0" y="0" class="key app tap">
+<tspan x="0" dy="-1.2em">VSC</tspan><tspan x="0" dy="1.2em">Win</tspan>
+</text>
+<text x="0" y="24" class="key app hold">N</text>
 </g>
 <g transform="translate(490, 196)" class="key sys keypos-48">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sys"/>
 <text x="0" y="0" class="key sys tap">Undo</text>
 <text x="0" y="24" class="key sys hold">M</text>
 </g>
-<g transform="translate(546, 196)" class="key keypos-49">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">,</text>
+<g transform="translate(546, 196)" class="key sys keypos-49">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sys"/>
+<text x="0" y="0" class="key sys tap">⇥</text>
+<text x="0" y="24" class="key sys hold">,</text>
 </g>
 <g transform="translate(602, 196)" class="key sys keypos-50">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sys"/>
@@ -406,12 +411,11 @@ text.remap { fill: white; }
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
 <text x="0" y="0" class="key tap">⌘</text>
 </g>
-<g transform="translate(378, 252)" class="key sys keypos-57">
-<rect rx="6" ry="6" x="-138" y="-26" width="276" height="52" class="key sys"/>
-<text x="0" y="0" class="key sys tap">
-<tspan x="0" dy="-1.2em">Lang</tspan><tspan x="0" dy="1.2em">Switch</tspan>
+<g transform="translate(378, 252)" class="key disabled keypos-57">
+<rect rx="6" ry="6" x="-138" y="-26" width="276" height="52" class="key disabled"/>
+<text x="0" y="0" class="key disabled tap">
+<tspan x="0" dy="-0.6em">␣</tspan><tspan x="0" dy="1.2em">off</tspan>
 </text>
-<text x="0" y="24" class="key sys hold">⌘Space</text>
 </g>
 <g transform="translate(553, 252)" class="key keypos-58">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
