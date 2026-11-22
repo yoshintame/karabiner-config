@@ -17,6 +17,5 @@ export const tabLayerRule = rule('Tab Layer').manipulators(tab()([
   digits,
   {
     e: [apps.switcher, layers.suspend('tab')],
-    q: apps.next,
   },
 ]))
