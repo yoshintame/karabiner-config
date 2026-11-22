@@ -41,8 +41,8 @@ export const numberRowRule = rule('Number Row Symbols').manipulators(symbolRow([
 
 export const disablesRule = rule('Disables').manipulators([
   disabled(['↑', '↓', '←', '→', '⌫']),
-  withModifier('⌘')(disabled(['a', 'c', 'v', 'x', 'z', '`'])),
-  withModifier('⌘⇧')(disabled(['`'])),
+  withModifier('⌘')(disabled(['a', 'c', 'v', 'x', 'z', '`', '⇥'])),
+  withModifier('⌘⇧')(disabled(['`', '⇥'])),
   withModifier('⇧')(disabled(['/'])),
 ])
 

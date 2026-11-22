@@ -87,6 +87,7 @@ export const apps = {
   switcherNext: proxy.appSwitcherNext,
   switcherPrev: proxy.appSwitcherPrev,
   switcherCommit: proxy.appSwitcherCommit,
+  switcherArm: proxy.appSwitcherArm,
 
   // Tap left option emits Hyper+\ (Cmd+Ctrl+Alt+Shift+backslash). Bind this chord
   // in Raycast Settings to the "All Apps (Except Pinned)" command — Raycast
