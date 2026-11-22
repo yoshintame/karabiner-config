@@ -12,6 +12,8 @@ import {
   withCondition,
 } from 'karabiner.ts'
 
+import { none } from '#src/engine/keys'
+
 type Manipulators = Parameters<ReturnType<typeof withCondition>>[0]
 
 const isBuilder = (
@@ -23,6 +25,7 @@ const isBuilder = (
 type Trigger = {
   key: FromKeyParam
   anyModifiers?: boolean
+  press?: ToEvent[]
   tap?: ToEvent
   release?: ToEvent[]
 }
@@ -67,6 +70,7 @@ export const defineLayers = <
         ...release,
         ...(trigger.release ?? []),
       ])
+    if (trigger.press !== undefined) held.to([...trigger.press, none])
     if (trigger.tap !== undefined) held.toIfAlone(trigger.tap)
     if (within !== undefined)
       held.condition(ifVar(specOf(within).variable, true))
