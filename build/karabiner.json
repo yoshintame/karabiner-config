@@ -4403,57 +4403,6 @@
                     "value": 1
                   }
                 ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "q"
-                },
-                "to": [
-                  {
-                    "key_code": "tab",
-                    "modifiers": [
-                      "command"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_unless",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "tab-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "switcher-active",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
               }
             ]
           },
