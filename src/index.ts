@@ -20,6 +20,7 @@ import {
   selectionRule,
   switchingRule,
   systemRule,
+  textActionsRule,
 } from '#src/keymap/hyper'
 import { layerTriggersRule } from '#src/keymap/layers'
 import { rcmdLayerRule } from '#src/keymap/rcmd'
@@ -40,6 +41,7 @@ writeProfile(config.profile, [
     pasteHistoryRule,
     screenshotRule,
     systemRule,
+    textActionsRule,
     switchingRule,
     quitAppRule,
     tabLayerRule,
