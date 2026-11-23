@@ -109,6 +109,13 @@ export const windows = {
   vscode: to$(`open '${config.deeplinks.vscodeWindows}'`),
 } as const
 
+export const text = {
+  fix: proxy.textFix,
+  polish: proxy.textPolish,
+  translate: proxy.textTranslate,
+  search: proxy.textSearch,
+} as const
+
 export const tabs = {
   next: toKey('⇥', '⌃'),
   prev: toKey('⇥', '⌃⇧'),

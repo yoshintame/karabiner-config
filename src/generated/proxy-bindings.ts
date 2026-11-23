@@ -4,6 +4,7 @@ import { toKey } from 'karabiner.ts'
 
 export const proxy = {
   fix: toKey('r' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
+  polish: toKey('y' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   passwords: toKey('p' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   colorPicker: toKey('c' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   roulette: toKey('x' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
@@ -32,6 +33,10 @@ export const proxy = {
   appSwitcherPrev: toKey('b' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   appSwitcherCommit: toKey('f20' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   appSwitcherArm: toKey('f18' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
+  textFix: toKey('e' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
+  textPolish: toKey('u' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
+  textTranslate: toKey('t' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
+  textSearch: toKey('g' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
 } as const
 
 export type ProxyBindingId = keyof typeof proxy

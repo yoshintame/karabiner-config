@@ -1,6 +1,6 @@
 import { rule, withModifier } from 'karabiner.ts'
 
-import { apps, clipboard, deletion, edit, mouse, navigation, proxy, selection, terminal, windows } from '#src/actions'
+import { apps, clipboard, deletion, edit, mouse, navigation, proxy, selection, terminal, text, windows } from '#src/actions'
 import { none } from '#src/engine/keys'
 import { hyper } from '#src/keymap/layers'
 
@@ -41,6 +41,11 @@ export const systemRule = rule('System').manipulators([
   hyper()(withModifier('⌘')({ ';': edit.returnCmd })),
   hyper()(                  { c: terminal.tmuxPrefix,  x: mouse.leftClick, f: proxy.spotlight, '␣': none }),
   hyper('s')(               { ';': edit.returnShifted, ',': edit.shiftTab }),
+])
+
+export const textActionsRule = rule('Text Actions').manipulators([
+  hyper()(   { r: text.fix, t: text.translate, g: text.search }),
+  hyper('s')({ r: text.polish }),
 ])
 
 export const switchingRule = rule('Switching').manipulators([
