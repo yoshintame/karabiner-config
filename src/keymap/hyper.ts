@@ -24,7 +24,7 @@ export const deletionRule = rule('Deletion').manipulators([
 ])
 
 export const clipboardRule = rule('Clipboard').manipulators([
-  hyper()(                  { q: clipboard.cut,     w: clipboard.copy, e: clipboard.paste }),
+  hyper()(                  { q: clipboard.cut,     w: clipboard.copy, e: clipboard.paste, '`': clipboard.pasteCodeBlock }),
   hyper()(withModifier('⌘')({ e: clipboard.manager })),
 ])
 

@@ -28,6 +28,7 @@ export const proxy = {
   pasteHistory3: toKey('f15' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   pasteHistory4: toKey('f16' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   pasteHistory5: toKey('f17' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
+  pasteCodeBlock: toKey('k' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   currentAppWindows: toKey('f19' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   appSwitcherNext: toKey('n' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   appSwitcherPrev: toKey('b' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),

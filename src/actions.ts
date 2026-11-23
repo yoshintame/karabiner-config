@@ -11,6 +11,7 @@ export const clipboard = {
   paste: toKey('v', '⌘'),
   cut: toKey('x', '⌘'),
   manager: toKey('v', '⌘⇧'),
+  pasteCodeBlock: proxy.pasteCodeBlock,
 } as const
 
 export const navigation = {
