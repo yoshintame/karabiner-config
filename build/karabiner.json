@@ -648,6 +648,39 @@
                 },
                 "to": [
                   {
+                    "key_code": "vk_none"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
                     "set_variable": {
                       "name": "hyper",
                       "value": true
@@ -4117,7 +4150,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "u"
+                  "key_code": "s"
                 },
                 "to": [
                   {
@@ -4165,7 +4198,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "i"
+                  "key_code": "d"
                 },
                 "to": [
                   {
@@ -4213,7 +4246,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "o"
+                  "key_code": "f"
                 },
                 "to": [
                   {
@@ -4261,7 +4294,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "j"
+                  "key_code": "g"
                 },
                 "to": [
                   {
@@ -4309,7 +4342,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "k"
+                  "key_code": "h"
                 },
                 "to": [
                   {
@@ -4357,7 +4390,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "l"
+                  "key_code": "j"
                 },
                 "to": [
                   {
@@ -4405,55 +4438,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "semicolon"
-                },
-                "to": [
-                  {
-                    "key_code": "0"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_unless",
-                    "name": "hyper",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "s-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "d-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "tab-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "rcmd-layer",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "switcher-active",
-                    "value": true
-                  },
-                  {
-                    "type": "variable_unless",
-                    "name": "guest-mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "m"
+                  "key_code": "k"
                 },
                 "to": [
                   {
@@ -4501,7 +4486,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "comma"
+                  "key_code": "l"
                 },
                 "to": [
                   {
@@ -4549,11 +4534,155 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "period"
+                  "key_code": "semicolon"
                 },
                 "to": [
                   {
                     "key_code": "9"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "m"
+                },
+                "to": [
+                  {
+                    "key_code": "0"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "u"
+                },
+                "to": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "switcher-active",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "o"
+                },
+                "to": [
+                  {
+                    "key_code": "delete_forward"
                   }
                 ],
                 "conditions": [
