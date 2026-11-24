@@ -7,7 +7,7 @@ import {
   type ToKeyParam,
 } from 'karabiner.ts'
 
-import { ___, type Cell } from '#src/engine/grid'
+import { ___, type Cell, positions } from '#src/engine/grid'
 import {
   ifEnglish,
   ifNotEnglish,
@@ -82,3 +82,8 @@ export const symbolRow = ([plain, shifted]: [
       : typeCharacter(() => map(digit, '⇧'), character)
   }),
 ]
+
+export const characterGrid = (rows: Cell<Character>[][]) =>
+  positions(rows).flatMap(([key, character]) =>
+    typeCharacter(() => map(key), character),
+  )
