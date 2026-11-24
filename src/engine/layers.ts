@@ -35,7 +35,13 @@ type LayerSpec<Name extends string> = {
   trigger: Trigger
   within?: Name
   suspendedBy?: string
+  blockedBy?: Name[]
 }
+
+const fromTrigger = (trigger: Trigger) =>
+  trigger.anyModifiers === true
+    ? map(trigger.key, 'optionalAny')
+    : map(trigger.key)
 
 export const defineLayers = <
   const Spec extends Record<string, LayerSpec<Extract<keyof Spec, string>>>,
@@ -53,14 +59,22 @@ export const defineLayers = <
     suspendedBy === undefined ? [] : [suspendedBy],
   )
 
+  const blockers = ([, { trigger, blockedBy }]: [Name, LayerSpec<Name>]) =>
+    (blockedBy ?? []).map((name) => {
+      const { variable, suspendedBy } = specOf(name)
+      const blocker = fromTrigger(trigger)
+        .to(none)
+        .condition(ifVar(variable, true))
+      if (suspendedBy !== undefined)
+        blocker.condition(ifVar(suspendedBy, true).unless())
+      return blocker
+    })
+
   const trigger = ([, { variable, trigger, within, suspendedBy }]: [
     Name,
     LayerSpec<Name>,
   ]) => {
-    const from =
-      trigger.anyModifiers === true
-        ? map(trigger.key, 'optionalAny')
-        : map(trigger.key)
+    const from = fromTrigger(trigger)
     const release =
       suspendedBy === undefined ? [] : [toSetVar(suspendedBy, false)]
     const held = from
@@ -102,7 +116,9 @@ export const defineLayers = <
   return {
     when,
     triggersRule: (description: string) =>
-      rule(description).manipulators(layers.map(trigger)),
+      rule(description).manipulators(
+        layers.flatMap((entry) => [...blockers(entry), trigger(entry)]),
+      ),
     suspend: (name: Name): ToEvent => {
       const suspendedBy = specOf(name).suspendedBy
       if (suspendedBy === undefined) {

@@ -1,5 +1,8 @@
+type TabDigits = 'homeRow' | 'numpad'
+
 export const config = {
   profile: 'yoshintame',
+  tabDigits: 'homeRow' as TabDigits,
   timings: {
     guestModeHoldMilliseconds: 1000,
     optionTapTimeoutMilliseconds: 300,
