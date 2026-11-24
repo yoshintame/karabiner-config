@@ -6760,7 +6760,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "slash"
+                    "key_code": "period"
                   }
                 ],
                 "conditions": [
@@ -6786,10 +6786,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "backslash",
-                    "modifiers": [
-                      "shift"
-                    ]
+                    "key_code": "slash"
                   }
                 ],
                 "conditions": [
@@ -6815,7 +6812,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "period"
+                    "key_code": "slash"
                   }
                 ],
                 "conditions": [
@@ -6841,7 +6838,10 @@
                 },
                 "to": [
                   {
-                    "key_code": "slash"
+                    "key_code": "backslash",
+                    "modifiers": [
+                      "shift"
+                    ]
                   }
                 ],
                 "conditions": [
