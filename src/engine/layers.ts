@@ -36,6 +36,8 @@ type LayerSpec<Name extends string> = {
   within?: Name
   suspendedBy?: string
   blockedBy?: Name[]
+  latch?: string
+  latches?: boolean
 }
 
 const fromTrigger = (trigger: Trigger) =>
@@ -55,10 +57,11 @@ export const defineLayers = <
     if (found === undefined) throw new Error(`Unknown layer ${name}`)
     return found[1]
   }
-  const suspendVars = layers.flatMap(([, { suspendedBy }]) =>
-    suspendedBy === undefined ? [] : [suspendedBy],
+  const layerVars = layers.flatMap(([, { suspendedBy, latch }]) =>
+    [suspendedBy, latch].filter((name) => name !== undefined),
   )
-
+  const latchOf = (within: Name | undefined, latches: boolean | undefined) =>
+    within === undefined || latches !== true ? undefined : specOf(within).latch
   const blockers = ([, { trigger, blockedBy }]: [Name, LayerSpec<Name>]) =>
     (blockedBy ?? []).map((name) => {
       const { variable, suspendedBy } = specOf(name)
@@ -70,22 +73,51 @@ export const defineLayers = <
       return blocker
     })
 
-  const trigger = ([, { variable, trigger, within, suspendedBy }]: [
+  const latched = ([, { trigger, within, latches }]: [
     Name,
     LayerSpec<Name>,
   ]) => {
-    const from = fromTrigger(trigger)
-    const release =
-      suspendedBy === undefined ? [] : [toSetVar(suspendedBy, false)]
-    const held = from
+    const latch = latchOf(within, latches)
+    if (
+      within === undefined ||
+      latch === undefined ||
+      trigger.tap === undefined
+    )
+      return []
+    return [
+      fromTrigger(trigger)
+        .to(trigger.tap)
+        .condition(ifVar(latch, true))
+        .condition(ifVar(specOf(within).variable, true)),
+    ]
+  }
+
+  const trigger = ([
+    ,
+    { variable, trigger, within, suspendedBy, latch, latches },
+  ]: [Name, LayerSpec<Name>]) => {
+    const cleared = [suspendedBy, latch]
+      .filter((name) => name !== undefined)
+      .map((name) => toSetVar(name, false))
+    const held = fromTrigger(trigger)
       .toVar(variable, true)
       .toAfterKeyUp([
         toSetVar(variable, false),
-        ...release,
+        ...cleared,
         ...(trigger.release ?? []),
       ])
-    if (trigger.press !== undefined) held.to([...trigger.press, none])
-    if (trigger.tap !== undefined) held.toIfAlone(trigger.tap)
+    const press = [
+      ...(latch === undefined ? [] : [toSetVar(latch, false)]),
+      ...(trigger.press === undefined ? [] : [...trigger.press, none]),
+    ]
+    if (press.length > 0) held.to(press)
+    const childLatch = latchOf(within, latches)
+    if (trigger.tap !== undefined)
+      held.toIfAlone(
+        childLatch === undefined
+          ? trigger.tap
+          : [trigger.tap, toSetVar(childLatch, true)],
+      )
     if (within !== undefined)
       held.condition(ifVar(specOf(within).variable, true))
     return held
@@ -117,7 +149,11 @@ export const defineLayers = <
     when,
     triggersRule: (description: string) =>
       rule(description).manipulators(
-        layers.flatMap((entry) => [...blockers(entry), trigger(entry)]),
+        layers.flatMap((entry) => [
+          ...blockers(entry),
+          ...latched(entry),
+          trigger(entry),
+        ]),
       ),
     suspend: (name: Name): ToEvent => {
       const suspendedBy = specOf(name).suspendedBy
@@ -128,7 +164,7 @@ export const defineLayers = <
     },
     toReset: [
       ...layers.map(([, { variable }]) => toSetVar(variable, false)),
-      ...suspendVars.map((name) => toSetVar(name, false)),
+      ...layerVars.map((name) => toSetVar(name, false)),
     ],
   }
 }
