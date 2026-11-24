@@ -85,8 +85,8 @@ const frontBundle =
 export const apps = {
   next: toKey('⇥', '⌘'),
   prev: toKey('⇥', '⌘⇧'),
-  switcherNext: proxy.appSwitcherNext,
-  switcherPrev: proxy.appSwitcherPrev,
+  switcherApp: proxy.appSwitcherApp,
+  switcherWindow: proxy.appSwitcherWindow,
   switcherCommit: proxy.appSwitcherCommit,
   switcherArm: proxy.appSwitcherArm,
 
