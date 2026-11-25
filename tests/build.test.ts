@@ -4,7 +4,11 @@ import path from 'node:path'
 const root = path.resolve(import.meta.dir, '..')
 
 type Condition = { type: string; name?: string; value?: unknown }
-type Manipulator = { conditions?: Condition[] }
+type Manipulator = {
+  from?: { modifiers?: { optional?: string[] } }
+  to?: { modifiers?: string[] }[]
+  conditions?: Condition[]
+}
 type Rule = { description: string; manipulators: Manipulator[] }
 type Config = { profiles: { complex_modifications: { rules: Rule[] } }[] }
 
@@ -36,6 +40,66 @@ describe('build/karabiner.json', () => {
       ).json()) as Config,
     )
     expect(committed).toEqual(generated)
+  })
+})
+
+const fallbacks = () =>
+  generated.find((rule) => rule.description === 'Layer Fallbacks')
+    ?.manipulators ?? []
+
+describe('layer fallbacks', () => {
+  test('come before the keyboard layout', () => {
+    const order = generated.map((rule) => rule.description)
+    expect(order.indexOf('Layer Fallbacks')).toBeGreaterThan(0)
+    expect(order.indexOf('Layer Fallbacks')).toBeLessThan(
+      order.indexOf('Keyboard Layout'),
+    )
+  })
+
+  test('never pass modifiers through as optional', () => {
+    expect(
+      fallbacks().filter((m) => m.from?.modifiers?.optional !== undefined),
+    ).toEqual([])
+  })
+
+  test('never send a chord of the proxy namespace', () => {
+    const proxy = ['command', 'option', 'control', 'shift']
+    const inProxy = fallbacks().filter((m) =>
+      (m.to ?? []).some((event) =>
+        proxy.every((modifier) => (event.modifiers ?? []).includes(modifier)),
+      ),
+    )
+    expect(fallbacks().length).toBeGreaterThan(0)
+    expect(inProxy).toEqual([])
+  })
+
+  test('no layer bind comes after the fallbacks of its layer', () => {
+    const index = generated.findIndex(
+      (rule) => rule.description === 'Layer Fallbacks',
+    )
+    expect(index).toBeGreaterThan(0)
+    const fallbackLayers = new Set(
+      (generated[index]?.manipulators ?? []).flatMap((m) =>
+        (m.conditions ?? [])
+          .filter((condition) => condition.type === 'variable_if')
+          .map((condition) => condition.name),
+      ),
+    )
+    expect(fallbackLayers.size).toBeGreaterThan(0)
+    const shadowed = generated
+      .slice(index + 1)
+      .flatMap((rule) =>
+        rule.manipulators
+          .filter((m) =>
+            (m.conditions ?? []).some(
+              (condition) =>
+                condition.type === 'variable_if' &&
+                fallbackLayers.has(condition.name),
+            ),
+          )
+          .map(() => rule.description),
+      )
+    expect(shadowed).toEqual([])
   })
 })
 

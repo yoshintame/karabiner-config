@@ -22,12 +22,12 @@ Dependencies point down only: `keymap` → `actions` → `engine`; `config` is r
 
 - `config.ts` — user settings: profile name, timings, app bundle ids, binary paths, deeplinks. No such literal belongs anywhere else.
 - `keymap/` — declarations only, one file per layer: which key does what. No `toVar`, conditions, shell commands or other mechanics.
-  - `layers.ts` — the layer registry and triggers (Caps Lock → hyper with s/d sublayers, Tab, right ⌘); exports `hyper(...sublayers)`, `tab()`, `rcmd()`, used as `hyper('s', 'd')({ i: … })` or `hyper()(withModifier('⌘')({ … }))`.
+  - `layers.ts` — the layer registry and triggers (Caps Lock → hyper with s/d sublayers, Tab, right ⌘) and layer fallbacks: a row's `fallback: { keys, to: sandbox(…) }` turns every listed key without a bind into a sandbox slot sending the chord declared there (`sandbox` from `actions.ts`) + the key; exports `layerFallbacksRule` and `hyper(...sublayers)`, `tab()`, `rcmd()`, used as `hyper('s', 'd')({ i: … })` or `hyper()(withModifier('⌘')({ … }))`.
   - `base.ts` — rebinds of the base layer: Colemak grids and Fn+Space, number-row symbol band, modifier taps, Enter leader, disables, guest mode, ⌘⇧⎋ reset.
   - `hyper.ts`, `tab.ts`, `rcmd.ts`, `slash.ts` — binds of the Caps Lock, Tab, right ⌘ and `/` layers. Layers are named after their trigger key, not after what they hold.
 - `actions.ts` — named output events: text editing, apps and windows (including shell commands), input sources and keySwitcher, mouse, terminal, proxy chords. Unused entries are kept on purpose as a library.
-- `engine/` — Karabiner mechanics, no concrete keys or settings: `defineLayers` (layer variables, every-layer conditions, hold triggers, reset), `grid` (QWERTY-positional tables, `___` = untouched key), `characters` (type a character in either input source, via ABC when RussianWin lacks it), `defineLayouts`, `defineGuestMode` (toggle and guard), `keys` (disable, tap-alone), `notify`, `profile` (build / `--dry-run`).
-- `index.ts` — rule order only. Karabiner fires the first matching manipulator across all rules, so the order matters.
+- `engine/` — Karabiner mechanics, no concrete keys or settings: `defineLayers` (layer variables, every-layer conditions, hold triggers, fallbacks for keys a layer leaves free, reset), `grid` (QWERTY-positional tables, `___` = untouched key), `characters` (type a character in either input source, via ABC when RussianWin lacks it), `defineLayouts`, `defineGuestMode` (toggle and guard), `keys` (disable, tap-alone), `notify`, `profile` (build / `--dry-run`). Fallbacks absorb ⇧ through a mandatory-⇧ twin per key, so Layer+⇧+key sends the slot chord even where the unshifted key has a real bind; they never use optional modifiers, which pass through into the output (Hyper+⇧ would land in the ⌘⌥⌃⇧ proxy namespace). Tests guard this and the position of the fallback rule before `layoutsRule`.
+- `index.ts` — rule order only. Karabiner fires the first matching manipulator across all rules, so the order matters. `layerFallbacksRule` stays after every layer rule (so real binds win) and before `layoutsRule` (Colemak remaps letters without layer conditions and would take them).
 - `generated/proxy-bindings.ts` — codegen from `~/.dotfiles/modules/shared/proxy-bindings.yaml` (`mise run dot:proxy-bindings`); do not edit.
 
 `src/keymap/` is excluded from oxfmt and hand-aligned: bind rows are column-aligned with movement keys in `i j k l` order, positional grids are QMK-style (one quoted cell per key, a comment row of QWERTY or digit labels above). oxlint still checks it. User-facing text (notifications) is in English.
@@ -35,7 +35,7 @@ Dependencies point down only: `keymap` → `actions` → `engine`; `config` is r
 ## After editing `src/**`
 
 1. `bun run build` — regenerate (and apply, in the main clone; in a worktree use `dot dev kar <branch>`).
-2. `bun test` — checks that `build/karabiner.json` matches the sources and that every rule but `Guest Mode` is guarded.
+2. `bun test` — checks that `build/karabiner.json` matches the sources, that the layer fallbacks come before `layoutsRule` with no layer bind after them, use no optional modifiers and send no ⌘⌥⌃⇧ chord, and that every rule but `Guest Mode` is guarded.
 3. `bun run typecheck`, `bunx oxlint`, `bunx oxfmt --check` (or `hk check --all --slow` for everything CI runs).
 4. Commit `src/**` together with the regenerated `build/karabiner.json`.
 

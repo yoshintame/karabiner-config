@@ -1,4 +1,5 @@
 import {
+  type FromAndToKeyCode,
   type FromKeyParam,
   ifVar,
   layer,
@@ -30,6 +31,11 @@ type Trigger = {
   release?: ToEvent[]
 }
 
+type Fallback = {
+  keys: readonly FromAndToKeyCode[]
+  to: (key: FromAndToKeyCode) => ToEvent
+}
+
 type LayerSpec<Name extends string> = {
   variable: string
   trigger: Trigger
@@ -38,6 +44,7 @@ type LayerSpec<Name extends string> = {
   blockedBy?: Name[]
   latch?: string
   latches?: boolean
+  fallback?: Fallback
 }
 
 const fromTrigger = (trigger: Trigger) =>
@@ -154,6 +161,19 @@ export const defineLayers = <
           ...latched(entry),
           trigger(entry),
         ]),
+      ),
+    fallbacksRule: (description: string) =>
+      rule(description).manipulators(
+        layers.flatMap(([name, { fallback }]) =>
+          fallback === undefined
+            ? []
+            : when(name)(
+                fallback.keys.flatMap((key) => [
+                  map(key).to(fallback.to(key)),
+                  map(key, '⇧').to(fallback.to(key)),
+                ]),
+              ),
+        ),
       ),
     suspend: (name: Name): ToEvent => {
       const suspendedBy = specOf(name).suspendedBy

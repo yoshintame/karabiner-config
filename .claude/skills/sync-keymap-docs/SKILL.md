@@ -15,9 +15,9 @@ Read these files to understand current bindings:
 
 - `src/actions.ts` — all action definitions (text editing, apps and windows, input sources, mouse, terminal, proxy chords)
 - `src/generated/proxy-bindings.ts` — proxy chord ids; what each chord triggers (Raycast, CleanShot, Hammerspoon) is commented in `~/.dotfiles/modules/shared/proxy-bindings.yaml`
-- `src/keymap/layers.ts` — layer registry and triggers: CapsLock → hyper (press/release chords) with `s`/`d` sublayers (tap actions), Tab (`suspendedBy`), right ⌘ (tap action)
+- `src/keymap/layers.ts` — layer registry and triggers: CapsLock → hyper (press/release chords) with `s`/`d` sublayers (tap actions), Tab (`suspendedBy`), right ⌘ (tap action); `fallback` on hyper, Tab and right ⌘ turns every free letter into a sandbox slot sending the chord the row declares with `sandbox(…)`
 - `src/keymap/hyper.ts` — binds of the Hyper layer and its sublayers, with and without `withModifier('⌘')`
-- `src/keymap/tab.ts` — Tab layer: digit grid on the right hand and app switching
+- `src/keymap/tab.ts` — Tab layer: digit layout picked by `config.tabDigits` in `src/config.ts`, deletion, number punctuation and app switching
 - `src/keymap/rcmd.ts` — right ⌘ layer binds
 - `src/keymap/slash.ts` — `/`-held key-glyph layer (tap action, pasted glyphs)
 - `src/keymap/base.ts` — base layer: Colemak layouts and Fn+Space, number-row symbol band, left ⌥/⇧ taps, Enter→ABC+in-app leader, disabled shortcuts, guest mode, ⌘⇧⎋ reset
@@ -82,6 +82,7 @@ Example:
 - `app` (#26a69a) — apps and windows (Raycast, app switchers, window pickers, screenshots, force quit)
 - `num` (#fdd835) — digits (Tab layer)
 - `sym` (#8d6e63) — typed symbols and glyphs (number-row band, Slash layer)
+- `sandbox` (#78909c) — layer fallback slots: free letters of a layer with `fallback` (Hyper, Tab, Right ⌘), legend is the layer's chord (`⌃⌥⌘`, `⌃⌥⇧`, `⌃⇧⌘`)
 
 Each layer must have exactly **60 keys** (ANSI 60% layout):
 

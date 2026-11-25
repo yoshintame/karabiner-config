@@ -20,6 +20,7 @@ Drawings are positional: legends show what a physical key (QWERTY position, bott
 | Teal `#26a69a` | Apps & Windows |
 | Yellow `#fdd835` | Digits |
 | Brown `#8d6e63` | Symbols & Glyphs |
+| Blue Grey `#78909c` | Sandbox slot |
 
 ---
 
@@ -27,11 +28,23 @@ Drawings are positional: legends show what a physical key (QWERTY position, bott
 
 Every layer is checked against all the others: a Hyper bind fires only while S, D, Tab and right ⌘ are not held, a Hyper + S bind only while D is not held, and so on. Holding a second layer key therefore switches to that layer instead of mixing binds.
 
+**Sandbox slots.** In the Hyper, Tab and right ⌘ layers every letter without a bind is a sandbox slot: it sends a three-modifier chord plus the same letter, so the slot can be recorded as a shortcut in an app under test. Each layer has its own chord, so slots of different layers never collide:
+
+| Layer | Slot sends |
+|-------|------------|
+| Hyper (`⇪`) | `⌃⌥⌘` + letter |
+| Tab (`⇥`) | `⌃⌥⇧` + letter (Meh) |
+| Right ⌘ | `⌃⇧⌘` + letter |
+
+`⇧` held with a slot is ignored: the slot sends exactly its chord. A real bind of the layer always wins over its slot, but only unshifted: Layer+`⇧`+letter sends the layer's chord for every letter, bound or not (`⇪+⇧+I` sends `⌃⌥⌘I`). The slots are temporary: if the app stays, its action graduates to a named proxy binding with a Hyper or leader bind, and the letter goes back to the pool.
+
 ### 1. Hyper Layer (`⇪` CapsLock held)
 
 Main layer. Vim-style navigation (IJKL), deletion (UO), clipboard (QWE), screenshots on the number row, window pickers and system shortcuts.
 
 CapsLock also drives the Hammerspoon app switcher: pressing it sends the *arm* chord, releasing it sends the *commit* chord. While CapsLock is held, tapping `S` or `D` alone steps the switcher to the previous or next app; releasing CapsLock switches to the selected app. Holding `S` or `D` instead activates the Selection or Word layer.
+
+`B`, `V`, `Y` and `Z` are sandbox slots sending `⌃⌥⌘` + letter (see [Sandbox slots](#layers)); with `⌘` held they stay free.
 
 ![Hyper Layer](images/layer-hyper.svg)
 
@@ -52,6 +65,9 @@ CapsLock also drives the Hammerspoon app switcher: pressing it sends the *arm* c
 | `⇪+X` | Mouse left click | System |
 | `⇪+C` | tmux prefix (⌃B) | System |
 | `⇪+F` | Raycast | Apps & Windows |
+| `⇪+R` | Text: fix (proxy chord) | Apps & Windows |
+| `⇪+T` | Text: translate (proxy chord) | Apps & Windows |
+| `⇪+G` | Text: search (proxy chord) | Apps & Windows |
 | `⇪+P` | Windows of the current app (Hammerspoon) | Apps & Windows |
 | `⇪+N` | VS Code windows (Raycast app switcher) | Apps & Windows |
 | `⇪+1` | Screenshot: full screen (CleanShot) | Apps & Windows |
@@ -64,6 +80,7 @@ CapsLock also drives the Hammerspoon app switcher: pressing it sends the *arm* c
 | `⇪` press / release | App switcher arm / commit (Hammerspoon) | Layer |
 | `⇪+S` tap / hold | Previous app in switcher / Selection layer | Layer |
 | `⇪+D` tap / hold | Next app in switcher / Word layer | Layer |
+| `⇪+B/V/Y/Z` | `⌃⌥⌘` + the same letter (sandbox slot) | Sandbox |
 
 ---
 
@@ -120,6 +137,7 @@ Character-level selection with IJKL, plus shifted Enter and Tab.
 | `⇪+S+K` | Select down (⇧↓) | Selection |
 | `⇪+S+;` | Shift+Enter (⇧⏎) | Selection |
 | `⇪+S+,` | Shift+Tab (⇧⇥) | Selection |
+| `⇪+S+R` | Text: polish (proxy chord) | Apps & Windows |
 
 ---
 
@@ -155,19 +173,24 @@ Word-level selection. I/K control VS Code selection expand/shrink.
 
 ### 7. Tab Layer (`⇥` Tab held)
 
-Tab is a pure layer key: tapping it types nothing (Tab itself is `⇪+,`). Held, the right hand becomes a digit pad, and `E` opens the Raycast app switcher.
+Tab is a pure layer key: tapping it types nothing (Tab itself is `⇪+,`). Held, the home row becomes a digit row (`I` is 0), `U`/`O` delete, the bottom row types number punctuation, and `E` opens the Raycast app switcher.
 
 `Tab+E` also suspends the layer until Tab is released, so the keys typed while the switcher is open reach Raycast unchanged.
+
+Every other letter is a sandbox slot sending `⌃⌥⇧` + letter (see [Sandbox slots](#layers)).
 
 ![Tab Layer](images/layer-tab.svg)
 
 | Key | Action | Category |
 |-----|--------|----------|
-| `⇥+U/I/O` | 1 / 2 / 3 | Digits |
-| `⇥+J/K/L` | 4 / 5 / 6 | Digits |
-| `⇥+M/,/.` | 7 / 8 / 9 | Digits |
-| `⇥+;` | 0 | Digits |
+| `⇥+S/D/F/G/H` | 1 / 2 / 3 / 4 / 5 | Digits |
+| `⇥+J/K/L/;` | 6 / 7 / 8 / 9 | Digits |
+| `⇥+I` | 0 | Digits |
+| `⇥+C/V/B/N/M` | . / + / = / - / , | Symbols & Glyphs |
+| `⇥+U` | Backspace | Deletion |
+| `⇥+O` | Forward Delete | Deletion |
 | `⇥+E` | Raycast app switcher (same chord as a left ⌥ tap) | Apps & Windows |
+| `⇥+Q/W/R/T/Y/P/A/Z/X` | `⌃⌥⇧` + the same letter (sandbox slot) | Sandbox |
 
 ---
 
@@ -175,12 +198,15 @@ Tab is a pure layer key: tapping it types nothing (Tab itself is `⇪+,`). Held,
 
 Right ⌘ no longer acts as Command. Tapped alone it sends F18 (global leader key); held, it activates this layer.
 
+Every letter but `F` is a sandbox slot sending `⌃⇧⌘` + letter (see [Sandbox slots](#layers)).
+
 ![Right Cmd Layer](images/layer-rcmd.svg)
 
 | Key | Action | Category |
 |-----|--------|----------|
 | right `⌘` tap | F18 (global leader) | Layer |
 | `R⌘+F` | Raycast | Apps & Windows |
+| `R⌘+` any other letter | `⌃⇧⌘` + the same letter (sandbox slot) | Sandbox |
 
 ---
 

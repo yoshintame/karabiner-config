@@ -19,14 +19,15 @@ draw_config:
     rect.app      { fill: #26a69a; } text.app      { fill: white; }
     rect.num      { fill: #fdd835; } text.num      { fill: #212121; }
     rect.sym      { fill: #8d6e63; } text.sym      { fill: white; }
+    rect.sandbox  { fill: #78909c; } text.sandbox  { fill: white; }
 
 layers:
   # ── Hyper (CapsLock held) ─────────────────────────────────────────────────
   Hyper:
     - ["`",  {t: Full, s: shot, h: "1", type: app},  {t: Area, s: shot, h: "2", type: app},  {t: Video, s: shot, h: "3", type: app},  {t: OCR, s: shot, h: "4", type: app},  {t: Window, s: shot, h: "5", type: app},  "6",  "7",  "8",  "9",  "0",  "-",  "=",  {t: "⌫ off", type: disabled}]
-    - ["Tab",  {t: Cut, h: Q, type: clip},  {t: Copy, h: W, type: clip},  {t: Paste, h: E, type: clip},  "R",  "T",  "Y",  {t: "⌫", h: U, type: del},  {t: "↑", h: I, type: nav},  {t: "⌦", h: O, type: del},  {t: "App Win", h: P, type: app},  "[",  "]",  "\\"]
-    - [{t: "⇪ HYPER", s: "arm/commit", type: layer},  {t: All, h: A, type: sys},  {t: "▶Sel", s: "tap App◀", h: S, type: layer},  {t: "▶Wrd", s: "tap App▶", h: D, type: layer},  {t: Raycast, h: F, type: app},  "G",  {t: Esc, h: H, type: sys},  {t: "←", h: J, type: nav},  {t: "↓", h: K, type: nav},  {t: "→", h: L, type: nav},  {t: "⏎", h: ";", type: sys},  "'",  "Return"]
-    - ["Shift",  "Z",  {t: Click, h: X, type: sys},  {t: "^B", h: C, type: sys},  "V",  "B",  {t: "VSC Win", h: N, type: app},  {t: Undo, h: M, type: sys},  {t: "⇥", h: ",", type: sys},  {t: Redo, h: ".", type: sys},  "/",  "Shift"]
+    - ["Tab",  {t: Cut, h: Q, type: clip},  {t: Copy, h: W, type: clip},  {t: Paste, h: E, type: clip},  {t: Fix, s: text, h: R, type: app},  {t: Transl, s: text, h: T, type: app},  {t: "⌃⌥⌘", h: Y, type: sandbox},  {t: "⌫", h: U, type: del},  {t: "↑", h: I, type: nav},  {t: "⌦", h: O, type: del},  {t: "App Win", h: P, type: app},  "[",  "]",  "\\"]
+    - [{t: "⇪ HYPER", s: "arm/commit", type: layer},  {t: All, h: A, type: sys},  {t: "▶Sel", s: "tap App◀", h: S, type: layer},  {t: "▶Wrd", s: "tap App▶", h: D, type: layer},  {t: Raycast, h: F, type: app},  {t: Search, s: text, h: G, type: app},  {t: Esc, h: H, type: sys},  {t: "←", h: J, type: nav},  {t: "↓", h: K, type: nav},  {t: "→", h: L, type: nav},  {t: "⏎", h: ";", type: sys},  "'",  "Return"]
+    - ["Shift",  {t: "⌃⌥⌘", h: Z, type: sandbox},  {t: Click, h: X, type: sys},  {t: "^B", h: C, type: sys},  {t: "⌃⌥⌘", h: V, type: sandbox},  {t: "⌃⌥⌘", h: B, type: sandbox},  {t: "VSC Win", h: N, type: app},  {t: Undo, h: M, type: sys},  {t: "⇥", h: ",", type: sys},  {t: Redo, h: ".", type: sys},  "/",  "Shift"]
     - ["Fn",  "Ctrl",  "Opt",  "⌘",  {t: "␣ off", type: disabled},  "⌘",  "Opt"]
 
   # ── Hyper + ⌘ (CapsLock + Cmd held) ──────────────────────────────────────
@@ -48,7 +49,7 @@ layers:
   # ── Hyper + S (Selection) ─────────────────────────────────────────────────
   Hyper + S:
     - ["`",  "1",  "2",  "3",  "4",  "5",  "6",  "7",  "8",  "9",  "0",  "-",  "=",  "⌫"]
-    - ["Tab",  "Q",  "W",  "E",  "R",  "T",  "Y",  "U",  {t: "Sel↑", h: I, type: sel},  "O",  "P",  "[",  "]",  "\\"]
+    - ["Tab",  "Q",  "W",  "E",  {t: Polish, s: text, h: R, type: app},  "T",  "Y",  "U",  {t: "Sel↑", h: I, type: sel},  "O",  "P",  "[",  "]",  "\\"]
     - [{t: "⇪ HYPER", type: layer},  "A",  {t: "▶Sel", h: S, type: layer},  "D",  "F",  "G",  "H",  {t: "Sel←", h: J, type: sel},  {t: "Sel↓", h: K, type: sel},  {t: "Sel→", h: L, type: sel},  {t: "⇧⏎", h: ";", type: sel},  "'",  "Return"]
     - ["Shift",  "Z",  "X",  "C",  "V",  "B",  "N",  "M",  {t: "⇧⇥", h: ",", type: sel},  ".",  "/",  "Shift"]
     - ["Fn",  "Ctrl",  "Opt",  "⌘",  "",  "⌘",  "Opt"]
@@ -72,17 +73,17 @@ layers:
   # ── Tab (Tab held) ────────────────────────────────────────────────────────
   Tab:
     - ["`",  "1",  "2",  "3",  "4",  "5",  "6",  "7",  "8",  "9",  "0",  "-",  "=",  "⌫"]
-    - [{t: "▶TAB", type: layer},  "Q",  "W",  {t: Apps, s: Raycast, h: E, type: app},  "R",  "T",  "Y",  {t: "1", h: U, type: num},  {t: "2", h: I, type: num},  {t: "3", h: O, type: num},  "P",  "[",  "]",  "\\"]
-    - ["Caps",  "A",  "S",  "D",  "F",  "G",  "H",  {t: "4", h: J, type: num},  {t: "5", h: K, type: num},  {t: "6", h: L, type: num},  {t: "0", h: ";", type: num},  "'",  "Return"]
-    - ["Shift",  "Z",  "X",  "C",  "V",  "B",  "N",  {t: "7", h: M, type: num},  {t: "8", h: ",", type: num},  {t: "9", h: ".", type: num},  "/",  "Shift"]
+    - [{t: "▶TAB", type: layer},  {t: "⌃⌥⇧", h: Q, type: sandbox},  {t: "⌃⌥⇧", h: W, type: sandbox},  {t: Apps, s: Raycast, h: E, type: app},  {t: "⌃⌥⇧", h: R, type: sandbox},  {t: "⌃⌥⇧", h: T, type: sandbox},  {t: "⌃⌥⇧", h: Y, type: sandbox},  {t: "⌫", h: U, type: del},  {t: "0", h: I, type: num},  {t: "⌦", h: O, type: del},  {t: "⌃⌥⇧", h: P, type: sandbox},  "[",  "]",  "\\"]
+    - ["Caps",  {t: "⌃⌥⇧", h: A, type: sandbox},  {t: "1", h: S, type: num},  {t: "2", h: D, type: num},  {t: "3", h: F, type: num},  {t: "4", h: G, type: num},  {t: "5", h: H, type: num},  {t: "6", h: J, type: num},  {t: "7", h: K, type: num},  {t: "8", h: L, type: num},  {t: "9", h: ";", type: num},  "'",  "Return"]
+    - ["Shift",  {t: "⌃⌥⇧", h: Z, type: sandbox},  {t: "⌃⌥⇧", h: X, type: sandbox},  {t: ".", h: C, type: sym},  {t: "+", h: V, type: sym},  {t: "=", h: B, type: sym},  {t: "-", h: N, type: sym},  {t: ",", h: M, type: sym},  ",",  ".",  "/",  "Shift"]
     - ["Fn",  "Ctrl",  "Opt",  "⌘",  "",  "⌘",  "Opt"]
 
   # ── Right ⌘ (Right Cmd held) ──────────────────────────────────────────────
   Right ⌘:
     - ["`",  "1",  "2",  "3",  "4",  "5",  "6",  "7",  "8",  "9",  "0",  "-",  "=",  "⌫"]
-    - ["Tab",  "Q",  "W",  "E",  "R",  "T",  "Y",  "U",  "I",  "O",  "P",  "[",  "]",  "\\"]
-    - ["Caps",  "A",  "S",  "D",  {t: Raycast, h: F, type: app},  "G",  "H",  "J",  "K",  "L",  ";",  "'",  "Return"]
-    - ["Shift",  "Z",  "X",  "C",  "V",  "B",  "N",  "M",  ",",  ".",  "/",  "Shift"]
+    - ["Tab",  {t: "⌃⇧⌘", h: Q, type: sandbox},  {t: "⌃⇧⌘", h: W, type: sandbox},  {t: "⌃⇧⌘", h: E, type: sandbox},  {t: "⌃⇧⌘", h: R, type: sandbox},  {t: "⌃⇧⌘", h: T, type: sandbox},  {t: "⌃⇧⌘", h: Y, type: sandbox},  {t: "⌃⇧⌘", h: U, type: sandbox},  {t: "⌃⇧⌘", h: I, type: sandbox},  {t: "⌃⇧⌘", h: O, type: sandbox},  {t: "⌃⇧⌘", h: P, type: sandbox},  "[",  "]",  "\\"]
+    - ["Caps",  {t: "⌃⇧⌘", h: A, type: sandbox},  {t: "⌃⇧⌘", h: S, type: sandbox},  {t: "⌃⇧⌘", h: D, type: sandbox},  {t: Raycast, h: F, type: app},  {t: "⌃⇧⌘", h: G, type: sandbox},  {t: "⌃⇧⌘", h: H, type: sandbox},  {t: "⌃⇧⌘", h: J, type: sandbox},  {t: "⌃⇧⌘", h: K, type: sandbox},  {t: "⌃⇧⌘", h: L, type: sandbox},  ";",  "'",  "Return"]
+    - ["Shift",  {t: "⌃⇧⌘", h: Z, type: sandbox},  {t: "⌃⇧⌘", h: X, type: sandbox},  {t: "⌃⇧⌘", h: C, type: sandbox},  {t: "⌃⇧⌘", h: V, type: sandbox},  {t: "⌃⇧⌘", h: B, type: sandbox},  {t: "⌃⇧⌘", h: N, type: sandbox},  {t: "⌃⇧⌘", h: M, type: sandbox},  ",",  ".",  "/",  "Shift"]
     - ["Fn",  "Ctrl",  "Opt",  "⌘",  "",  {t: "▶R⌘", type: layer},  "Opt"]
 
   # ── Slash (/ held: type key glyphs) ───────────────────────────────────────

@@ -136,6 +136,7 @@ rect.remap    { fill: #00bcd4; } text.remap    { fill: white; }
 rect.app      { fill: #26a69a; } text.app      { fill: white; }
 rect.num      { fill: #fdd835; } text.num      { fill: #212121; }
 rect.sym      { fill: #8d6e63; } text.sym      { fill: white; }
+rect.sandbox  { fill: #78909c; } text.sandbox  { fill: white; }
 </style>
 <g transform="translate(30, 0)" class="layer-Hyper + S">
 <text x="0" y="28" class="label" id="Hyper--S">Hyper + S:</text>
@@ -212,9 +213,11 @@ rect.sym      { fill: #8d6e63; } text.sym      { fill: white; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">E</text>
 </g>
-<g transform="translate(280, 84)" class="key keypos-18">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">R</text>
+<g transform="translate(280, 84)" class="key app keypos-18">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
+<text x="0" y="0" class="key app tap">Polish</text>
+<text x="0" y="24" class="key app hold">R</text>
+<text x="0" y="-24" class="key app shifted">text</text>
 </g>
 <g transform="translate(336, 84)" class="key keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
