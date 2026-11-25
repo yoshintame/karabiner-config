@@ -39,6 +39,37 @@ describe('build/karabiner.json', () => {
   })
 })
 
+describe('layer fallbacks', () => {
+  test('no layer bind comes after the fallbacks of its layer', () => {
+    const index = generated.findIndex(
+      (rule) => rule.description === 'Layer Fallbacks',
+    )
+    expect(index).toBeGreaterThan(0)
+    const fallbackLayers = new Set(
+      (generated[index]?.manipulators ?? []).flatMap((m) =>
+        (m.conditions ?? [])
+          .filter((condition) => condition.type === 'variable_if')
+          .map((condition) => condition.name),
+      ),
+    )
+    expect(fallbackLayers.size).toBeGreaterThan(0)
+    const shadowed = generated
+      .slice(index + 1)
+      .flatMap((rule) =>
+        rule.manipulators
+          .filter((m) =>
+            (m.conditions ?? []).some(
+              (condition) =>
+                condition.type === 'variable_if' &&
+                fallbackLayers.has(condition.name),
+            ),
+          )
+          .map(() => rule.description),
+      )
+    expect(shadowed).toEqual([])
+  })
+})
+
 describe('guest mode', () => {
   test('the Guest Mode rule comes first', () => {
     expect(generated[0]?.description).toBe('Guest Mode')

@@ -22,7 +22,7 @@ import {
   systemRule,
   textActionsRule,
 } from '#src/keymap/hyper'
-import { layerTriggersRule } from '#src/keymap/layers'
+import { layerFallbacksRule, layerTriggersRule } from '#src/keymap/layers'
 import { rcmdLayerRule } from '#src/keymap/rcmd'
 import { slashLayerRule } from '#src/keymap/slash'
 import { tabLayerRule } from '#src/keymap/tab'
@@ -46,6 +46,7 @@ writeProfile(config.profile, [
     quitAppRule,
     tabLayerRule,
     rcmdLayerRule,
+    layerFallbacksRule,
 
     layoutsRule,
     numberRowRule,
