@@ -12,6 +12,8 @@ Karabiner-Elements config authored in TypeScript via [karabiner.ts](https://gith
 | `bun run dev`                | Same in watch mode: every save under `src/` is applied live     |
 | `bun src/index.ts --dry-run` | Prints the generated profile to stdout without writing anything |
 
+Only the main clone (`~/Development/yoshintame/karabiner-config`) is live. In a worktree, `bun run build` writes only that worktree's `build/karabiner.json`. To try a worktree live, run `dot dev kar <branch|path>`: it rebuilds the worktree and points `~/.config/karabiner/karabiner.json` at its build. When done, `dot dev kar off` restores the home-manager link; `dot dev kar` shows which build is live. `dot link` and `dot rebuild` also reset it. Never copy a worktree build over the clone's `build/karabiner.json`.
+
 Write the live file only with a working state. For intermediate refactoring steps compare `--dry-run` output with the committed `build/karabiner.json` instead. If a change does not apply, kickstart the console user server: `launchctl kickstart -k gui/$(id -u)/org.pqrs.service.agent.karabiner_console_user_server`.
 
 ## Layout of `src/`
@@ -32,7 +34,7 @@ Dependencies point down only: `keymap` → `actions` → `engine`; `config` is r
 
 ## After editing `src/**`
 
-1. `bun run build` — regenerate and apply.
+1. `bun run build` — regenerate (and apply, in the main clone; in a worktree use `dot dev kar <branch>`).
 2. `bun test` — checks that `build/karabiner.json` matches the sources and that every rule but `Guest Mode` is guarded.
 3. `bun run typecheck`, `bunx oxlint`, `bunx oxfmt --check` (or `hk check --all --slow` for everything CI runs).
 4. Commit `src/**` together with the regenerated `build/karabiner.json`.
