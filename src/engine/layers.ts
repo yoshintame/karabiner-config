@@ -168,7 +168,10 @@ export const defineLayers = <
           fallback === undefined
             ? []
             : when(name)(
-                fallback.keys.map((key) => map(key, '?⇧').to(fallback.to(key))),
+                fallback.keys.flatMap((key) => [
+                  map(key).to(fallback.to(key)),
+                  map(key, '⇧').to(fallback.to(key)),
+                ]),
               ),
         ),
       ),

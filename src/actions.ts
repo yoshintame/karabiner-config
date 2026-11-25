@@ -1,4 +1,10 @@
-import { to$, toKey, type ToKeyParam, toPointingButton } from 'karabiner.ts'
+import {
+  type ModifierParam,
+  to$,
+  toKey,
+  type ToKeyParam,
+  toPointingButton,
+} from 'karabiner.ts'
 
 import { config } from '#src/config'
 import { toAbc, toRussian } from '#src/engine/input-sources'
@@ -6,7 +12,8 @@ import { proxy } from '#src/generated/proxy-bindings'
 
 export { proxy }
 
-export const sandbox = (key: ToKeyParam) => toKey(key, 'Meh')
+export const sandbox = (modifiers: ModifierParam) => (key: ToKeyParam) =>
+  toKey(key, modifiers)
 
 export const clipboard = {
   copy: toKey('c', '⌘'),

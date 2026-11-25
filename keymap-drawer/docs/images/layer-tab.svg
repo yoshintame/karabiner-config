@@ -203,12 +203,12 @@ rect.sandbox  { fill: #78909c; } text.sandbox  { fill: white; }
 </g>
 <g transform="translate(112, 84)" class="key sandbox keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sandbox"/>
-<text x="0" y="0" class="key sandbox tap">Meh</text>
+<text x="0" y="0" class="key sandbox tap">⌃⌥⇧</text>
 <text x="0" y="24" class="key sandbox hold">Q</text>
 </g>
 <g transform="translate(168, 84)" class="key sandbox keypos-16">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sandbox"/>
-<text x="0" y="0" class="key sandbox tap">Meh</text>
+<text x="0" y="0" class="key sandbox tap">⌃⌥⇧</text>
 <text x="0" y="24" class="key sandbox hold">W</text>
 </g>
 <g transform="translate(224, 84)" class="key app keypos-17">
@@ -219,17 +219,17 @@ rect.sandbox  { fill: #78909c; } text.sandbox  { fill: white; }
 </g>
 <g transform="translate(280, 84)" class="key sandbox keypos-18">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sandbox"/>
-<text x="0" y="0" class="key sandbox tap">Meh</text>
+<text x="0" y="0" class="key sandbox tap">⌃⌥⇧</text>
 <text x="0" y="24" class="key sandbox hold">R</text>
 </g>
 <g transform="translate(336, 84)" class="key sandbox keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sandbox"/>
-<text x="0" y="0" class="key sandbox tap">Meh</text>
+<text x="0" y="0" class="key sandbox tap">⌃⌥⇧</text>
 <text x="0" y="24" class="key sandbox hold">T</text>
 </g>
 <g transform="translate(392, 84)" class="key sandbox keypos-20">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sandbox"/>
-<text x="0" y="0" class="key sandbox tap">Meh</text>
+<text x="0" y="0" class="key sandbox tap">⌃⌥⇧</text>
 <text x="0" y="24" class="key sandbox hold">Y</text>
 </g>
 <g transform="translate(448, 84)" class="key del keypos-21">
@@ -249,7 +249,7 @@ rect.sandbox  { fill: #78909c; } text.sandbox  { fill: white; }
 </g>
 <g transform="translate(616, 84)" class="key sandbox keypos-24">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sandbox"/>
-<text x="0" y="0" class="key sandbox tap">Meh</text>
+<text x="0" y="0" class="key sandbox tap">⌃⌥⇧</text>
 <text x="0" y="24" class="key sandbox hold">P</text>
 </g>
 <g transform="translate(672, 84)" class="key keypos-25">
@@ -270,7 +270,7 @@ rect.sandbox  { fill: #78909c; } text.sandbox  { fill: white; }
 </g>
 <g transform="translate(126, 140)" class="key sandbox keypos-29">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sandbox"/>
-<text x="0" y="0" class="key sandbox tap">Meh</text>
+<text x="0" y="0" class="key sandbox tap">⌃⌥⇧</text>
 <text x="0" y="24" class="key sandbox hold">A</text>
 </g>
 <g transform="translate(182, 140)" class="key num keypos-30">
@@ -332,12 +332,12 @@ rect.sandbox  { fill: #78909c; } text.sandbox  { fill: white; }
 </g>
 <g transform="translate(154, 196)" class="key sandbox keypos-42">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sandbox"/>
-<text x="0" y="0" class="key sandbox tap">Meh</text>
+<text x="0" y="0" class="key sandbox tap">⌃⌥⇧</text>
 <text x="0" y="24" class="key sandbox hold">Z</text>
 </g>
 <g transform="translate(210, 196)" class="key sandbox keypos-43">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sandbox"/>
-<text x="0" y="0" class="key sandbox tap">Meh</text>
+<text x="0" y="0" class="key sandbox tap">⌃⌥⇧</text>
 <text x="0" y="24" class="key sandbox hold">X</text>
 </g>
 <g transform="translate(266, 196)" class="key sym keypos-44">
