@@ -19,6 +19,7 @@ draw_config:
     rect.app      { fill: #26a69a; } text.app      { fill: white; }
     rect.num      { fill: #fdd835; } text.num      { fill: #212121; }
     rect.sym      { fill: #8d6e63; } text.sym      { fill: white; }
+    rect.sandbox  { fill: #78909c; } text.sandbox  { fill: white; }
 
 layers:
   # ── Hyper (CapsLock held) ─────────────────────────────────────────────────
@@ -72,9 +73,9 @@ layers:
   # ── Tab (Tab held) ────────────────────────────────────────────────────────
   Tab:
     - ["`",  "1",  "2",  "3",  "4",  "5",  "6",  "7",  "8",  "9",  "0",  "-",  "=",  "⌫"]
-    - [{t: "▶TAB", type: layer},  "Q",  "W",  {t: Apps, s: Raycast, h: E, type: app},  "R",  "T",  "Y",  {t: "1", h: U, type: num},  {t: "2", h: I, type: num},  {t: "3", h: O, type: num},  "P",  "[",  "]",  "\\"]
-    - ["Caps",  "A",  "S",  "D",  "F",  "G",  "H",  {t: "4", h: J, type: num},  {t: "5", h: K, type: num},  {t: "6", h: L, type: num},  {t: "0", h: ";", type: num},  "'",  "Return"]
-    - ["Shift",  "Z",  "X",  "C",  "V",  "B",  "N",  {t: "7", h: M, type: num},  {t: "8", h: ",", type: num},  {t: "9", h: ".", type: num},  "/",  "Shift"]
+    - [{t: "▶TAB", type: layer},  {t: Meh, h: Q, type: sandbox},  {t: Meh, h: W, type: sandbox},  {t: Apps, s: Raycast, h: E, type: app},  {t: Meh, h: R, type: sandbox},  {t: Meh, h: T, type: sandbox},  {t: Meh, h: Y, type: sandbox},  {t: "⌫", h: U, type: del},  {t: "0", h: I, type: num},  {t: "⌦", h: O, type: del},  {t: Meh, h: P, type: sandbox},  "[",  "]",  "\\"]
+    - ["Caps",  {t: Meh, h: A, type: sandbox},  {t: "1", h: S, type: num},  {t: "2", h: D, type: num},  {t: "3", h: F, type: num},  {t: "4", h: G, type: num},  {t: "5", h: H, type: num},  {t: "6", h: J, type: num},  {t: "7", h: K, type: num},  {t: "8", h: L, type: num},  {t: "9", h: ";", type: num},  "'",  "Return"]
+    - ["Shift",  {t: Meh, h: Z, type: sandbox},  {t: Meh, h: X, type: sandbox},  {t: ".", h: C, type: sym},  {t: "+", h: V, type: sym},  {t: "=", h: B, type: sym},  {t: "-", h: N, type: sym},  {t: ",", h: M, type: sym},  ",",  ".",  "/",  "Shift"]
     - ["Fn",  "Ctrl",  "Opt",  "⌘",  "",  "⌘",  "Opt"]
 
   # ── Right ⌘ (Right Cmd held) ──────────────────────────────────────────────

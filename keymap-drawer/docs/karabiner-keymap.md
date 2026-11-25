@@ -20,6 +20,7 @@ Drawings are positional: legends show what a physical key (QWERTY position, bott
 | Teal `#26a69a` | Apps & Windows |
 | Yellow `#fdd835` | Digits |
 | Brown `#8d6e63` | Symbols & Glyphs |
+| Blue Grey `#78909c` | Sandbox (Meh chord) |
 
 ---
 
@@ -155,19 +156,24 @@ Word-level selection. I/K control VS Code selection expand/shrink.
 
 ### 7. Tab Layer (`⇥` Tab held)
 
-Tab is a pure layer key: tapping it types nothing (Tab itself is `⇪+,`). Held, the right hand becomes a digit pad, and `E` opens the Raycast app switcher.
+Tab is a pure layer key: tapping it types nothing (Tab itself is `⇪+,`). Held, the home row becomes a digit row (`I` is 0), `U`/`O` delete, the bottom row types number punctuation, and `E` opens the Raycast app switcher.
 
 `Tab+E` also suspends the layer until Tab is released, so the keys typed while the switcher is open reach Raycast unchanged.
+
+Every other letter is a sandbox slot: `⇥+letter` (with or without `⇧`) sends `⌃⌥⇧+letter` (Meh), a chord no app binds by default, so it can be recorded as a shortcut in an app under test. The slots are temporary: if the app stays, its action graduates to a named proxy binding with a Hyper or leader bind, and the letter goes back to the pool. A real Tab bind always wins over its slot.
 
 ![Tab Layer](images/layer-tab.svg)
 
 | Key | Action | Category |
 |-----|--------|----------|
-| `⇥+U/I/O` | 1 / 2 / 3 | Digits |
-| `⇥+J/K/L` | 4 / 5 / 6 | Digits |
-| `⇥+M/,/.` | 7 / 8 / 9 | Digits |
-| `⇥+;` | 0 | Digits |
+| `⇥+S/D/F/G/H` | 1 / 2 / 3 / 4 / 5 | Digits |
+| `⇥+J/K/L/;` | 6 / 7 / 8 / 9 | Digits |
+| `⇥+I` | 0 | Digits |
+| `⇥+C/V/B/N/M` | . / + / = / - / , | Symbols & Glyphs |
+| `⇥+U` | Backspace | Deletion |
+| `⇥+O` | Forward Delete | Deletion |
 | `⇥+E` | Raycast app switcher (same chord as a left ⌥ tap) | Apps & Windows |
+| `⇥+Q/W/R/T/Y/P/A/Z/X` | `⌃⌥⇧` + the same letter (sandbox slot) | Sandbox |
 
 ---
 

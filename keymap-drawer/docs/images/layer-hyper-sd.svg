@@ -136,6 +136,7 @@ rect.remap    { fill: #00bcd4; } text.remap    { fill: white; }
 rect.app      { fill: #26a69a; } text.app      { fill: white; }
 rect.num      { fill: #fdd835; } text.num      { fill: #212121; }
 rect.sym      { fill: #8d6e63; } text.sym      { fill: white; }
+rect.sandbox  { fill: #78909c; } text.sandbox  { fill: white; }
 </style>
 <g transform="translate(30, 0)" class="layer-Hyper + S + D">
 <text x="0" y="28" class="label" id="Hyper--S--D">Hyper + S + D:</text>
