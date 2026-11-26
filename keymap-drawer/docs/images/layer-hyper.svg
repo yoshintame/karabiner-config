@@ -228,11 +228,11 @@ rect.sandbox  { fill: #78909c; } text.sandbox  { fill: white; }
 <text x="0" y="0" class="key clip tap">Paste</text>
 <text x="0" y="24" class="key clip hold">E</text>
 </g>
-<g transform="translate(280, 84)" class="key app keypos-18">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
-<text x="0" y="0" class="key app tap">Fix</text>
-<text x="0" y="24" class="key app hold">R</text>
-<text x="0" y="-24" class="key app shifted">text</text>
+<g transform="translate(280, 84)" class="key clip keypos-18">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key clip"/>
+<text x="0" y="0" class="key clip tap"><tspan style="font-size: 86%">ClipMgr</tspan></text>
+<text x="0" y="24" class="key clip hold">R</text>
+<text x="0" y="-24" class="key clip shifted">quick</text>
 </g>
 <g transform="translate(336, 84)" class="key app keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
@@ -361,20 +361,21 @@ rect.sandbox  { fill: #78909c; } text.sandbox  { fill: white; }
 <text x="0" y="0" class="key sys tap">Click</text>
 <text x="0" y="24" class="key sys hold">X</text>
 </g>
-<g transform="translate(266, 196)" class="key sys keypos-44">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sys"/>
-<text x="0" y="0" class="key sys tap">^B</text>
-<text x="0" y="24" class="key sys hold">C</text>
+<g transform="translate(266, 196)" class="key app keypos-44">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
+<text x="0" y="0" class="key app tap">Fix</text>
+<text x="0" y="24" class="key app hold">C</text>
+<text x="0" y="-24" class="key app shifted">text</text>
 </g>
 <g transform="translate(322, 196)" class="key sandbox keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sandbox"/>
 <text x="0" y="0" class="key sandbox tap">⌃⌥⌘</text>
 <text x="0" y="24" class="key sandbox hold">V</text>
 </g>
-<g transform="translate(378, 196)" class="key sandbox keypos-46">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sandbox"/>
-<text x="0" y="0" class="key sandbox tap">⌃⌥⌘</text>
-<text x="0" y="24" class="key sandbox hold">B</text>
+<g transform="translate(378, 196)" class="key sys keypos-46">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sys"/>
+<text x="0" y="0" class="key sys tap">^B</text>
+<text x="0" y="24" class="key sys hold">B</text>
 </g>
 <g transform="translate(434, 196)" class="key app keypos-47">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>

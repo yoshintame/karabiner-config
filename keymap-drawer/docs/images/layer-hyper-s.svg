@@ -213,11 +213,12 @@ rect.sandbox  { fill: #78909c; } text.sandbox  { fill: white; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">E</text>
 </g>
-<g transform="translate(280, 84)" class="key app keypos-18">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
-<text x="0" y="0" class="key app tap">Polish</text>
-<text x="0" y="24" class="key app hold">R</text>
-<text x="0" y="-24" class="key app shifted">text</text>
+<g transform="translate(280, 84)" class="key disabled keypos-18">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key disabled"/>
+<text x="0" y="0" class="key disabled tap">
+<tspan x="0" dy="-1.2em">R</tspan><tspan x="0" dy="1.2em">off</tspan>
+</text>
+<text x="0" y="24" class="key disabled hold">R</text>
 </g>
 <g transform="translate(336, 84)" class="key keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -327,9 +328,11 @@ rect.sandbox  { fill: #78909c; } text.sandbox  { fill: white; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">X</text>
 </g>
-<g transform="translate(266, 196)" class="key keypos-44">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">C</text>
+<g transform="translate(266, 196)" class="key app keypos-44">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key app"/>
+<text x="0" y="0" class="key app tap">Polish</text>
+<text x="0" y="24" class="key app hold">C</text>
+<text x="0" y="-24" class="key app shifted">text</text>
 </g>
 <g transform="translate(322, 196)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
