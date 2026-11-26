@@ -24,7 +24,7 @@ export const deletionRule = rule('Deletion').manipulators([
 ])
 
 export const clipboardRule = rule('Clipboard').manipulators([
-  hyper()(                  { q: clipboard.cut,     w: clipboard.copy, e: clipboard.paste, '`': clipboard.pasteCodeBlock }),
+  hyper()(                  { q: clipboard.cut,     w: clipboard.copy, e: clipboard.paste, r: clipboard.quick, '`': clipboard.pasteCodeBlock }),
   hyper()(withModifier('⌘')({ e: clipboard.manager })),
 ])
 
@@ -39,13 +39,13 @@ export const screenshotRule = rule('Screenshot').manipulators([
 export const systemRule = rule('System').manipulators([
   hyper()(                  { ';': edit.return,        ',': edit.tab,      h: edit.escape,     m: edit.undo, '.': edit.redo }),
   hyper()(withModifier('⌘')({ ';': edit.returnCmd })),
-  hyper()(                  { c: terminal.tmuxPrefix,  x: mouse.leftClick, f: proxy.spotlight, '␣': none }),
+  hyper()(                  { b: terminal.tmuxPrefix,  x: mouse.leftClick, f: proxy.spotlight, '␣': none }),
   hyper('s')(               { ';': edit.returnShifted, ',': edit.shiftTab }),
 ])
 
 export const textActionsRule = rule('Text Actions').manipulators([
-  hyper()(   { r: text.fix, t: text.translate, g: text.search }),
-  hyper('s')({ r: text.polish }),
+  hyper()(   { c: text.fix, t: text.translate, g: text.search }),
+  hyper('s')({ c: text.polish, r: none }),
 ])
 
 export const switchingRule = rule('Switching').manipulators([

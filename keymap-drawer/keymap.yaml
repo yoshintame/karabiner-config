@@ -25,9 +25,9 @@ layers:
   # ── Hyper (CapsLock held) ─────────────────────────────────────────────────
   Hyper:
     - ["`",  {t: Full, s: shot, h: "1", type: app},  {t: Area, s: shot, h: "2", type: app},  {t: Video, s: shot, h: "3", type: app},  {t: OCR, s: shot, h: "4", type: app},  {t: Window, s: shot, h: "5", type: app},  "6",  "7",  "8",  "9",  "0",  "-",  "=",  {t: "⌫ off", type: disabled}]
-    - ["Tab",  {t: Cut, h: Q, type: clip},  {t: Copy, h: W, type: clip},  {t: Paste, h: E, type: clip},  {t: Fix, s: text, h: R, type: app},  {t: Transl, s: text, h: T, type: app},  {t: "⌃⌥⌘", h: Y, type: sandbox},  {t: "⌫", h: U, type: del},  {t: "↑", h: I, type: nav},  {t: "⌦", h: O, type: del},  {t: "App Win", h: P, type: app},  "[",  "]",  "\\"]
+    - ["Tab",  {t: Cut, h: Q, type: clip},  {t: Copy, h: W, type: clip},  {t: Paste, h: E, type: clip},  {t: ClipMgr, s: quick, h: R, type: clip},  {t: Transl, s: text, h: T, type: app},  {t: "⌃⌥⌘", h: Y, type: sandbox},  {t: "⌫", h: U, type: del},  {t: "↑", h: I, type: nav},  {t: "⌦", h: O, type: del},  {t: "App Win", h: P, type: app},  "[",  "]",  "\\"]
     - [{t: "⇪ HYPER", s: "arm/commit", type: layer},  {t: All, h: A, type: sys},  {t: "▶Sel", s: "tap App◀", h: S, type: layer},  {t: "▶Wrd", s: "tap App▶", h: D, type: layer},  {t: Raycast, h: F, type: app},  {t: Search, s: text, h: G, type: app},  {t: Esc, h: H, type: sys},  {t: "←", h: J, type: nav},  {t: "↓", h: K, type: nav},  {t: "→", h: L, type: nav},  {t: "⏎", h: ";", type: sys},  "'",  "Return"]
-    - ["Shift",  {t: "⌃⌥⌘", h: Z, type: sandbox},  {t: Click, h: X, type: sys},  {t: "^B", h: C, type: sys},  {t: "⌃⌥⌘", h: V, type: sandbox},  {t: "⌃⌥⌘", h: B, type: sandbox},  {t: "VSC Win", h: N, type: app},  {t: Undo, h: M, type: sys},  {t: "⇥", h: ",", type: sys},  {t: Redo, h: ".", type: sys},  "/",  "Shift"]
+    - ["Shift",  {t: "⌃⌥⌘", h: Z, type: sandbox},  {t: Click, h: X, type: sys},  {t: Fix, s: text, h: C, type: app},  {t: "⌃⌥⌘", h: V, type: sandbox},  {t: "^B", h: B, type: sys},  {t: "VSC Win", h: N, type: app},  {t: Undo, h: M, type: sys},  {t: "⇥", h: ",", type: sys},  {t: Redo, h: ".", type: sys},  "/",  "Shift"]
     - ["Fn",  "Ctrl",  "Opt",  "⌘",  {t: "␣ off", type: disabled},  "⌘",  "Opt"]
 
   # ── Hyper + ⌘ (CapsLock + Cmd held) ──────────────────────────────────────
@@ -49,9 +49,9 @@ layers:
   # ── Hyper + S (Selection) ─────────────────────────────────────────────────
   Hyper + S:
     - ["`",  "1",  "2",  "3",  "4",  "5",  "6",  "7",  "8",  "9",  "0",  "-",  "=",  "⌫"]
-    - ["Tab",  "Q",  "W",  "E",  {t: Polish, s: text, h: R, type: app},  "T",  "Y",  "U",  {t: "Sel↑", h: I, type: sel},  "O",  "P",  "[",  "]",  "\\"]
+    - ["Tab",  "Q",  "W",  "E",  {t: "R off", h: R, type: disabled},  "T",  "Y",  "U",  {t: "Sel↑", h: I, type: sel},  "O",  "P",  "[",  "]",  "\\"]
     - [{t: "⇪ HYPER", type: layer},  "A",  {t: "▶Sel", h: S, type: layer},  "D",  "F",  "G",  "H",  {t: "Sel←", h: J, type: sel},  {t: "Sel↓", h: K, type: sel},  {t: "Sel→", h: L, type: sel},  {t: "⇧⏎", h: ";", type: sel},  "'",  "Return"]
-    - ["Shift",  "Z",  "X",  "C",  "V",  "B",  "N",  "M",  {t: "⇧⇥", h: ",", type: sel},  ".",  "/",  "Shift"]
+    - ["Shift",  "Z",  "X",  {t: Polish, s: text, h: C, type: app},  "V",  "B",  "N",  "M",  {t: "⇧⇥", h: ",", type: sel},  ".",  "/",  "Shift"]
     - ["Fn",  "Ctrl",  "Opt",  "⌘",  "",  "⌘",  "Opt"]
 
   # ── Hyper + S + ⌘ (Line / Document Selection) ────────────────────────────

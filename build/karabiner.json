@@ -2630,6 +2630,55 @@
               {
                 "type": "basic",
                 "from": {
+                  "key_code": "r"
+                },
+                "to": [
+                  {
+                    "key_code": "o",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
                   "key_code": "grave_accent_and_tilde"
                 },
                 "to": [
@@ -3534,7 +3583,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "c"
+                  "key_code": "b"
                 },
                 "to": [
                   {
@@ -3812,7 +3861,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "r"
+                  "key_code": "c"
                 },
                 "to": [
                   {
@@ -3959,7 +4008,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "r"
+                  "key_code": "c"
                 },
                 "to": [
                   {
@@ -3970,6 +4019,49 @@
                       "control",
                       "shift"
                     ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "s-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "d-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "tab-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "rcmd-layer",
+                    "value": true
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "guest-mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "r"
+                },
+                "to": [
+                  {
+                    "key_code": "vk_none"
                   }
                 ],
                 "conditions": [

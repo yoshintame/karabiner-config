@@ -29,6 +29,8 @@ export const proxy = {
   pasteHistory4: toKey('f16' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   pasteHistory5: toKey('f17' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   pasteCodeBlock: toKey('k' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
+  clipboardQuick: toKey('o' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
+  clipbookHistory: toKey('j' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   currentAppWindows: toKey('f19' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   appSwitcherApp: toKey('n' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),
   appSwitcherWindow: toKey('b' as ToKeyParam, '⌘⌥⌃⇧' as ModifierParam),

@@ -20,6 +20,7 @@ export const clipboard = {
   paste: toKey('v', '⌘'),
   cut: toKey('x', '⌘'),
   manager: toKey('v', '⌘⇧'),
+  quick: proxy.clipboardQuick,
   pasteCodeBlock: proxy.pasteCodeBlock,
 } as const
 

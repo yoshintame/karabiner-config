@@ -40,11 +40,11 @@ Every layer is checked against all the others: a Hyper bind fires only while S, 
 
 ### 1. Hyper Layer (`⇪` CapsLock held)
 
-Main layer. Vim-style navigation (IJKL), deletion (UO), clipboard (QWE), screenshots on the number row, window pickers and system shortcuts.
+Main layer. Vim-style navigation (IJKL), deletion (UO), clipboard (QWER), screenshots on the number row, window pickers and system shortcuts.
 
-CapsLock also drives the Hammerspoon app switcher: pressing it sends the *arm* chord, releasing it sends the *commit* chord. While CapsLock is held, tapping `S` or `D` alone steps the switcher to the previous or next app; releasing CapsLock switches to the selected app. Holding `S` or `D` instead activates the Selection or Word layer.
+CapsLock also drives two Hammerspoon hold modes: pressing it sends the *arm* chord, releasing it sends the *commit* chord, and both the app switcher and the ClipBook quick pick (`⇪+R`) listen to them. While CapsLock is held, tapping `S` or `D` alone steps the switcher to the previous or next app; releasing CapsLock switches to the selected app. Holding `S` or `D` instead activates the Selection or Word layer.
 
-`B`, `V`, `Y` and `Z` are sandbox slots sending `⌃⌥⌘` + letter (see [Sandbox slots](#layers)); with `⌘` held they stay free.
+`V`, `Y` and `Z` are sandbox slots sending `⌃⌥⌘` + letter (see [Sandbox slots](#layers)); with `⌘` held they stay free.
 
 ![Hyper Layer](images/layer-hyper.svg)
 
@@ -56,6 +56,7 @@ CapsLock also drives the Hammerspoon app switcher: pressing it sends the *arm* c
 | `⇪+Q` | Cut (⌘X) | Clipboard |
 | `⇪+W` | Copy (⌘C) | Clipboard |
 | `⇪+E` | Paste (⌘V) | Clipboard |
+| `⇪+R` | ClipBook: open; with ⇪ still held, moving the selection (`⇪+R` again, `⇪+I/K`) makes the ⇪ release paste it (Hammerspoon) | Clipboard |
 | `⇪+A` | Select All (⌘A) | System |
 | `⇪+H` | Escape | System |
 | `⇪+;` | Enter | System |
@@ -63,9 +64,9 @@ CapsLock also drives the Hammerspoon app switcher: pressing it sends the *arm* c
 | `⇪+M` | Undo (⌘Z) | System |
 | `⇪+.` | Redo (⌘⇧Z) | System |
 | `⇪+X` | Mouse left click | System |
-| `⇪+C` | tmux prefix (⌃B) | System |
+| `⇪+B` | tmux prefix (⌃B) | System |
 | `⇪+F` | Raycast | Apps & Windows |
-| `⇪+R` | Text: fix (proxy chord) | Apps & Windows |
+| `⇪+C` | Text: fix (proxy chord) | Apps & Windows |
 | `⇪+T` | Text: translate (proxy chord) | Apps & Windows |
 | `⇪+G` | Text: search (proxy chord) | Apps & Windows |
 | `⇪+P` | Windows of the current app (Hammerspoon) | Apps & Windows |
@@ -77,10 +78,10 @@ CapsLock also drives the Hammerspoon app switcher: pressing it sends the *arm* c
 | `⇪+5` | Screenshot: window | Apps & Windows |
 | `⇪+⎋` | Force Quit dialog (⌘⌥⎋) | Apps & Windows |
 | `⇪+Space` | Nothing (swallowed) | Disabled |
-| `⇪` press / release | App switcher arm / commit (Hammerspoon) | Layer |
+| `⇪` press / release | Hold arm / commit for the app switcher and the ClipBook quick pick (Hammerspoon) | Layer |
 | `⇪+S` tap / hold | Previous app in switcher / Selection layer | Layer |
 | `⇪+D` tap / hold | Next app in switcher / Word layer | Layer |
-| `⇪+B/V/Y/Z` | `⌃⌥⌘` + the same letter (sandbox slot) | Sandbox |
+| `⇪+V/Y/Z` | `⌃⌥⌘` + the same letter (sandbox slot) | Sandbox |
 
 ---
 
@@ -137,7 +138,8 @@ Character-level selection with IJKL, plus shifted Enter and Tab.
 | `⇪+S+K` | Select down (⇧↓) | Selection |
 | `⇪+S+;` | Shift+Enter (⇧⏎) | Selection |
 | `⇪+S+,` | Shift+Tab (⇧⇥) | Selection |
-| `⇪+S+R` | Text: polish (proxy chord) | Apps & Windows |
+| `⇪+S+C` | Text: polish (proxy chord) | Apps & Windows |
+| `⇪+S+R` | Nothing (swallowed; polish moved to `⇪+S+C`) | Disabled |
 
 ---
 
